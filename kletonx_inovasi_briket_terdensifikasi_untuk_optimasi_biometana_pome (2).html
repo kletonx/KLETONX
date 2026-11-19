@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLETONX | Inovasi Briket Terdensifikasi Biochar PKS–Kotoran Sapi untuk Biometana POME</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            DEFAULT: '#1B4332',
+                            dark: '#122E22',
+                            light: '#245842'
+                        },
+                        emeraldBrand: {
+                            DEFAULT: '#2D6A4F',
+                            leaf: '#5A8F29',
+                            light: '#40916C',
+                            soft: '#D8F3DC'
+                        },
+                        biochar: {
+                            DEFAULT: '#5C3A21',
+                            dark: '#3D2514',
+                            light: '#855836'
+                        },
+                        cream: {
+                            DEFAULT: '#F9FAF7',
+                            dark: '#EEF1E8'
+                        },
+                        amberBrand: {
+                            DEFAULT: '#D97706',
+                            gold: '#F59E0B',
+                            light: '#FBBF24',
+                            soft: '#FEF3C7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9FAF7;
+            color: #1E293B;
+        }
+        .hero-pattern {
+            background-color: #1B4332;
+            background-image: radial-gradient(rgba(216, 243, 220, 0.08) 1.5px, transparent 1.5px),
+                              radial-gradient(rgba(245, 158, 11, 0.1) 1.5px, #1B4332 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(27, 67, 50, 0.1), 0 8px 10px -6px rgba(27, 67, 50, 0.05);
+        }
+        .drawer-backdrop {
+            transition: opacity 0.3s ease;
+        }
+        .drawer-panel {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-emeraldBrand selection:text-white">
+
+    <!-- ==================== 1. HEADER & MENU GARIS TIGA ==================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-900/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo KLETONX di Depan (Navbar) -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-cream border border-slate-200/80 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all p-1">
+                        <svg class="w-10 h-10" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="navLeafGrad" x1="20" y1="30" x2="65" y2="95" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#7CB342"/>
+                                    <stop offset="100%" stop-color="#33691E"/>
+                                </linearGradient>
+                                <linearGradient id="navFlameGrad" x1="50" y1="55" x2="82" y2="12" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#F59E0B"/>
+                                    <stop offset="100%" stop-color="#FDE047"/>
+                                </linearGradient>
+                                <linearGradient id="navBiocharGrad" x1="40" y1="95" x2="98" y2="45" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#3E2723"/>
+                                    <stop offset="55%" stop-color="#6D4C41"/>
+                                    <stop offset="100%" stop-color="#A1887F"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Sabit Daun Hijau Kiri -->
+                            <path d="M58 26C33 27 18 47 21 71C24 91 43 102 64 98C47 93 37 78 39 60C41 44 49 32 58 26Z" fill="url(#navLeafGrad)"/>
+                            <path d="M47 38C34 48 31 67 41 82C39 66 43 51 54 41C51 39 49 38 47 38Z" fill="#9CCC65" opacity="0.85"/>
+                            <!-- Nyala Api Biogas Kuning-Emas Atas -->
+                            <path d="M45 55C43 41 53 31 63 23C66 20 67 15 65 11C77 16 83 28 77 40C72 49 58 51 45 55Z" fill="url(#navFlameGrad)"/>
+                            <!-- 3 Gelembung Gas Kanan-Atas -->
+                            <circle cx="85" cy="21" r="3" fill="#FBBF24"/>
+                            <circle cx="96" cy="27" r="6" fill="#F59E0B"/>
+                            <circle cx="94" cy="25" r="2" fill="#FEF08A"/>
+                            <circle cx="101" cy="38" r="3.5" fill="#FBBF24"/>
+                            <path d="M77 35C83 34 89 35 94 38" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round"/>
+                            <path d="M75 41C82 40 89 41 95 44" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Sabit Biochar Cokelat Berpori Kanan-Bawah -->
+                            <path d="M62 43C77 41 91 51 94 67C98 88 81 107 58 107C41 107 27 97 22 82C32 95 49 99 64 93C78 87 84 71 78 57C74 49 68 45 62 43Z" fill="url(#navBiocharGrad)"/>
+                            <circle cx="85" cy="58" r="3.2" fill="#2D1B12"/>
+                            <circle cx="90" cy="67" r="2.2" fill="#2D1B12"/>
+                            <circle cx="82" cy="72" r="4.2" fill="#2D1B12"/>
+                            <circle cx="88" cy="79" r="2.5" fill="#2D1B12"/>
+                            <circle cx="77" cy="83" r="2" fill="#2D1B12"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-2xl tracking-tight text-forest block leading-none">KLETON<span class="text-amberBrand">X</span></span>
+                        <span class="text-[11px] font-semibold tracking-wider uppercase text-emeraldBrand">Biochar PKS • Kotoran Sapi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Quick Navigation (5 Pilar Utama) -->
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#penjelasan-produk" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Penjelasan Produk</a>
+                    <a href="#inovasi" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Inovasi</a>
+                    <a href="#manfaat" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Manfaat</a>
+                    <a href="#cara-penggunaan" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Cara Penggunaan</a>
+                    <a href="#kolaborasi" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Kolaborasi</a>
+                </nav>
+
+                <!-- Right Controls: Connect CTA + Tombol Garis Tiga -->
+                <div class="flex items-center gap-3">
+                    <a href="#kolaborasi" class="hidden sm:inline-flex items-center gap-2 bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all">
+                        <span>Portal Kolaborasi</span>
+                    </a>
+
+                    <!-- Menu Garis Tiga (Hamburger Drawer Trigger) -->
+                    <button id="drawer-open-btn" type="button" aria-label="Buka Menu Garis Tiga" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-cream hover:bg-emeraldBrand-soft/60 border border-slate-200 text-forest font-heading font-bold text-xs sm:text-sm transition-all shadow-sm">
+                        <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <span class="hidden md:inline">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== SLIDE-OVER MENU GARIS TIGA (5 PILAR) ==================== -->
+    <div id="nav-drawer-backdrop" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm drawer-backdrop">
+        <div id="nav-drawer-panel" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl border-l border-slate-200 flex flex-col justify-between translate-x-full drawer-panel">
+            <div class="p-6 overflow-y-auto">
+                <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-3 h-3 rounded-full bg-emeraldBrand-leaf"></span>
+                        <span class="font-heading font-extrabold text-lg text-forest">Menu Utama KLETONX</span>
+                    </div>
+                    <button id="drawer-close-btn" type="button" aria-label="Tutup Menu" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+
+                <!-- 5 Pilar Utama -->
+                <nav class="mt-6 space-y-2.5">
+                    <a href="#penjelasan-produk" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">01</div>
+                        <div>
+                            <div class="font-heading font-bold text-base text-forest">Penjelasan Produk</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Definisi, spesifikasi mutu standar, fungsi tiap bahan (70:25:5), katalog harga & rating</div>
+                        </div>
+                    </a>
+
+                    <a href="#inovasi" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-emeraldBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">02</div>
+                        <div>
+                            <div class="font-heading font-bold text-base text-forest">Inovasi</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Latar belakang POME & residu, kebaruan riset (Yan et al., Darwin et al.) & tahapan fabrikasi</div>
+                        </div>
+                    </a>
+
+                    <a href="#manfaat" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-emeraldBrand-leaf text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">03</div>
+                        <div>
+                            <div class="font-heading font-bold text-base text-forest">Manfaat</div>
+                            <div class="text-xs text-slate-500 mt-0.5">5 manfaat utama peningkatan yield biometana, rantai pasok & kontrak mill</div>
+                        </div>
+                    </a>
+
+                    <a href="#cara-penggunaan" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-biochar text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">04</div>
+                        <div>
+                            <div class="font-heading font-bold text-base text-forest">Cara Penggunaan</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Prosedur aplikasi digester POME (dapat diedit & diperbarui sewaktu-waktu)</div>
+                        </div>
+                    </a>
+
+                    <a href="#kolaborasi" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl bg-amberBrand-soft/50 hover:bg-amberBrand-soft border border-amberBrand/30 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-amberBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm">05</div>
+                        <div>
+                            <div class="font-heading font-bold text-base text-forest">Kolaborasi</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Akses terpisah: Penyuplai Bahan Baku, Badan Riset & Pembeli Industri + Tim Pendiri</div>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="p-6 bg-cream border-t border-slate-200/80">
+                <div class="text-xs font-bold text-forest mb-1">Dari Limbah, Jadi Solusi Energi</div>
+                <p class="text-[11px] text-slate-500 mb-3">Data bersumber resmi dari proposal KELTON-X (SRE Universitas Airlangga).</p>
+                <a href="#kolaborasi" class="drawer-link block w-full text-center py-3 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
+                    Hubungkan Kemitraan Sekarang
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 2. HERO SECTION (LOGO DI DEPAN) ==================== -->
+    <section class="hero-pattern text-white relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-24">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-emeraldBrand/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-10 w-80 h-80 bg-amberBrand/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Centerpiece Brand Logo Card DI DEPAN -->
+                <div class="lg:col-span-5 order-first lg:order-last flex justify-center">
+                    <div class="bg-white/95 backdrop-blur-md rounded-3xl p-7 sm:p-9 shadow-2xl border-2 border-amber-400/50 text-center max-w-sm w-full relative">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emeraldBrand-soft text-forest text-[11px] font-extrabold uppercase tracking-wider mb-4">
+                            <span class="w-2 h-2 rounded-full bg-emeraldBrand-leaf"></span>
+                            <span>Inovasi Briket Terdensifikasi</span>
+                        </div>
+
+                        <!-- Official KLETONX Emblem -->
+                        <div class="mx-auto w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center my-1">
+                            <svg class="w-full h-full drop-shadow-md" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="heroLeafGrad" x1="35" y1="50" x2="105" y2="160" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#8BC34A"/>
+                                        <stop offset="50%" stop-color="#558B2F"/>
+                                        <stop offset="100%" stop-color="#2E5A1C"/>
+                                    </linearGradient>
+                                    <linearGradient id="heroLeafHighlight" x1="50" y1="65" x2="90" y2="140" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#AED581"/>
+                                        <stop offset="100%" stop-color="#689F38"/>
+                                    </linearGradient>
+                                    <linearGradient id="heroFlameGrad" x1="82" y1="92" x2="135" y2="20" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#F59E0B"/>
+                                        <stop offset="55%" stop-color="#FBBF24"/>
+                                        <stop offset="100%" stop-color="#FEF08A"/>
+                                    </linearGradient>
+                                    <linearGradient id="heroBiocharGrad" x1="65" y1="165" x2="165" y2="75" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#2E1A12"/>
+                                        <stop offset="50%" stop-color="#5D4037"/>
+                                        <stop offset="100%" stop-color="#9C786C"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Sabit Daun Hijau Kiri -->
+                                <path d="M97 44C54 46 30 79 35 119C40 153 72 172 108 165C79 157 62 131 66 101C69 74 82 54 97 44Z" fill="url(#heroLeafGrad)"/>
+                                <path d="M78 64C56 81 51 113 68 138C65 111 72 86 90 69C85 66 82 64 78 64Z" fill="url(#heroLeafHighlight)"/>
+                                <!-- Nyala Api Biogas Kuning-Emas -->
+                                <path d="M75 93C72 69 89 52 106 38C111 33 113 25 109 18C130 27 140 47 130 67C121 83 97 86 75 93Z" fill="url(#heroFlameGrad)"/>
+                                <!-- 3 Gelembung Gas Kanan-Atas -->
+                                <circle cx="143" cy="35" r="5" fill="#FBBF24"/>
+                                <circle cx="162" cy="45" r="10.5" fill="#F59E0B"/>
+                                <circle cx="158" cy="41" r="3.5" fill="#FEF9C3"/>
+                                <circle cx="170" cy="64" r="6" fill="#FBBF24"/>
+                                <path d="M130 59C140 57 150 59 158 64" stroke="#FBBF24" stroke-width="3.5" stroke-linecap="round"/>
+                                <path d="M126 69C138 67 150 69 160 74" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                                <!-- Sabit Biochar Cokelat Berpori Kanan-Bawah -->
+                                <path d="M104 72C130 69 153 86 159 113C165 148 136 180 97 180C68 180 45 163 37 138C54 160 82 167 108 156C131 146 141 119 131 96C124 82 114 75 104 72Z" fill="url(#heroBiocharGrad)"/>
+                                <circle cx="143" cy="98" r="5.5" fill="#26160E"/>
+                                <circle cx="152" cy="113" r="3.8" fill="#26160E"/>
+                                <circle cx="138" cy="122" r="7" fill="#26160E"/>
+                                <circle cx="148" cy="134" r="4.2" fill="#26160E"/>
+                                <circle cx="130" cy="140" r="3.5" fill="#26160E"/>
+                                <circle cx="136" cy="87" r="2.5" fill="#26160E"/>
+                            </svg>
+                        </div>
+
+                        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl tracking-tight text-forest mt-1">
+                            KLETON<span class="text-amberBrand">X</span>
+                        </h2>
+                        <p class="text-xs font-bold uppercase tracking-widest text-biochar mt-1">
+                            Biochar PKS • Kotoran Sapi • CMC-TKKS
+                        </p>
+
+                        <!-- Live Rating Summary (Default 0.0 / 0 Ulasan) -->
+                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-center gap-4 text-xs text-slate-600">
+                            <div class="flex items-center gap-1 font-bold text-forest">
+                                <span class="text-amber-500 text-base">★</span>
+                                <span id="hero-rating-val">0.0</span>
+                                <span class="text-slate-400 font-normal">/ 5.0</span>
+                            </div>
+                            <span class="text-slate-300">|</span>
+                            <span class="font-semibold text-emeraldBrand"><span id="hero-review-count">0</span> Ulasan Pengunjung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Text & Headline -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emeraldBrand/40 border border-emerald-400/30 text-emerald-100 text-xs sm:text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span>KELTON-X • POME Anaerobic Co-Digestion</span>
+                    </div>
+
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
+                        Inovasi Briket Terdensifikasi Berbasis <span class="text-amber-400">Kotoran Sapi & Biochar PKS</span> untuk Optimasi Biometana POME
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-emerald-100/90 leading-relaxed max-w-2xl">
+                        Mengintegrasikan komposit <strong>70% Biochar Palm Kernel Shell (PKS)</strong>, <strong>25% kotoran sapi praolah</strong>, dan <strong>5% pengikat CMC-TKKS</strong> ke dalam format briket silindris fungsional (Ø 30 mm × 50 mm) untuk mendukung kestabilan <em>anaerobic co-digestion</em> Palm Oil Mill Effluent (POME).
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#penjelasan-produk" class="inline-flex justify-center items-center gap-2 bg-amberBrand hover:bg-amber-600 text-white font-heading font-bold px-7 py-4 rounded-xl shadow-lg transition-all text-center">
+                            <span>Jelajahi Spesifikasi & Katalog</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <a href="#kolaborasi" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-heading font-semibold px-7 py-4 rounded-xl transition-all text-center">
+                            <span>Akses Portal Kemitraan</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Riset Utama dari Proposal (Strict Source) -->
+            <div class="mt-14 pt-10 border-t border-white/15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200">Uji AD POME + Biochar</span>
+                    <div class="font-heading font-extrabold text-3xl sm:text-4xl text-amber-400 mt-1">+45,0%</div>
+                    <p class="text-xs text-emerald-100/80 mt-1">Peningkatan produksi biogas dibanding <em>mono-digestion</em> POME (Yan et al., 2025)</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200">Hasil Metana (Yield)</span>
+                    <div class="font-heading font-extrabold text-3xl sm:text-4xl text-white mt-1">+73,3%</div>
+                    <p class="text-xs text-emerald-100/80 mt-1">Peningkatan hasil metana & penyisihan <em>Volatile Solids</em> (VS) hingga <strong>98,2%</strong> (Yan et al., 2025)</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200">Co-Digestion POME–Sapi</span>
+                    <div class="font-heading font-extrabold text-3xl sm:text-4xl text-emerald-300 mt-1">~6× Lipat</div>
+                    <p class="text-xs text-emerald-100/80 mt-1">Produksi metana vs kontrol kotoran sapi; <em>methane yield</em> naik <strong>59,6%</strong> (Darwin et al., 2021)</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200">Stabilitas pH Kultur</span>
+                    <div class="font-heading font-extrabold text-3xl sm:text-4xl text-amber-400 mt-1">7,11–7,50</div>
+                    <p class="text-xs text-emerald-100/80 mt-1">Rentang pH terjaga pada kondisi mesofilik 35 ± 1°C (Darwin et al., 2021)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. PENJELASAN PRODUK (100% DATA DOKUMEN + HARGA/RATING/ULASAN DEFAULT 0) ==================== -->
+    <section id="penjelasan-produk" class="py-20 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">01 • Penjelasan Produk (Data Proposal & Spesifikasi Resmi)</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Definisi, Spesifikasi Mutu & Fungsi Tiap Bahan KLETONX</h2>
+                <p class="text-slate-600 mt-3 leading-relaxed">
+                    <strong>KLETONX (KELTON-X)</strong> adalah briket fungsional terdensifikasi berbasis komposit <em>biochar Palm Kernel Shell</em> (PKS), kotoran sapi yang dipraolah, dan pengikat <em>Carboxymethyl Cellulose</em> berbasis selulosa Tandan Kosong Kelapa Sawit (CMC-TKKS) sebagai material pendukung proses <em>Anaerobic Co-Digestion</em> POME.
+                </p>
+            </div>
+
+            <!-- Komposisi & Fungsi Tiap Bahan (Formulasi Massa Kering 70 : 25 : 5) -->
+            <div class="bg-cream rounded-3xl p-6 sm:p-10 border border-slate-200/90 mb-14">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emeraldBrand">Formulasi Komposit Massa Kering</span>
+                        <h3 class="font-heading font-extrabold text-2xl text-forest mt-1">Komposisi & Fungsi Ilmiah Setiap Bahan Penyusun</h3>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-500 bg-white px-3.5 py-2 rounded-xl border border-slate-200">
+                        Basis Campuran: 700 g Biochar PKS + 250 g Kotoran Sapi + 50 g CMC-TKKS
+                    </span>
+                </div>
+
+                <!-- Proporsi Bar -->
+                <div class="w-full h-9 rounded-2xl overflow-hidden flex font-heading font-bold text-xs text-white shadow-inner mb-8">
+                    <div class="bg-biochar flex items-center justify-center px-2 text-center" style="width: 70%;">70% Biochar PKS (250–500 µm)</div>
+                    <div class="bg-emeraldBrand-leaf flex items-center justify-center px-2 text-center" style="width: 25%;">25% Kotoran Sapi (&lt;1 mm)</div>
+                    <div class="bg-amberBrand flex items-center justify-center px-1 text-center" style="width: 5%;">5%</div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Bahan 1: 70% Biochar PKS -->
+                    <div class="bg-white rounded-2xl p-6 border-t-4 border-biochar shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-3">
+                                <h4 class="font-heading font-bold text-lg text-forest">1. Biochar Palm Kernel Shell (70%)</h4>
+                                <span class="px-2.5 py-1 rounded-lg bg-biochar/10 text-biochar font-bold text-xs whitespace-nowrap">250–500 µm</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">
+                                Dihasilkan dari pirolisis cangkang inti sawit pada suhu <strong>500°C selama 60 menit</strong> (luas permukaan BET <strong>208 ± 9 m²/g</strong> dan volume pori <strong>0,21 cm³/g</strong>; Kong et al., 2019).
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+                                <li>• <strong>Habitat Mikroorganisme:</strong> Struktur berpori menjadi tempat kolonisasi mikroorganisme di dalam digester.</li>
+                                <li>• <strong>Adsorpsi Senyawa Penghambat:</strong> Menyerap senyawa toksik/penghambat (termasuk tekanan akumulasi VFA) dan mengurangi tekanan toksik.</li>
+                                <li>• <strong>Pemasok Nutrien & Transfer Elektron:</strong> Memasok nutrien serta mempercepat transfer elektron antarmikroorganisme (Zhao et al., 2024).</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+                            Proporsi 70% mengacu Turyamusiima et al. (2025) untuk ketahanan jatuh (<em>drop strength</em>) optimal.
+                        </div>
+                    </div>
+
+                    <!-- Bahan 2: 25% Padatan Kotoran Sapi Praolah -->
+                    <div class="bg-white rounded-2xl p-6 border-t-4 border-emeraldBrand-leaf shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-3">
+                                <h4 class="font-heading font-bold text-lg text-forest">2. Padatan Kotoran Sapi Praolah (25%)</h4>
+                                <span class="px-2.5 py-1 rounded-lg bg-emeraldBrand-soft text-forest font-bold text-xs whitespace-nowrap">&lt; 1 mm</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">
+                                Melalui homogenisasi, <em>hammer mill</em> (5–20 mm), dan pengeringan terkendali yang meningkatkan <em>Total Solids</em> (TS) dari <strong>22,0% menjadi 96,7%</strong> dan menurunkan kadar air dari <strong>78% menjadi 3,3%</strong> (Nguyen et al., 2022).
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+                                <li>• <strong>Co-Substrat Organik & Nutrien:</strong> Membawa bahan organik dan unsur hara yang melengkapi komposisi substrat POME.</li>
+                                <li>• <strong>Stabilitas pH Kultur:</strong> Menjaga keseimbangan nutrisi mikroorganisme dan mempertahankan pH kultur pada rentang <strong>7,11–7,50</strong> (Darwin et al., 2021).</li>
+                                <li>• <strong>Peningkatan Yield Metana:</strong> Mendukung sinergi <em>anaerobic co-digestion</em> bersama POME.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+                            Gas buang pengeringan ditangkap oleh <em>Acid Scrubber</em> H₂SO₄ menjadi pupuk (NH₄)₂SO₄.
+                        </div>
+                    </div>
+
+                    <!-- Bahan 3: 5% Pengikat CMC-TKKS -->
+                    <div class="bg-white rounded-2xl p-6 border-t-4 border-amberBrand shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start gap-2 mb-3">
+                                <h4 class="font-heading font-bold text-lg text-forest">3. Pengikat CMC-TKKS (5%)</h4>
+                                <span class="px-2.5 py-1 rounded-lg bg-amberBrand-soft text-amberBrand font-bold text-xs whitespace-nowrap">DS 1,30 • 89%</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-3">
+                                <em>Carboxymethyl Cellulose</em> (CMC) yang disintesis dari selulosa Tandan Kosong Kelapa Sawit (TKKS) dengan <strong>derajat substitusi 1,30</strong> dan <strong>kemurnian 89%</strong> (Ab Rasid et al., 2021).
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+                                <li>• <strong>Integritas Mekanik Briket:</strong> Mengikat partikel biochar PKS dan kotoran sapi saat didensifikasi pada tekanan <strong>5–10 MPa</strong> sehingga struktur kompak dan tidak mudah hancur saat pemindahan.</li>
+                                <li>• <strong>Disintegrasi Terkendali:</strong> Memungkinkan briket menyerap air (20–50%) dan terdisintegrasi di dalam reaktor cair (<strong>288 detik</strong>; Faisal et al., 2019).</li>
+                                <li>• <strong>Pemanfaatan Residu Sawit:</strong> Memanfaatkan limbah selulosa TKKS secara sirkular.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+                            Acuan konsentrasi binder CMC merujuk studi Idris et al. (2021).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Parameter Standar Spesifikasi Produk KLETON-X (Persis Proposal & Kemasan) -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm mb-16">
+                <div class="bg-forest text-white p-6 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Quality Control & Standar Mutu</span>
+                        <h3 class="font-heading font-extrabold text-xl sm:text-2xl">Parameter Standar Spesifikasi Produk KLETON-X</h3>
+                    </div>
+                    <span class="text-xs bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-xl text-emerald-100">
+                        Bentuk Silindris • Diameter 30 mm (3 cm) × Panjang 50 mm (5 cm)
+                    </span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-cream border-b border-slate-200 text-forest font-heading">
+                                <th class="py-3.5 px-6">Kelompok</th>
+                                <th class="py-3.5 px-6">Parameter</th>
+                                <th class="py-3.5 px-6">Target Standar</th>
+                                <th class="py-3.5 px-6">Tujuan Pengujian & Referensi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="py-3 px-6 font-bold text-biochar" rowspan="6">Fisik & Dimensi</td>
+                                <td class="py-3 px-6 font-semibold">Dimensi & Densitas Partikel</td>
+                                <td class="py-3 px-6 font-bold text-forest">Ø 30×50 mm | 0,80–1,00 g/cm³</td>
+                                <td class="py-3 px-6 text-slate-500">Memeriksa tingkat pemadatan material (Ngene et al., 2024)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Kekuatan Tekan (Compressive Strength)</td>
+                                <td class="py-3 px-6 font-bold text-forest">≥ 1 MPa</td>
+                                <td class="py-3 px-6 text-slate-500">Mengukur ketahanan terhadap tekanan (Ngene et al., 2024)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Ketahanan Jatuh (Drop Resistance)</td>
+                                <td class="py-3 px-6 font-bold text-forest">≥ 95%</td>
+                                <td class="py-3 px-6 text-slate-500">Menilai ketahanan saat pemindahan & distribusi (Ngene et al., 2024)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Kadar Air, Kadar Abu & Nilai Kalor</td>
+                                <td class="py-3 px-6 font-bold text-forest">Air &lt; 10% | Abu &lt; 15% | &gt; 4.500 kcal/kg</td>
+                                <td class="py-3 px-6 text-slate-500">Memastikan kestabilan penyimpanan (SNI 01-6235-2000 & Spesifikasi Kemasan)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Penyerapan Air (Water Absorption)</td>
+                                <td class="py-3 px-6 font-bold text-forest">20–50%</td>
+                                <td class="py-3 px-6 text-slate-500">Mengukur kemampuan briket menyerap cairan POME</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Waktu Disintegrasi Air</td>
+                                <td class="py-3 px-6 font-bold text-forest">288 detik</td>
+                                <td class="py-3 px-6 text-slate-500">Mengukur waktu terurainya briket dalam media cair (Faisal et al., 2019)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-bold text-emeraldBrand">Karakteristik Material</td>
+                                <td class="py-3 px-6 font-semibold">Luas Permukaan Spesifik BET</td>
+                                <td class="py-3 px-6 font-bold text-forest">≥ 150 m²/g</td>
+                                <td class="py-3 px-6 text-slate-500">Mengevaluasi karakteristik pori setelah fabrikasi (Kong et al., 2019)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-bold text-amberBrand" rowspan="3">Kinerja Anaerobic Digestion</td>
+                                <td class="py-3 px-6 font-semibold">Methane Yield (Benchmark)</td>
+                                <td class="py-3 px-6 font-bold text-forest">≥ 0,34 L CH₄/g VS</td>
+                                <td class="py-3 px-6 text-slate-500">Mengukur dampak terhadap produksi metana (Yan et al., 2025)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">Kadar Metana (CH₄)</td>
+                                <td class="py-3 px-6 font-bold text-forest">55,74–64,02%</td>
+                                <td class="py-3 px-6 text-slate-500">Kualitas fraksi gas metana hasil co-digestion (Yusof et al., 2023)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-6 font-semibold">pH Digester Target</td>
+                                <td class="py-3 px-6 font-bold text-forest">6,9–7,1</td>
+                                <td class="py-3 px-6 text-slate-500">Kestabilan kondisi operasi digester anaerobik POME (Yusof et al., 2023)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-cream/80 px-6 py-3.5 border-t border-slate-200/80 text-xs text-slate-600">
+                    <strong>Kemasan & Penyimpanan:</strong> Dikemas menggunakan karung <em>woven polypropylene</em> kapasitas 5–10 kg berlapis dalam polietilena (PE) yang disegel rapat dengan <em>heat sealer</em>; disimpan di gudang beratap di atas palet dengan kelembapan relatif ≤ 60%.
+                </div>
+            </div>
+
+            <!-- ==================== KATALOG PRODUK (HARGA, RATING, ULASAN DEFAULT 0 & DINAMIS) ==================== -->
+            <div class="mb-14">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">Katalog Komersial & Penawaran</span>
+                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Varian Produk KLETONX (Harga, Rating & Transaksi Pengunjung)</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                            Nilai awal harga, rating, dan jumlah ulasan disetel ke <strong>0</strong> dan akan diperbarui otomatis sesuai interaksi pembelian maupun penilaian pengunjung.
+                        </p>
+                    </div>
+
+                    <!-- Admin Controls to Update Prices or Reset Data -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <button type="button" id="toggle-price-editor-btn" class="px-4 py-2.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-300 text-forest font-heading font-bold text-xs transition-colors">
+                            Atur Harga Produk
+                        </button>
+                        <button type="button" id="reset-market-data-btn" class="px-3.5 py-2.5 rounded-xl bg-white hover:bg-red-50 border border-slate-200 text-slate-500 hover:text-red-600 font-semibold text-xs transition-colors">
+                            Reset ke 0
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Collapsible Admin Price Configurator -->
+                <div id="price-editor-panel" class="hidden mb-8 bg-cream rounded-2xl p-6 border border-amberBrand/40">
+                    <h4 class="font-heading font-bold text-sm text-forest mb-1">Pengaturan Harga Katalog (Dapat Diubah Sewaktu-Waktu)</h4>
+                    <p class="text-xs text-slate-500 mb-4">Masukkan harga satuan dalam Rupiah (isi 0 apabila menggunakan skema negosiasi kontrak B2B).</p>
+                    <form id="price-update-form" class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Kemasan 5–10 Kg (Rp)</label>
+                            <input type="number" min="0" id="input-price-pack" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Curah / Tonase (Rp)</label>
+                            <input type="number" min="0" id="input-price-bulk" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Layanan Optimasi AD (Rp)</label>
+                            <input type="number" min="0" id="input-price-service" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
+                        </div>
+                        <button type="submit" class="py-2.5 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow">
+                            Simpan Harga
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 3 Product Cards (Default Rp 0, Rating 0.0, 0 Ulasan, 0 Terjual) -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Varian 1: Kemasan Karung 5-10 Kg -->
+                    <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="bg-gradient-to-br from-forest to-emeraldBrand p-6 text-white">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="px-3 py-1 rounded-full bg-white/15 font-bold">Kemasan Woven PP + PE</span>
+                                    <span class="bg-black/25 px-2.5 py-1 rounded-lg font-bold text-amber-300">
+                                        ★ <span id="card-rating-pack">0.0</span> (<span id="card-revcount-pack">0</span>)
+                                    </span>
+                                </div>
+                                <h4 class="font-heading font-bold text-xl mt-4">KLETONX Kemasan 5–10 Kg</h4>
+                                <p class="text-xs text-emerald-100 mt-1">Briket Silindris Ø 30 mm × 50 mm • Heat Sealed</p>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200/80 flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase text-slate-400 block">Harga Satuan</span>
+                                        <span class="font-heading font-extrabold text-2xl text-forest" id="display-price-pack">Rp 0</span>
+                                    </div>
+                                    <div class="text-right text-xs text-slate-500">
+                                        <span class="block font-bold text-forest"><span id="display-sold-pack">0</span> unit</span>
+                                        <span>terpesan</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Briket komposit siap pakai dalam karung <em>woven polypropylene</em> kapasitas 5–10 kg berlapis polietilena (PE). Memudahkan penimbangan, penyimpanan, dan pengumpanan terkontrol tanpa debu.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 pt-0">
+                            <button type="button" onclick="openQuickOrderModal('pack', 'KLETONX Kemasan 5–10 Kg')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Beli / Ajukan Penawaran
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Varian 2: Kontrak Pasokan Bulk / Tonase Mill -->
+                    <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="bg-gradient-to-br from-biochar-dark to-biochar p-6 text-white">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="px-3 py-1 rounded-full bg-white/15 font-bold">Kontrak Pasokan Mill</span>
+                                    <span class="bg-black/25 px-2.5 py-1 rounded-lg font-bold text-amber-300">
+                                        ★ <span id="card-rating-bulk">0.0</span> (<span id="card-revcount-bulk">0</span>)
+                                    </span>
+                                </div>
+                                <h4 class="font-heading font-bold text-xl mt-4">KLETONX Kontrak Pasokan B2B</h4>
+                                <p class="text-xs text-amber-100/90 mt-1">Pasokan Rutin Pabrik Kelapa Sawit (On-Site / Tonase)</p>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200/80 flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase text-slate-400 block">Harga Kontrak</span>
+                                        <span class="font-heading font-extrabold text-2xl text-forest" id="display-price-bulk">Rp 0</span>
+                                    </div>
+                                    <div class="text-right text-xs text-slate-500">
+                                        <span class="block font-bold text-forest"><span id="display-sold-bulk">0</span> kontrak</span>
+                                        <span>tercatat</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Skema kontrak pasokan briket berkala untuk instalasi <em>anaerobic digestion</em> POME di pabrik kelapa sawit, termasuk integrasi pemanfaatan PKS surplus dan kotoran sapi lokal.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 pt-0">
+                            <button type="button" onclick="openQuickOrderModal('bulk', 'KLETONX Kontrak Pasokan B2B')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Beli / Ajukan Kontrak
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Varian 3: Layanan Uji Coba & Optimasi Proses AD -->
+                    <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="bg-gradient-to-br from-emeraldBrand to-forest-light p-6 text-white">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="px-3 py-1 rounded-full bg-white/15 font-bold">Layanan Optimasi AD</span>
+                                    <span class="bg-black/25 px-2.5 py-1 rounded-lg font-bold text-amber-300">
+                                        ★ <span id="card-rating-service">0.0</span> (<span id="card-revcount-service">0</span>)
+                                    </span>
+                                </div>
+                                <h4 class="font-heading font-bold text-xl mt-4">Paket Uji Coba & Optimasi Proses</h4>
+                                <p class="text-xs text-emerald-100 mt-1">Uji Skala Kecil Dosis Terukur & Pendampingan</p>
+                            </div>
+
+                            <div class="p-6 space-y-4">
+                                <div class="bg-white rounded-2xl p-4 border border-slate-200/80 flex items-center justify-between">
+                                    <div>
+                                        <span class="text-[11px] font-bold uppercase text-slate-400 block">Biaya Paket</span>
+                                        <span class="font-heading font-extrabold text-2xl text-forest" id="display-price-service">Rp 0</span>
+                                    </div>
+                                    <div class="text-right text-xs text-slate-500">
+                                        <span class="block font-bold text-forest"><span id="display-sold-service">0</span> uji coba</span>
+                                        <span>tercatat</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    Layanan uji coba skala kecil dengan dosis terukur sehingga pabrik tidak perlu mengubah infrastruktur digester secara besar-besaran sebelum implementasi penuh.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-6 pt-0">
+                            <button type="button" onclick="openQuickOrderModal('service', 'Paket Uji Coba & Optimasi Proses')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Pesan Uji Coba
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== RATING & ULASAN PENGUNJUNG (MULAI DARI 0) ==================== -->
+            <div id="ulasan-produk" class="bg-cream rounded-3xl p-6 sm:p-10 border border-slate-200">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-200/80">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amberBrand">Penilaian Pengunjung & Pembeli</span>
+                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Rating & Ulasan Produk KLETONX</h3>
+                        <p class="text-sm text-slate-600 mt-1">Belum ada ulasan awal (0). Rating dan ulasan akan otomatis terhitung dari penilaian pengunjung yang mencoba atau membeli produk.</p>
+                    </div>
+
+                    <div class="flex items-center gap-4 bg-white px-5 py-4 rounded-2xl border border-slate-200/80">
+                        <div class="text-center">
+                            <div class="font-heading font-extrabold text-3xl text-forest" id="avg-rating-score">0.0</div>
+                            <div class="text-amber-500 text-sm tracking-tight" id="avg-rating-stars">☆☆☆☆☆</div>
+                        </div>
+                        <div class="border-l border-slate-200 pl-4 text-xs text-slate-600">
+                            <div class="font-bold text-forest text-sm"><span id="total-reviews-count">0</span> Ulasan Pengunjung</div>
+                            <div>Diperbarui otomatis saat pengunjung menilai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+                    <!-- Dynamic Reviews Container (Starts Empty / 0) -->
+                    <div class="lg:col-span-7 space-y-4" id="reviews-list">
+                        <div id="empty-reviews-placeholder" class="bg-white rounded-2xl p-8 border border-dashed border-slate-300 text-center">
+                            <div class="font-heading font-bold text-base text-forest mb-1">Belum Ada Ulasan (0)</div>
+                            <p class="text-xs sm:text-sm text-slate-500">
+                                Jadilah pengunjung atau mitra pertama yang memberikan penilaian dan ulasan untuk briket KLETONX melalui formulir di samping.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Visitor Rating & Review Submission Form -->
+                    <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-1">Beri Rating & Ulasan Pengunjung</h4>
+                        <p class="text-xs text-slate-500 mb-4">Penilaian Anda akan langsung memperbarui skor rating rata-rata produk.</p>
+
+                        <form id="review-form" class="space-y-3.5">
+                            <div>
+                                <label for="rev-name" class="block text-xs font-bold text-slate-700 mb-1">Nama Pengunjung / Instansi *</label>
+                                <input type="text" id="rev-name" required placeholder="Masukkan nama Anda atau nama instansi" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label for="rev-variant" class="block text-xs font-bold text-slate-700 mb-1">Varian Produk</label>
+                                    <select id="rev-variant" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3 py-2.5 text-xs focus:border-forest focus:bg-white focus:outline-none">
+                                        <option value="pack">Kemasan 5–10 Kg</option>
+                                        <option value="bulk">Kontrak Pasokan B2B</option>
+                                        <option value="service">Paket Uji Coba & Optimasi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="rev-rating" class="block text-xs font-bold text-slate-700 mb-1">Skor Rating (1–5)</label>
+                                    <select id="rev-rating" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3 py-2.5 text-xs font-bold text-amber-600 focus:border-forest focus:bg-white focus:outline-none">
+                                        <option value="5">★★★★★ (5.0)</option>
+                                        <option value="4">★★★★☆ (4.0)</option>
+                                        <option value="3">★★★☆☆ (3.0)</option>
+                                        <option value="2">★★☆☆☆ (2.0)</option>
+                                        <option value="1">★☆☆☆☆ (1.0)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="rev-comment" class="block text-xs font-bold text-slate-700 mb-1">Ulasan Anda *</label>
+                                <textarea id="rev-comment" rows="3" required placeholder="Tuliskan ulasan atau pengalaman Anda mengenai KLETONX..." class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none"></textarea>
+                            </div>
+
+                            <div id="rev-feedback" class="hidden text-xs p-2.5 rounded-xl bg-emeraldBrand-soft text-forest font-semibold"></div>
+
+                            <button type="submit" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow transition-colors">
+                                Kirim Rating & Ulasan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. INOVASI & DATA RISET (100% BERSUMBER DARI PROPOSAL) ==================== -->
+    <section id="inovasi" class="py-20 bg-cream border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">02 • Inovasi & Basis Ilmiah Proposal</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Integrasi Residu Sawit & Peternakan dalam Satu Briket Fungsional</h2>
+                <p class="text-slate-600 mt-4 leading-relaxed">
+                    Setiap ton tandan buah segar (TBS/FFB) menghasilkan <strong>0,5–0,75 ton POME</strong> (Saputera et al., 2021) dengan potensi emisi kolam anaerobik mencapai <strong>261,93 g/m²/hari</strong> atau <strong>14.571,5 ton CO₂e/tahun</strong> (Putro, 2022). Sementara Indonesia memiliki potensi limbah PKS <strong>14,91 juta ton pada 2024</strong> (Lua et al., 2024) dan limbah peternakan sapi <strong>137,2 juta ton/tahun</strong> dengan pemanfaatan baru sekitar <strong>30%</strong> (Oktavian et al., 2025).
+                </p>
+            </div>
+
+            <!-- Kebaruan & Bukti Empiris -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm">
+                    <span class="px-3 py-1 rounded-full bg-emeraldBrand-soft text-forest text-xs font-bold">Bukti Biochar pada AD POME</span>
+                    <h3 class="font-heading font-bold text-xl text-forest mt-3 mb-2">Optimalisasi Kinerja Biogas & Penyisihan Organik</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Penelitian <strong>Yan et al. (2025)</strong> pada <em>anaerobic digestion</em> POME dengan penambahan biochar menunjukkan peningkatan produksi biogas sebesar <strong>45,0%</strong>, hasil metana (<em>methane yield</em>) sebesar <strong>73,3%</strong>, dan penyisihan <em>Volatile Solids</em> (VS) sebesar <strong>98,2%</strong> dibandingkan <em>mono-digestion</em> POME.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm">
+                    <span class="px-3 py-1 rounded-full bg-amberBrand-soft text-biochar text-xs font-bold">Bukti Co-Digestion POME & Kotoran Sapi</span>
+                    <h3 class="font-heading font-bold text-xl text-forest mt-3 mb-2">Sinergi Substrat & Stabilitas pH Mesofilik</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Penelitian <strong>Darwin et al. (2021)</strong> melaporkan bahwa <em>anaerobic co-digestion</em> POME dan kotoran sapi pada kondisi mesofilik <strong>35 ± 1°C</strong> menghasilkan produksi metana sekitar <strong>enam kali lebih tinggi</strong> dibandingkan kontrol kotoran sapi, peningkatan <em>methane yield</em> <strong>59,6%</strong>, serta menjaga pH kultur pada rentang <strong>7,11–7,50</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4 Tahapan Fabrikasi Utama (Sesuai Proposal Halaman 10-12) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90">
+                <h3 class="font-heading font-extrabold text-2xl text-forest mb-6">Tahapan Fabrikasi Terintegrasi KLETON-X</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <div class="w-9 h-9 rounded-xl bg-biochar text-white font-heading font-extrabold flex items-center justify-center mb-3 text-sm">01</div>
+                        <h4 class="font-heading font-bold text-base text-forest mb-2">Produksi Biochar PKS</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Sortasi & pencucian PKS, pengeringan oven <strong>105°C</strong>, pengecilan ukuran <strong>10–15 mm</strong>, lalu pirolisis <em>fixed-bed allothermal</em> beraliran N₂ pada suhu <strong>500°C selama 60 menit</strong> dan pendinginan inert.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <div class="w-9 h-9 rounded-xl bg-emeraldBrand-leaf text-white font-heading font-extrabold flex items-center justify-center mb-3 text-sm">02</div>
+                        <h4 class="font-heading font-bold text-base text-forest mb-2">Praolah Kotoran Sapi</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Homogenisasi di <em>mixing tank</em>, pengecilan ukuran <em>hammer mill</em> (<strong>5–20 mm</strong>), pengeringan surya tertutup, serta <strong>Acid Scrubber (H₂SO₄)</strong> penangkap amonia menjadi pupuk amonium sulfat <strong>(NH₄)₂SO₄</strong>.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <div class="w-9 h-9 rounded-xl bg-amberBrand text-white font-heading font-extrabold flex items-center justify-center mb-3 text-sm">03</div>
+                        <h4 class="font-heading font-bold text-base text-forest mb-2">Pencampuran & Densifikasi</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penggilingan biochar (250–500 µm) & kotoran sapi (&lt;1 mm), pencampuran <strong>70:25:5</strong> dengan larutan CMC-TKKS (kadar air awal 18–22%), lalu pencetakan <em>hydraulic piston press</em> <strong>5–10 MPa</strong>.
+                        </p>
+                    </div>
+
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <div class="w-9 h-9 rounded-xl bg-forest text-amber-400 font-heading font-extrabold flex items-center justify-center mb-3 text-sm">04</div>
+                        <h4 class="font-heading font-bold text-base text-forest mb-2">Pengeringan & QC Mutu</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pengeringan <em>industrial tray dryer</em> pada suhu <strong>60–80°C</strong> hingga kadar air &lt;10%, pendinginan di <em>cooling rack</em> perforasi, serta pengujian densitas, kuat tekan, <em>drop resistance</em>, dan BET.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. MANFAAT (100% BERSUMBER DARI PROPOSAL) ==================== -->
+    <section id="manfaat" class="py-20 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">03 • Manfaat Utama KLETON-X</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Manfaat & Proposisi Nilai bagi Industri Kelapa Sawit</h2>
+                <p class="text-slate-600 mt-3">
+                    Dirangkum langsung dari poin Manfaat dan Proposisi Nilai dalam dokumen proposal KELTON-X.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Manfaat 1 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-forest text-amber-400 font-heading font-extrabold flex items-center justify-center mb-4">01</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Meningkatkan Produksi & Yield Biometana</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Meningkatkan produksi atau <em>yield</em> biometana melalui optimalisasi POME dengan briket komposit KLETON-X tanpa mengharuskan pabrik mengubah infrastruktur digester utama secara besar-besaran.
+                    </p>
+                </div>
+
+                <!-- Manfaat 2 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-emeraldBrand-leaf text-white font-heading font-extrabold flex items-center justify-center mb-4">02</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Memperluas Pemanfaatan Kotoran Sapi & Pasokan Lokal</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Memperluas pemanfaatan limbah kotoran sapi sekaligus membuka peluang kontrak pasokan lokal yang teratur bagi peternak dan koperasi di sekitar pabrik kelapa sawit.
+                    </p>
+                </div>
+
+                <!-- Manfaat 3 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-emeraldBrand text-white font-heading font-extrabold flex items-center justify-center mb-4">03</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Mengurangi Beban Organik POME & Emisi Metana</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Mengurangi beban bahan organik POME, mengoptimalkan pemanfaatan residu padat sawit (PKS & selulosa TKKS), serta menekan emisi gas rumah kaca metana yang tidak tertangkap.
+                    </p>
+                </div>
+
+                <!-- Manfaat 4 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-amberBrand text-white font-heading font-extrabold flex items-center justify-center mb-4">04</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Efisiensi Distribusi, Penyimpanan & Penakaran</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Memudahkan rantai distribusi pasokan kotoran sapi sebagai <em>co-digestion</em> dalam bentuk briket padat seragam yang tidak berdebu, mudah ditimbang, menghemat biaya angkut dan ruang simpan.
+                    </p>
+                </div>
+
+                <!-- Manfaat 5 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-biochar text-white font-heading font-extrabold flex items-center justify-center mb-4">05</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Memperbesar Peluang Kontrak Jangka Panjang dengan Mill</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Menyatukan komponen berpori, kosubstrat organik, dan pengikat dalam satu produk <em>all-in-one</em> berbasis skema <em>on-site</em> sehingga memperbesar peluang kontrak pasokan jangka panjang dengan pabrik sawit.
+                    </p>
+                </div>
+
+                <!-- Manfaat 6 -->
+                <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl bg-forest-light text-white font-heading font-extrabold flex items-center justify-center mb-4">06</div>
+                    <h3 class="font-heading font-bold text-lg text-forest mb-2">Mendukung Energi Terbarukan Internal Pabrik</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Produksi biogas/biometana yang lebih stabil dan tinggi membantu lingkungan pabrik kelapa sawit mengurangi ketergantungan pada bahan bakar fosil.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. CARA PENGGUNAAN (SESUAI LAMPIRAN & DAPAT DIUBAH SEWAKTU-WAKTU) ==================== -->
+    <section id="cara-penggunaan" class="py-20 bg-cream border-b border-slate-200/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">04 • Panduan Operasional (Dapat Diubah Sewaktu-Waktu)</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Cara Penggunaan Briket KLETONX</h2>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Mengikuti panduan pada kemasan lampiran dan dapat disesuaikan sewaktu-waktu sesuai SOP teknis digester mitra.
+                    </p>
+                </div>
+
+                <!-- Toggle Edit Mode Button -->
+                <div class="flex items-center gap-2.5">
+                    <button type="button" id="toggle-edit-usage-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                        <span>Ubah Penjelasan Cara Penggunaan</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Display Mode: Usage Steps -->
+            <div id="usage-display-container" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="usage-steps-grid">
+                    <!-- Populated by JS from default attachment steps or localStorage -->
+                </div>
+
+                <div class="bg-cream rounded-2xl p-4 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
+                    <div>
+                        <strong class="text-forest">Catatan Penyimpanan (Sesuai Kemasan & Proposal):</strong>
+                        <span id="usage-storage-note">Simpan di tempat kering (gudang beratap dengan kelembapan relatif ≤ 60%, di atas palet, dan tersegel rapat).</span>
+                    </div>
+                    <span class="text-[11px] text-slate-400 whitespace-nowrap" id="usage-last-updated">Status: Default Lampiran</span>
+                </div>
+            </div>
+
+            <!-- Inline Editor Panel (Hidden by default, opens anytime user clicks Edit) -->
+            <div id="usage-editor-container" class="hidden bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand shadow-lg mt-6">
+                <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-amberBrand">Mode Edit Panduan Penggunaan</span>
+                        <h3 class="font-heading font-extrabold text-lg text-forest">Perbarui Langkah & Penjelasan Cara Penggunaan</h3>
+                    </div>
+                    <button type="button" id="reset-usage-default-btn" class="text-xs font-semibold text-slate-500 hover:text-red-600 underline">
+                        Kembalikan ke Default Lampiran
+                    </button>
+                </div>
+
+                <form id="usage-edit-form" class="space-y-4">
+                    <div id="usage-edit-fields" class="space-y-4"></div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Catatan Penyimpanan & Keamanan</label>
+                        <input type="text" id="edit-usage-storage" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3 pt-2">
+                        <button type="button" id="cancel-edit-usage-btn" class="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-semibold text-xs sm:text-sm hover:bg-slate-50">
+                            Batal
+                        </button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-emeraldBrand hover:bg-forest text-white font-heading font-bold text-xs sm:text-sm shadow">
+                            Simpan Perubahan Panduan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. PORTAL KOLABORASI TERPISAH (PENYUPLAI, BADAN RISET, PEMBELI) ==================== -->
+    <section id="kolaborasi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">05 • Platform Connect & Kolaborasi KLETONX</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Akses Kemitraan Terpisah: Penyuplai, Badan Riset & Pembeli</h2>
+                <p class="text-slate-600 mt-4 leading-relaxed">
+                    Pilih jalur akses sesuai peran Anda untuk terhubung langsung dengan ekosistem startup KLETONX melalui formulir pendaftaran kemitraan maupun tautan Google Form terintegrasi.
+                </p>
+            </div>
+
+            <!-- 3 Separated Access Tabs -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10" role="tablist">
+                <!-- Jalur 1: Penyuplai -->
+                <button type="button" data-collab-tab="penyuplai" class="collab-tab-btn active text-left p-5 rounded-2xl border-2 border-emeraldBrand-leaf bg-emeraldBrand-soft/40 shadow-sm transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-emeraldBrand-leaf text-white text-[11px] font-bold uppercase">Akses 01 • Penyuplai</span>
+                        <span class="text-xs font-bold text-forest">Rantai Pasok</span>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-forest">Penyuplai Bahan Baku</h3>
+                    <p class="text-xs text-slate-600 mt-1">Peternak Sapi Perah/Jagal Pemasok Kotoran Sapi & Pabrik Pemasok PKS Surplus / TKKS</p>
+                </button>
+
+                <!-- Jalur 2: Badan Riset -->
+                <button type="button" data-collab-tab="riset" class="collab-tab-btn text-left p-5 rounded-2xl border-2 border-slate-200 bg-cream hover:border-amberBrand/60 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amberBrand text-white text-[11px] font-bold uppercase">Akses 02 • Badan Riset</span>
+                        <span class="text-xs font-bold text-slate-500">Validasi & Uji Mutu</span>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-forest">Badan Riset & Perguruan Tinggi</h3>
+                    <p class="text-xs text-slate-600 mt-1">Laboratorium Uji BET, Uji BMP Triplo & Kolaborasi Pilot Skala Kampus/Lembaga</p>
+                </button>
+
+                <!-- Jalur 3: Pembeli -->
+                <button type="button" data-collab-tab="pembeli" class="collab-tab-btn text-left p-5 rounded-2xl border-2 border-slate-200 bg-cream hover:border-forest/60 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-forest text-white text-[11px] font-bold uppercase">Akses 03 • Pembeli</span>
+                        <span class="text-xs font-bold text-slate-500">B2B Industri</span>
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-forest">Pembeli & Mitra Industri</h3>
+                    <p class="text-xs text-slate-600 mt-1">Pabrik Kelapa Sawit (Palm Oil Mill) dengan Digester AD POME & Pengembang Biogas</p>
+                </button>
+            </div>
+
+            <!-- ==================== PANEL 1: PENYUPLAI BAHAN BAKU ==================== -->
+            <div id="panel-penyuplai" class="collab-panel grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-emeraldBrand-leaf/30 space-y-5">
+                    <span class="inline-block px-3 py-1 rounded-lg bg-emeraldBrand-soft text-forest text-xs font-bold">Portal Khusus Penyuplai</span>
+                    <h3 class="font-heading font-extrabold text-2xl text-forest">Alur Pasok Bahan Baku Utama KLETON-X</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Kami menjalin kontrak pasokan rutin dengan peternak sapi lokal dan pabrik kelapa sawit sekitar lokasi produksi untuk menjamin kontinuitas tiga bahan baku utama:
+                    </p>
+                    <ul class="space-y-3 text-xs text-slate-700 bg-white p-4 rounded-2xl border border-slate-200/80">
+                        <li><strong class="text-forest">1. Kotoran Sapi:</strong> Dari peternak sapi perah, peternak lokal, dan rumah jagal sekitar pabrik dengan pengumpulan kotoran sapi segar terjadwal.</li>
+                        <li><strong class="text-forest">2. Palm Kernel Shell (PKS):</strong> Dari stasiun pemisahan kernel pabrik kelapa sawit (memanfaatkan fraksi PKS surplus di luar kebutuhan boiler internal).</li>
+                        <li><strong class="text-forest">3. CMC-TKKS:</strong> Pengikat berbasis selulosa Tandan Kosong Kelapa Sawit (TKKS).</li>
+                    </ul>
+                    <div class="pt-1 text-xs text-slate-500">
+                        <strong>PIC Operasional & Pasokan:</strong> Wulan Sari Janatul Fitri (COO)
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
+                    <div class="h-3 bg-emeraldBrand-leaf"></div>
+                    <div class="p-7 sm:p-9">
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emeraldBrand-leaf">Form Pendaftaran Penyuplai (G-Form Connect)</span>
+                                <h4 class="font-heading font-extrabold text-xl text-forest">Daftar Sebagai Pemasok Bahan Baku</h4>
+                            </div>
+                            <button type="button" onclick="copyFormShareLink('Penyuplai Bahan Baku')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
+                                Salin Link Form
+                            </button>
+                        </div>
+
+                        <form class="startup-connect-form space-y-4" data-role="Penyuplai Bahan Baku">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Nama Peternak / Koperasi / Pabrik *</label>
+                                    <input type="text" name="orgName" required placeholder="Nama peternakan, koperasi, atau PKS" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-emeraldBrand-leaf focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Komoditas Pasokan *</label>
+                                    <select name="detailType" required class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-emeraldBrand-leaf focus:bg-white focus:outline-none">
+                                        <option value="Kotoran Sapi (Peternak / Jagal)">Kotoran Sapi (Peternak / Jagal)</option>
+                                        <option value="Palm Kernel Shell (PKS) Surplus">Palm Kernel Shell (PKS) Surplus</option>
+                                        <option value="Selulosa TKKS / Bahan Pengikat">Selulosa TKKS / Bahan Pengikat</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Lokasi & Estimasi Volume Harian *</label>
+                                    <input type="text" name="capacity" required placeholder="Contoh: Lokasi & estimasi kg atau ton/hari" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-emeraldBrand-leaf focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Kontak WhatsApp / Email *</label>
+                                    <input type="text" name="contact" required placeholder="Nomor WhatsApp atau alamat email" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-emeraldBrand-leaf focus:bg-white focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">Keterangan Kondisi Bahan Baku & Akses Pengambilan</label>
+                                <textarea name="notes" rows="3" placeholder="Tuliskan detail ketersediaan bahan baku dan jadwal pengambilan..." class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-emeraldBrand-leaf focus:bg-white focus:outline-none"></textarea>
+                            </div>
+
+                            <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emeraldBrand-leaf hover:bg-forest text-white font-heading font-bold text-sm shadow-md transition-all">
+                                Kirim Pendaftaran Penyuplai
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== PANEL 2: BADAN RISET & PERGURUAN TINGGI ==================== -->
+            <div id="panel-riset" class="collab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-amberBrand/30 space-y-5">
+                    <span class="inline-block px-3 py-1 rounded-lg bg-amberBrand-soft text-biochar text-xs font-bold">Portal Khusus Badan Riset</span>
+                    <h3 class="font-heading font-extrabold text-2xl text-forest">Kolaborasi Uji Pilot, Karakterisasi & Validasi BMP</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Sesuai strategi TOWS dan pengembangan produk KLETON-X, kami membuka kolaborasi bersama kampus, laboratorium terakreditasi, dan lembaga riset untuk pengujian standar mutu:
+                    </p>
+                    <ul class="space-y-3 text-xs text-slate-700 bg-white p-4 rounded-2xl border border-slate-200/80">
+                        <li><strong class="text-forest">1. Karakterisasi Fisik & Material:</strong> Pengujian densitas (0,80–1,00 g/cm³), kuat tekan (≥1 MPa), <em>drop resistance</em> (≥95%), waktu disintegrasi (288 detik), dan luas permukaan BET (≥150 m²/g).</li>
+                        <li><strong class="text-forest">2. Uji Kinerja Anaerobic Digestion:</strong> Uji skala pilot bersama kampus/lembaga riset untuk evaluasi <em>methane yield</em> (≥0,34 L CH₄/g VS), kadar CH₄ (55,74–64,02%), serta pH digester (6,9–7,1).</li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-7 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
+                    <div class="h-3 bg-amberBrand"></div>
+                    <div class="p-7 sm:p-9">
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-amberBrand">Form Kolaborasi Badan Riset (G-Form Connect)</span>
+                                <h4 class="font-heading font-extrabold text-xl text-forest">Registrasi Laboratorium & Institusi Riset</h4>
+                            </div>
+                            <button type="button" onclick="copyFormShareLink('Badan Riset & Perguruan Tinggi')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
+                                Salin Link Form
+                            </button>
+                        </div>
+
+                        <form class="startup-connect-form space-y-4" data-role="Badan Riset & Perguruan Tinggi">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Nama Universitas / Lembaga Riset / Lab *</label>
+                                    <input type="text" name="orgName" required placeholder="Nama fakultas, pusat studi, atau laboratorium" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-amberBrand focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Fokus Kerja Sama Riset *</label>
+                                    <select name="detailType" required class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-amberBrand focus:bg-white focus:outline-none">
+                                        <option value="Uji Pilot Anaerobic Co-Digestion POME">Uji Pilot Anaerobic Co-Digestion POME</option>
+                                        <option value="Pengujian Mutu Fisik & Luas Permukaan BET">Pengujian Mutu Fisik & Luas Permukaan BET</option>
+                                        <option value="Pengembangan Formulasi & Binder CMC-TKKS">Pengembangan Formulasi & Binder CMC-TKKS</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Nama Peneliti / Koordinator Lab *</label>
+                                    <input type="text" name="capacity" required placeholder="Nama lengkap penanggung jawab riset" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-amberBrand focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Email Institusi / WhatsApp *</label>
+                                    <input type="text" name="contact" required placeholder="Email akademik atau nomor WhatsApp" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-amberBrand focus:bg-white focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">Deskripsi Fasilitas Pengujian & Kebutuhan Sampel *</label>
+                                <textarea name="notes" rows="3" required placeholder="Jelaskan ruang lingkup pengujian atau kebutuhan sampel briket KLETONX..." class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-amberBrand focus:bg-white focus:outline-none"></textarea>
+                            </div>
+
+                            <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow-md transition-all">
+                                Ajukan Kolaborasi Riset
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== PANEL 3: PEMBELI & MITRA INDUSTRI ==================== -->
+            <div id="panel-pembeli" class="collab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-forest/30 space-y-5">
+                    <span class="inline-block px-3 py-1 rounded-lg bg-forest text-white text-xs font-bold">Portal Khusus Pembeli Industri</span>
+                    <h3 class="font-heading font-extrabold text-2xl text-forest">Segmen Pelanggan Utama: Palm Oil Mill</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Berdasarkan analisis STP proposal KLETON-X, solusi kami ditujukan bagi:
+                    </p>
+                    <ul class="space-y-2.5 text-xs text-slate-700 bg-white p-4 rounded-2xl border border-slate-200/80">
+                        <li>• Pabrik kelapa sawit (<em>Palm Oil Mill</em>) yang sudah memiliki atau sedang mengembangkan unit <em>Anaerobic Digestion</em> (AD) POME.</li>
+                        <li>• Pabrik yang mengalami ketidakstabilan proses AD (akumulasi VFA) dan <em>yield</em> metana rendah.</li>
+                        <li>• Pabrik yang memiliki surplus PKS dan ingin menerapkan praktik ekonomi sirkular <em>on-site</em> untuk meningkatkan energi internal serta menekan emisi metana.</li>
+                    </ul>
+                    <div class="pt-1 text-xs text-slate-500">
+                        <strong>PIC Kemitraan B2B & Pemasaran:</strong> Zaki Akmal Firdausi (CMO) & Lintang Tejoseno (CEO)
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
+                    <div class="h-3 bg-forest"></div>
+                    <div class="p-7 sm:p-9">
+                        <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-forest">Form Pembeli & Kemitraan Mill (G-Form Connect)</span>
+                                <h4 class="font-heading font-extrabold text-xl text-forest">Permintaan Uji Coba, Pembelian & Kontrak Pasokan</h4>
+                            </div>
+                            <button type="button" onclick="copyFormShareLink('Pembeli & Mitra Industri')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
+                                Salin Link Form
+                            </button>
+                        </div>
+
+                        <form id="buyer-connect-form" class="startup-connect-form space-y-4" data-role="Pembeli & Mitra Industri">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Nama Perusahaan / Pabrik Kelapa Sawit *</label>
+                                    <input type="text" name="orgName" required placeholder="Nama PT / Pabrik Kelapa Sawit" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Jenis Kebutuhan *</label>
+                                    <select id="buyer-product-select" name="detailType" required class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                        <option value="KLETONX Kemasan 5–10 Kg">KLETONX Kemasan 5–10 Kg</option>
+                                        <option value="KLETONX Kontrak Pasokan B2B">KLETONX Kontrak Pasokan B2B</option>
+                                        <option value="Paket Uji Coba & Optimasi Proses">Paket Uji Coba & Optimasi Proses</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Kapasitas Digester / Volume Permintaan *</label>
+                                    <input type="text" name="capacity" required placeholder="Contoh: Kapasitas digester POME atau kebutuhan kg/ton" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Kontak PIC (WhatsApp / Email) *</label>
+                                    <input type="text" name="contact" required placeholder="Nama PIC, nomor WA, atau email perusahaan" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">Catatan Kondisi Digester POME & Lokasi Mill</label>
+                                <textarea name="notes" rows="3" placeholder="Jelaskan kondisi sistem AD POME saat ini atau jadwal diskusi teknis yang diharapkan..." class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none"></textarea>
+                            </div>
+
+                            <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-sm shadow-md transition-all">
+                                Kirim Permintaan Pembelian / Kolaborasi Mill
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tim Pendiri KELTON-X (Dari Halaman 1 & 4 Proposal) -->
+            <div class="mt-16 pt-12 border-t border-slate-200/80">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emeraldBrand">Struktur Organisasi Startup</span>
+                    <h3 class="font-heading font-extrabold text-2xl text-forest mt-1">Tim Pengembang KELTON-X (SRE Universitas Airlangga)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <span class="px-2.5 py-0.5 rounded-md bg-forest text-amber-400 text-[11px] font-bold">Chief Executive Officer (CEO)</span>
+                        <h4 class="font-heading font-bold text-lg text-forest mt-2">Lintang Tejoseno</h4>
+                        <p class="text-xs text-slate-600 mt-1">Visi & strategi bisnis, target produksi/penjualan, pengelolaan kontrak pemasok, pelanggan, dan mitra.</p>
+                    </div>
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <span class="px-2.5 py-0.5 rounded-md bg-emeraldBrand text-white text-[11px] font-bold">Chief Operating Officer (COO)</span>
+                        <h4 class="font-heading font-bold text-lg text-forest mt-2">Wulan Sari Janatul Fitri</h4>
+                        <p class="text-xs text-slate-600 mt-1">Pengadaan & mutu bahan baku, operasi pirolisis, pengendalian mutu biochar, pengemasan, gudang, dan K3.</p>
+                    </div>
+                    <div class="bg-cream rounded-2xl p-5 border border-slate-200/80">
+                        <span class="px-2.5 py-0.5 rounded-md bg-amberBrand text-white text-[11px] font-bold">Chief Marketing Officer (CMO)</span>
+                        <h4 class="font-heading font-bold text-lg text-forest mt-2">Zaki Akmal Firdausi</h4>
+                        <p class="text-xs text-slate-600 mt-1">Riset pasar, strategi harga & positioning, kemitraan kelompok tani/peternak & B2B mill, edukasi, dan distribusi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 8. FOOTER ==================== -->
+    <footer class="bg-forest-dark text-emerald-100/80 pt-14 pb-10 border-t border-emerald-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="font-heading font-extrabold text-2xl text-white">KLETON<span class="text-amber-400">X</span></span>
+                    <p class="text-sm leading-relaxed text-emerald-100/80">
+                        Inovasi Briket Terdensifikasi Berbasis Kotoran Sapi dan Biochar PKS untuk <em>POME Anaerobic Co-Digestion</em> dalam Mengoptimalkan Intensitas Produksi Biometana.
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-amber-400 font-heading font-bold text-sm">
+                        <span>Dari Limbah, Jadi Solusi Energi</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 space-y-2.5">
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider">5 Pilar Menu</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#penjelasan-produk" class="hover:text-amber-400 transition-colors">01. Penjelasan Produk</a></li>
+                        <li><a href="#inovasi" class="hover:text-amber-400 transition-colors">02. Inovasi</a></li>
+                        <li><a href="#manfaat" class="hover:text-amber-400 transition-colors">03. Manfaat</a></li>
+                        <li><a href="#cara-penggunaan" class="hover:text-amber-400 transition-colors">04. Cara Penggunaan</a></li>
+                        <li><a href="#kolaborasi" class="hover:text-amber-400 transition-colors">05. Kolaborasi</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-4 space-y-2.5">
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider">Sumber Data & Pustaka</h4>
+                    <p class="text-xs leading-relaxed text-emerald-100/75">
+                        Seluruh spesifikasi teknis, komposisi (70% Biochar PKS : 25% Kotoran Sapi : 5% CMC-TKKS), dan data riset bersumber dari proposal <em>KELTON-X</em> (Ab Rasid et al., 2021; Darwin et al., 2021; Faisal et al., 2019; Idris et al., 2021; Kong et al., 2019; Ngene et al., 2024; Nguyen et al., 2022; Turyamusiima et al., 2025; Yan et al., 2025; Yusof et al., 2023; Zhao et al., 2024).
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/60">
+                <p>&copy; 2026 KLETONX (KELTON-X) • SRE Universitas Airlangga.</p>
+                <p>Portal Terpisah: Penyuplai • Badan Riset • Pembeli Industri</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL TRANSAKSI / PEMBELIAN PENGUNJUNG ==================== -->
+    <div id="quick-order-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+            <button type="button" onclick="closeQuickOrderModal()" aria-label="Tutup" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <span class="inline-block px-3 py-1 rounded-full bg-amberBrand-soft text-amberBrand text-xs font-bold mb-2">Transaksi & Penawaran Pengunjung</span>
+            <h3 id="order-modal-title" class="font-heading font-extrabold text-xl text-forest mb-1">Pesan Produk</h3>
+            <p class="text-xs text-slate-500 mb-4">Data pembelian pengunjung akan memperbarui jumlah pesanan dan harga transaksi pada katalog.</p>
+
+            <form id="quick-order-form" class="space-y-3.5">
+                <input type="hidden" id="order-variant-key">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pembeli / Perusahaan *</label>
+                    <input type="text" id="order-buyer-name" required placeholder="Nama pembeli atau pabrik sawit" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Jumlah Unit *</label>
+                        <input type="number" id="order-qty" min="1" value="1" required class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Harga Satuan (Rp)</label>
+                        <input type="number" id="order-unit-price" min="0" value="0" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Kontak WhatsApp / Email *</label>
+                    <input type="text" id="order-contact" required placeholder="0812xxxx / email@domain.com" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                </div>
+                <button type="submit" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-sm shadow mt-2">
+                    Konfirmasi Pesanan Pengunjung
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Banner -->
+    <div id="toast-banner" class="fixed bottom-5 right-5 z-50 hidden bg-forest text-white px-5 py-3.5 rounded-2xl shadow-xl border border-emerald-500/40 text-xs sm:text-sm font-semibold"></div>
+
+    <!-- ==================== INTERACTIVE JAVASCRIPT ==================== -->
+    <script>
+        // Helper: Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast-banner');
+            toast.textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3400);
+        }
+
+        // 1. Menu Garis Tiga (Slide-Over Drawer)
+        const drawerOpenBtn = document.getElementById('drawer-open-btn');
+        const drawerCloseBtn = document.getElementById('drawer-close-btn');
+        const drawerBackdrop = document.getElementById('nav-drawer-backdrop');
+        const drawerPanel = document.getElementById('nav-drawer-panel');
+        const drawerLinks = document.querySelectorAll('.drawer-link');
+
+        function openNavDrawer() {
+            drawerBackdrop.classList.remove('hidden');
+            setTimeout(() => drawerPanel.classList.remove('translate-x-full'), 10);
+        }
+
+        function closeNavDrawer() {
+            drawerPanel.classList.add('translate-x-full');
+            setTimeout(() => drawerBackdrop.classList.add('hidden'), 280);
+        }
+
+        drawerOpenBtn.addEventListener('click', openNavDrawer);
+        drawerCloseBtn.addEventListener('click', closeNavDrawer);
+        drawerBackdrop.addEventListener('click', (e) => {
+            if (e.target === drawerBackdrop) closeNavDrawer();
+        });
+        drawerLinks.forEach(link => link.addEventListener('click', closeNavDrawer));
+
+        // 2. Dynamic Market State (Prices, Ratings, Reviews, Sold Units - ALL INITIALIZED TO 0)
+        const STORAGE_MARKET_KEY = 'kletonx_market_state_v1';
+        const defaultMarketState = {
+            prices: { pack: 0, bulk: 0, service: 0 },
+            sold: { pack: 0, bulk: 0, service: 0 },
+            reviews: [] // Starts at 0 reviews, 0.0 rating
+        };
+
+        let marketState = JSON.parse(localStorage.getItem(STORAGE_MARKET_KEY)) || JSON.parse(JSON.stringify(defaultMarketState));
+
+        function saveMarketState() {
+            localStorage.setItem(STORAGE_MARKET_KEY, JSON.stringify(marketState));
+        }
+
+        function formatRupiah(num) {
+            return 'Rp ' + (Number(num) || 0).toLocaleString('id-ID');
+        }
+
+        function renderMarketUI() {
+            // Update Prices & Sold Counts
+            ['pack', 'bulk', 'service'].forEach(key => {
+                document.getElementById(`display-price-${key}`).textContent = formatRupiah(marketState.prices[key]);
+                document.getElementById(`display-sold-${key}`).textContent = marketState.sold[key];
+                document.getElementById(`input-price-${key}`).value = marketState.prices[key];
+
+                // Per-variant ratings
+                const varReviews = marketState.reviews.filter(r => r.variant === key);
+                const varCount = varReviews.length;
+                const varAvg = varCount > 0
+                    ? (varReviews.reduce((acc, r) => acc + Number(r.rating), 0) / varCount).toFixed(1)
+                    : '0.0';
+                document.getElementById(`card-rating-${key}`).textContent = varAvg;
+                document.getElementById(`card-revcount-${key}`).textContent = varCount;
+            });
+
+            // Overall Rating & Reviews Count
+            const totalRev = marketState.reviews.length;
+            const overallAvg = totalRev > 0
+                ? (marketState.reviews.reduce((acc, r) => acc + Number(r.rating), 0) / totalRev).toFixed(1)
+                : '0.0';
+
+            document.getElementById('hero-rating-val').textContent = overallAvg;
+            document.getElementById('hero-review-count').textContent = totalRev;
+            document.getElementById('avg-rating-score').textContent = overallAvg;
+            document.getElementById('total-reviews-count').textContent = totalRev;
+
+            const filledStars = Math.round(Number(overallAvg));
+            document.getElementById('avg-rating-stars').textContent = '★'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
+
+            // Render Reviews List
+            const reviewsList = document.getElementById('reviews-list');
+            const emptyPlaceholder = document.getElementById('empty-reviews-placeholder');
+
+            // Remove previously rendered dynamic cards
+            reviewsList.querySelectorAll('.dynamic-review-card').forEach(el => el.remove());
+
+            if (totalRev === 0) {
+                emptyPlaceholder.classList.remove('hidden');
+            } else {
+                emptyPlaceholder.classList.add('hidden');
+                const variantNames = {
+                    pack: 'Kemasan 5–10 Kg',
+                    bulk: 'Kontrak Pasokan B2B',
+                    service: 'Paket Uji Coba & Optimasi'
+                };
+                marketState.reviews.slice().reverse().forEach(rev => {
+                    const card = document.createElement('div');
+                    card.className = 'dynamic-review-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm';
+                    const stars = '★'.repeat(Number(rev.rating)) + '☆'.repeat(5 - Number(rev.rating));
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <span class="font-heading font-bold text-sm text-forest">${rev.name}</span>
+                                <span class="text-[11px] text-slate-400 block">${rev.date}</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-lg bg-cream border border-slate-200 text-xs font-bold text-amber-500">${stars} (${Number(rev.rating).toFixed(1)})</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">"${rev.comment}"</p>
+                        <div class="mt-2 text-[11px] font-semibold text-emeraldBrand">Varian: ${variantNames[rev.variant] || rev.variant}</div>
+                    `;
+                    reviewsList.appendChild(card);
+                });
+            }
+        }
+
+        // Toggle Admin Price Configurator
+        const togglePriceEditorBtn = document.getElementById('toggle-price-editor-btn');
+        const priceEditorPanel = document.getElementById('price-editor-panel');
+        togglePriceEditorBtn.addEventListener('click', () => {
+            priceEditorPanel.classList.toggle('hidden');
+        });
+
+        document.getElementById('price-update-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            marketState.prices.pack = Math.max(0, parseInt(document.getElementById('input-price-pack').value, 10) || 0);
+            marketState.prices.bulk = Math.max(0, parseInt(document.getElementById('input-price-bulk').value, 10) || 0);
+            marketState.prices.service = Math.max(0, parseInt(document.getElementById('input-price-service').value, 10) || 0);
+            saveMarketState();
+            renderMarketUI();
+            priceEditorPanel.classList.add('hidden');
+            showToast('Harga katalog KLETONX berhasil diperbarui!');
+        });
+
+        document.getElementById('reset-market-data-btn').addEventListener('click', () => {
+            marketState = JSON.parse(JSON.stringify(defaultMarketState));
+            saveMarketState();
+            renderMarketUI();
+            showToast('Seluruh harga, rating, ulasan, dan pesanan dikembalikan ke 0.');
+        });
+
+        // Visitor Review Submission
+        document.getElementById('review-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('rev-name').value.trim();
+            const variant = document.getElementById('rev-variant').value;
+            const rating = parseInt(document.getElementById('rev-rating').value, 10);
+            const comment = document.getElementById('rev-comment').value.trim();
+            if (!name || !comment) return;
+
+            marketState.reviews.push({
+                name,
+                variant,
+                rating,
+                comment,
+                date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
+            });
+            saveMarketState();
+            renderMarketUI();
+            e.target.reset();
+
+            const revFeedback = document.getElementById('rev-feedback');
+            revFeedback.classList.remove('hidden');
+            revFeedback.textContent = 'Terima kasih! Penilaian dan ulasan Anda telah memperbarui skor produk.';
+            setTimeout(() => revFeedback.classList.add('hidden'), 4000);
+        });
+
+        // Visitor Quick Order Modal
+        const quickOrderModal = document.getElementById('quick-order-modal');
+        function openQuickOrderModal(variantKey, title) {
+            document.getElementById('order-variant-key').value = variantKey;
+            document.getElementById('order-modal-title').textContent = title;
+            document.getElementById('order-unit-price').value = marketState.prices[variantKey] || 0;
+            quickOrderModal.classList.remove('hidden');
+            quickOrderModal.classList.add('flex');
+        }
+
+        function closeQuickOrderModal() {
+            quickOrderModal.classList.add('hidden');
+            quickOrderModal.classList.remove('flex');
+        }
+
+        quickOrderModal.addEventListener('click', (e) => {
+            if (e.target === quickOrderModal) closeQuickOrderModal();
+        });
+
+        document.getElementById('quick-order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const key = document.getElementById('order-variant-key').value;
+            const buyerName = document.getElementById('order-buyer-name').value.trim();
+            const qty = Math.max(1, parseInt(document.getElementById('order-qty').value, 10) || 1);
+            const unitPrice = Math.max(0, parseInt(document.getElementById('order-unit-price').value, 10) || 0);
+
+            marketState.sold[key] = (marketState.sold[key] || 0) + qty;
+            if (unitPrice > 0) {
+                marketState.prices[key] = unitPrice;
+            }
+            saveMarketState();
+            renderMarketUI();
+            closeQuickOrderModal();
+            e.target.reset();
+            showToast(`Pesanan dari ${buyerName} (${qty} unit) berhasil dicatat!`);
+        });
+
+        // 3. Editable Cara Penggunaan (Default from Attachment Kemasan & Proposal, Editable Anytime)
+        const STORAGE_USAGE_KEY = 'kletonx_usage_guide_v1';
+        const defaultUsageData = {
+            steps: [
+                {
+                    title: 'Masukkan Briket KLETONX ke Dalam Digester',
+                    desc: 'Umpankan briket silindris KLETONX (Ø 30 mm × 50 mm) ke dalam unit digester anaerobik POME.'
+                },
+                {
+                    title: 'Gunakan Dosis Sesuai Rekomendasi Teknis',
+                    desc: 'Takar briket berdasarkan beban organik dan volume reaktor POME sesuai hasil evaluasi kompatibilitas teknis.'
+                },
+                {
+                    title: 'Aduk Secara Merata',
+                    desc: 'Lakukan pengadukan merata agar briket menyerap cairan (20–50%) dan terdisintegrasi terkendali (~288 detik) sehingga mikroba berkontak efektif.'
+                },
+                {
+                    title: 'Pantau Performa Digester Secara Berkala',
+                    desc: 'Monitor pH digester (target 6,9–7,1), volume biogas kumulatif, serta kadar metana (target 55,74–64,02%) secara rutin.'
+                }
+            ],
+            storage: 'Simpan di tempat kering (gudang beratap dengan kelembapan relatif ≤ 60%, ditempatkan di atas palet, dan karung tersegel rapat).',
+            updatedAt: 'Default Lampiran'
+        };
+
+        let usageData = JSON.parse(localStorage.getItem(STORAGE_USAGE_KEY)) || JSON.parse(JSON.stringify(defaultUsageData));
+
+        function renderUsageGuide() {
+            const grid = document.getElementById('usage-steps-grid');
+            grid.innerHTML = '';
+            usageData.steps.forEach((step, idx) => {
+                const card = document.createElement('div');
+                card.className = 'bg-cream/80 rounded-2xl p-5 border border-slate-200/80 flex items-start gap-4';
+                card.innerHTML = `
+                    <span class="w-9 h-9 rounded-xl bg-forest text-white font-heading font-bold flex items-center justify-center flex-shrink-0 text-sm">${idx + 1}</span>
+                    <div>
+                        <h3 class="font-heading font-bold text-base text-forest">${step.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${step.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            document.getElementById('usage-storage-note').textContent = usageData.storage;
+            document.getElementById('usage-last-updated').textContent = `Status: ${usageData.updatedAt}`;
+        }
+
+        const usageDisplayContainer = document.getElementById('usage-display-container');
+        const usageEditorContainer = document.getElementById('usage-editor-container');
+        const toggleEditUsageBtn = document.getElementById('toggle-edit-usage-btn');
+
+        function openUsageEditor() {
+            const fieldsContainer = document.getElementById('usage-edit-fields');
+            fieldsContainer.innerHTML = '';
+            usageData.steps.forEach((step, idx) => {
+                const row = document.createElement('div');
+                row.className = 'bg-cream/60 p-4 rounded-2xl border border-slate-200 space-y-2';
+                row.innerHTML = `
+                    <label class="block text-xs font-bold text-forest">Langkah ${idx + 1} — Judul</label>
+                    <input type="text" data-step-title="${idx}" value="${step.title.replace(/"/g, '&quot;')}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-semibold focus:border-forest focus:outline-none">
+                    <label class="block text-xs font-bold text-slate-600">Penjelasan Detail</label>
+                    <textarea rows="2" data-step-desc="${idx}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:outline-none">${step.desc}</textarea>
+                `;
+                fieldsContainer.appendChild(row);
+            });
+            document.getElementById('edit-usage-storage').value = usageData.storage;
+            usageEditorContainer.classList.remove('hidden');
+            usageEditorContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        toggleEditUsageBtn.addEventListener('click', openUsageEditor);
+        document.getElementById('cancel-edit-usage-btn').addEventListener('click', () => {
+            usageEditorContainer.classList.add('hidden');
+        });
+
+        document.getElementById('usage-edit-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            usageData.steps.forEach((step, idx) => {
+                step.title = document.querySelector(`[data-step-title="${idx}"]`).value.trim();
+                step.desc = document.querySelector(`[data-step-desc="${idx}"]`).value.trim();
+            });
+            usageData.storage = document.getElementById('edit-usage-storage').value.trim();
+            usageData.updatedAt = 'Diperbarui ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+            localStorage.setItem(STORAGE_USAGE_KEY, JSON.stringify(usageData));
+            renderUsageGuide();
+            usageEditorContainer.classList.add('hidden');
+            showToast('Penjelasan Cara Penggunaan berhasil diperbarui!');
+        });
+
+        document.getElementById('reset-usage-default-btn').addEventListener('click', () => {
+            usageData = JSON.parse(JSON.stringify(defaultUsageData));
+            localStorage.setItem(STORAGE_USAGE_KEY, JSON.stringify(usageData));
+            renderUsageGuide();
+            usageEditorContainer.classList.add('hidden');
+            showToast('Panduan dikembalikan ke teks default lampiran.');
+        });
+
+        // 4. Separated Collaboration Portals (Penyuplai, Badan Riset, Pembeli)
+        const collabTabBtns = document.querySelectorAll('.collab-tab-btn');
+        const collabPanels = document.querySelectorAll('.collab-panel');
+
+        function switchCollabTab(targetTab) {
+            collabTabBtns.forEach(btn => {
+                const isTarget = btn.getAttribute('data-collab-tab') === targetTab;
+                btn.classList.remove('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40', 'border-amberBrand', 'bg-amberBrand-soft/40', 'border-forest', 'bg-emeraldBrand-soft/30', 'shadow-sm');
+                btn.classList.add('border-slate-200', 'bg-cream');
+
+                if (isTarget) {
+                    btn.classList.remove('border-slate-200', 'bg-cream');
+                    btn.classList.add('shadow-sm');
+                    if (targetTab === 'penyuplai') btn.classList.add('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40');
+                    if (targetTab === 'riset') btn.classList.add('border-amberBrand', 'bg-amberBrand-soft/40');
+                    if (targetTab === 'pembeli') btn.classList.add('border-forest', 'bg-emeraldBrand-soft/30');
+                }
+            });
+
+            collabPanels.forEach(panel => {
+                if (panel.id === `panel-${targetTab}`) {
+                    panel.classList.remove('hidden');
+                } else {
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        collabTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => switchCollabTab(btn.getAttribute('data-collab-tab')));
+        });
+
+        document.querySelectorAll('.startup-connect-form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const role = form.getAttribute('data-role');
+                const orgName = form.querySelector('[name="orgName"]').value.trim();
+                const detailType = form.querySelector('[name="detailType"]').value;
+                const capacity = form.querySelector('[name="capacity"]').value.trim();
+                const contact = form.querySelector('[name="contact"]').value.trim();
+                const resultBox = form.querySelector('.form-result');
+
+                const ticketId = 'KLX-' + Math.floor(1000 + Math.random() * 9000);
+                resultBox.className = 'form-result rounded-2xl p-4 text-xs sm:text-sm bg-emeraldBrand-soft/80 border border-emeraldBrand/40 text-forest block';
+                resultBox.innerHTML = `
+                    <strong>Pendaftaran Jalur ${role} Berhasil!</strong><br>
+                    ID Kemitraan: <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emeraldBrand/30">${ticketId}</span><br>
+                    Instansi: <strong>${orgName}</strong> (${detailType} • ${capacity}). Tim KLETON-X akan menghubungi <strong>${contact}</strong>.
+                `;
+                form.reset();
+            });
+        });
+
+        function copyFormShareLink(portalName) {
+            const shareText = `${window.location.origin}${window.location.pathname}#kolaborasi (${portalName})`;
+            const tempInput = document.createElement('input');
+            tempInput.value = shareText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Tautan formulir ${portalName} berhasil disalin!`);
+        }
+
+        // Initial Render
+        renderMarketUI();
+        renderUsageGuide();
+    </script>
+</body>
+</html>
