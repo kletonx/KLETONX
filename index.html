@@ -79,7 +79,7 @@
 </head>
 <body class="antialiased selection:bg-emeraldBrand selection:text-white">
 
-    <!-- ==================== 1. HEADER & MENU GARIS TIGA + GOOGLE AUTH STATUS ==================== -->
+    <!-- ==================== 1. HEADER & MENU GARIS TIGA ==================== -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-900/10 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -102,15 +102,19 @@
                                     <stop offset="100%" stop-color="#A1887F"/>
                                 </linearGradient>
                             </defs>
+                            <!-- Sabit Daun Hijau Kiri -->
                             <path d="M58 26C33 27 18 47 21 71C24 91 43 102 64 98C47 93 37 78 39 60C41 44 49 32 58 26Z" fill="url(#navLeafGrad)"/>
                             <path d="M47 38C34 48 31 67 41 82C39 66 43 51 54 41C51 39 49 38 47 38Z" fill="#9CCC65" opacity="0.85"/>
+                            <!-- Nyala Api Biogas Kuning-Emas Atas -->
                             <path d="M45 55C43 41 53 31 63 23C66 20 67 15 65 11C77 16 83 28 77 40C72 49 58 51 45 55Z" fill="url(#navFlameGrad)"/>
+                            <!-- 3 Gelembung Gas Kanan-Atas -->
                             <circle cx="85" cy="21" r="3" fill="#FBBF24"/>
                             <circle cx="96" cy="27" r="6" fill="#F59E0B"/>
                             <circle cx="94" cy="25" r="2" fill="#FEF08A"/>
                             <circle cx="101" cy="38" r="3.5" fill="#FBBF24"/>
                             <path d="M77 35C83 34 89 35 94 38" stroke="#FBBF24" stroke-width="2.2" stroke-linecap="round"/>
                             <path d="M75 41C82 40 89 41 95 44" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Sabit Biochar Cokelat Berpori Kanan-Bawah -->
                             <path d="M62 43C77 41 91 51 94 67C98 88 81 107 58 107C41 107 27 97 22 82C32 95 49 99 64 93C78 87 84 71 78 57C74 49 68 45 62 43Z" fill="url(#navBiocharGrad)"/>
                             <circle cx="85" cy="58" r="3.2" fill="#2D1B12"/>
                             <circle cx="90" cy="67" r="2.2" fill="#2D1B12"/>
@@ -139,30 +143,20 @@
                     <a href="#cara-penggunaan" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Cara Penggunaan</a>
                     <a href="#kolaborasi" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Kolaborasi</a>
                     <a href="#database-crm" class="text-xs font-bold text-amberBrand hover:text-amber-700 transition-colors flex items-center gap-1">
-                        <span>Admin & Database</span>
+                        <span>Database Pesanan</span>
                         <span id="nav-order-badge" class="px-1.5 py-0.5 rounded-full bg-forest text-white text-[10px]">0</span>
                     </a>
                 </nav>
 
-                <!-- Right Controls: Google Account Pill + Cek Pesanan + Menu Garis Tiga -->
-                <div class="flex items-center gap-2">
-                    <!-- Google Login / Active Session Button -->
-                    <button id="header-google-auth-btn" type="button" onclick="openGoogleAuthModal()" class="inline-flex items-center gap-2 bg-white hover:bg-cream border border-slate-300 text-slate-800 font-heading font-bold text-xs px-3 py-2 rounded-xl shadow-sm transition-all">
-                        <span id="header-google-avatar-wrap" class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24">
-                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.54-1.14 2.85-2.4 3.72v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.72z"/>
-                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
-                                <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
-                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
-                            </svg>
-                        </span>
-                        <span id="header-google-label" class="max-w-[110px] sm:max-w-[160px] truncate">Login Google</span>
-                        <span id="header-admin-pill" class="hidden px-1.5 py-0.5 rounded-md bg-amberBrand text-white text-[10px] font-extrabold uppercase">ADMIN</span>
-                    </button>
-
-                    <button type="button" onclick="openTrackOrderModal()" class="hidden md:inline-flex items-center gap-1.5 bg-cream hover:bg-emeraldBrand-soft/60 border border-slate-200 text-forest font-heading font-bold text-xs px-3 py-2.5 rounded-xl transition-all">
+                <!-- Right Controls: Cek Pesanan + Tombol Garis Tiga -->
+                <div class="flex items-center gap-2.5">
+                    <button type="button" onclick="openTrackOrderModal()" class="hidden sm:inline-flex items-center gap-1.5 bg-cream hover:bg-emeraldBrand-soft/60 border border-slate-200 text-forest font-heading font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all">
                         <svg class="w-4 h-4 text-emeraldBrand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         <span>Cek Pesanan</span>
+                    </button>
+
+                    <button type="button" onclick="openOrderCheckoutModal('pack')" class="hidden md:inline-flex items-center gap-1.5 bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all">
+                        <span>Pesan Sekarang</span>
                     </button>
 
                     <!-- Menu Garis Tiga (Hamburger Drawer Trigger) -->
@@ -170,14 +164,14 @@
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
-                        <span class="hidden sm:inline">Menu</span>
+                        <span>Menu</span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ==================== SLIDE-OVER MENU GARIS TIGA (6 PILAR FULL-STACK + AKUN GOOGLE) ==================== -->
+    <!-- ==================== SLIDE-OVER MENU GARIS TIGA (6 PILAR FULL-STACK) ==================== -->
     <div id="nav-drawer-backdrop" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm drawer-backdrop">
         <div id="nav-drawer-panel" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl border-l border-slate-200 flex flex-col justify-between translate-x-full drawer-panel">
             <div class="p-6 overflow-y-auto">
@@ -188,18 +182,6 @@
                     </div>
                     <button id="drawer-close-btn" type="button" aria-label="Tutup Menu" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                    </button>
-                </div>
-
-                <!-- Drawer Google Account Summary -->
-                <div id="drawer-google-card" class="mt-4 p-3.5 rounded-2xl bg-cream border border-slate-200/90 flex items-center justify-between gap-2">
-                    <div class="min-w-0">
-                        <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Sesi Akun Google</div>
-                        <div id="drawer-google-email" class="text-xs font-bold text-forest truncate">Belum login akun Google</div>
-                        <div id="drawer-google-role" class="text-[11px] text-slate-500">Login wajib sebelum pemesanan & kolaborasi</div>
-                    </div>
-                    <button type="button" onclick="closeNavDrawer(); openGoogleAuthModal();" class="px-3 py-1.5 rounded-xl bg-forest text-white font-heading font-bold text-[11px] flex-shrink-0">
-                        Kelola
                     </button>
                 </div>
 
@@ -233,7 +215,7 @@
                         <div class="w-9 h-9 rounded-xl bg-biochar text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs group-hover:bg-amberBrand transition-colors">04</div>
                         <div>
                             <div class="font-heading font-bold text-sm text-forest">Cara Penggunaan</div>
-                            <div class="text-[11px] text-slate-500">Prosedur digester POME (dapat diedit Admin & disimpan ke DB)</div>
+                            <div class="text-[11px] text-slate-500">Prosedur digester POME (dapat diedit & disimpan ke database)</div>
                         </div>
                     </a>
 
@@ -249,10 +231,10 @@
                         <div class="w-9 h-9 rounded-xl bg-forest text-amber-400 flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs">06</div>
                         <div>
                             <div class="font-heading font-bold text-sm text-forest flex items-center gap-2">
-                                <span>Admin & Database</span>
+                                <span>Database & Admin CRM</span>
                                 <span id="drawer-order-count" class="px-1.5 py-0.5 rounded bg-forest text-white text-[10px]">0</span>
                             </div>
-                            <div class="text-[11px] text-slate-600">Verifikasi Admin (z.akmal.firdausi@gmail.com), rekap pesanan & mitra</div>
+                            <div class="text-[11px] text-slate-600">Rekap data pemesan, status pesanan, mitra terdaftar & export CSV</div>
                         </div>
                     </a>
                 </nav>
@@ -262,7 +244,7 @@
                 <button type="button" onclick="closeNavDrawer(); openTrackOrderModal();" class="w-full py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-forest font-heading font-bold text-xs">
                     Lacak Status Pesanan (ID / WhatsApp)
                 </button>
-                <button type="button" onclick="closeNavDrawer(); guardActionThen('order', () => openOrderCheckoutModal('pack'));" class="w-full py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
+                <button type="button" onclick="closeNavDrawer(); openOrderCheckoutModal('pack');" class="w-full py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
                     Buat Pesanan Baru
                 </button>
             </div>
@@ -285,6 +267,7 @@
                             <span>Inovasi Briket Terdensifikasi</span>
                         </div>
 
+                        <!-- Official KLETONX Emblem -->
                         <div class="mx-auto w-44 h-44 sm:w-48 sm:h-48 flex items-center justify-center my-1">
                             <svg class="w-full h-full drop-shadow-md" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
@@ -308,15 +291,19 @@
                                         <stop offset="100%" stop-color="#9C786C"/>
                                     </linearGradient>
                                 </defs>
+                                <!-- Sabit Daun Hijau Kiri -->
                                 <path d="M97 44C54 46 30 79 35 119C40 153 72 172 108 165C79 157 62 131 66 101C69 74 82 54 97 44Z" fill="url(#heroLeafGrad)"/>
                                 <path d="M78 64C56 81 51 113 68 138C65 111 72 86 90 69C85 66 82 64 78 64Z" fill="url(#heroLeafHighlight)"/>
+                                <!-- Nyala Api Biogas Kuning-Emas -->
                                 <path d="M75 93C72 69 89 52 106 38C111 33 113 25 109 18C130 27 140 47 130 67C121 83 97 86 75 93Z" fill="url(#heroFlameGrad)"/>
+                                <!-- 3 Gelembung Gas Kanan-Atas -->
                                 <circle cx="143" cy="35" r="5" fill="#FBBF24"/>
                                 <circle cx="162" cy="45" r="10.5" fill="#F59E0B"/>
                                 <circle cx="158" cy="41" r="3.5" fill="#FEF9C3"/>
                                 <circle cx="170" cy="64" r="6" fill="#FBBF24"/>
                                 <path d="M130 59C140 57 150 59 158 64" stroke="#FBBF24" stroke-width="3.5" stroke-linecap="round"/>
                                 <path d="M126 69C138 67 150 69 160 74" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                                <!-- Sabit Biochar Cokelat Berpori Kanan-Bawah -->
                                 <path d="M104 72C130 69 153 86 159 113C165 148 136 180 97 180C68 180 45 163 37 138C54 160 82 167 108 156C131 146 141 119 131 96C124 82 114 75 104 72Z" fill="url(#heroBiocharGrad)"/>
                                 <circle cx="143" cy="98" r="5.5" fill="#26160E"/>
                                 <circle cx="152" cy="113" r="3.8" fill="#26160E"/>
@@ -334,6 +321,7 @@
                             Biochar PKS • Kotoran Sapi • CMC-TKKS
                         </p>
 
+                        <!-- Live Database Counter Summary -->
                         <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-xs">
                             <div>
                                 <div class="font-heading font-extrabold text-forest text-base" id="hero-rating-val">0.0</div>
@@ -355,7 +343,7 @@
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emeraldBrand/40 border border-emerald-400/30 text-emerald-100 text-xs sm:text-sm font-semibold">
                         <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                        <span>KELTON-X • Google Auth & Admin Verified</span>
+                        <span>KELTON-X • POME Anaerobic Co-Digestion</span>
                     </div>
 
                     <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
@@ -363,19 +351,19 @@
                     </h1>
 
                     <p class="text-base sm:text-lg text-emerald-100/90 leading-relaxed max-w-2xl">
-                        Mengintegrasikan komposit <strong>70% Biochar Palm Kernel Shell (PKS)</strong>, <strong>25% kotoran sapi praolah</strong>, dan <strong>5% pengikat CMC-TKKS</strong> ke dalam format briket silindris fungsional (Ø 30 mm × 50 mm). Pemesanan, kolaborasi, serta manajemen admin terverifikasi melalui <strong>Login Akun Google</strong>.
+                        Mengintegrasikan komposit <strong>70% Biochar Palm Kernel Shell (PKS)</strong>, <strong>25% kotoran sapi praolah</strong>, dan <strong>5% pengikat CMC-TKKS</strong> ke dalam format briket silindris fungsional (Ø 30 mm × 50 mm) untuk mendukung kestabilan <em>anaerobic co-digestion</em> Palm Oil Mill Effluent (POME).
                     </p>
 
                     <div class="flex flex-wrap gap-3.5 pt-2">
-                        <button type="button" onclick="guardActionThen('order', () => openOrderCheckoutModal('pack'))" class="inline-flex justify-center items-center gap-2 bg-amberBrand hover:bg-amber-600 text-white font-heading font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all">
+                        <button type="button" onclick="openOrderCheckoutModal('pack')" class="inline-flex justify-center items-center gap-2 bg-amberBrand hover:bg-amber-600 text-white font-heading font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all">
                             <span>Pesan Produk KLETONX</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </button>
-                        <button type="button" onclick="openGoogleAuthModal()" class="inline-flex justify-center items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/30 text-white font-heading font-semibold px-5 py-3.5 rounded-xl transition-all">
-                            <span>Login Akun Google / Admin</span>
-                        </button>
-                        <a href="#database-crm" class="inline-flex justify-center items-center gap-2 bg-emeraldBrand/50 hover:bg-emeraldBrand/70 border border-emerald-400/30 text-white font-heading font-semibold px-5 py-3.5 rounded-xl transition-all">
-                            <span>Database & Admin</span>
+                        <a href="#database-crm" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-heading font-semibold px-6 py-3.5 rounded-xl transition-all">
+                            <span>Lihat Rekap Database Pesanan</span>
+                        </a>
+                        <a href="#kolaborasi" class="inline-flex justify-center items-center gap-2 bg-emeraldBrand/50 hover:bg-emeraldBrand/70 border border-emerald-400/30 text-white font-heading font-semibold px-5 py-3.5 rounded-xl transition-all">
+                            <span>Portal Kemitraan</span>
                         </a>
                     </div>
                 </div>
@@ -433,6 +421,7 @@
                     </span>
                 </div>
 
+                <!-- Proporsi Bar -->
                 <div class="w-full h-9 rounded-2xl overflow-hidden flex font-heading font-bold text-xs text-white shadow-inner mb-8">
                     <div class="bg-biochar flex items-center justify-center px-2 text-center" style="width: 70%;">70% Biochar PKS (250–500 µm)</div>
                     <div class="bg-emeraldBrand-leaf flex items-center justify-center px-2 text-center" style="width: 25%;">25% Kotoran Sapi (&lt;1 mm)</div>
@@ -440,6 +429,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Bahan 1: 70% Biochar PKS -->
                     <div class="bg-white rounded-2xl p-6 border-t-4 border-biochar shadow-sm flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start gap-2 mb-3">
@@ -460,6 +450,7 @@
                         </div>
                     </div>
 
+                    <!-- Bahan 2: 25% Padatan Kotoran Sapi Praolah -->
                     <div class="bg-white rounded-2xl p-6 border-t-4 border-emeraldBrand-leaf shadow-sm flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start gap-2 mb-3">
@@ -480,6 +471,7 @@
                         </div>
                     </div>
 
+                    <!-- Bahan 3: 5% Pengikat CMC-TKKS -->
                     <div class="bg-white rounded-2xl p-6 border-t-4 border-amberBrand shadow-sm flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start gap-2 mb-3">
@@ -586,20 +578,20 @@
                 </div>
             </div>
 
-            <!-- ==================== KATALOG PRODUK & PEMESANAN (Wajib Login Google) ==================== -->
+            <!-- ==================== KATALOG PRODUK & FORMULIR PEMESANAN TERINTEGRASI ==================== -->
             <div class="mb-14">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">Katalog Komersial & Pemesanan</span>
                         <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Pilih Varian Produk & Buat Pesanan</h3>
                         <p class="text-xs sm:text-sm text-slate-600 mt-1">
-                            Pemesanan memerlukan <strong>Login Akun Google</strong>. Pengaturan harga katalog dikhususkan untuk Admin terverifikasi (<code class="text-xs bg-cream px-1.5 py-0.5 rounded">z.akmal.firdausi@gmail.com</code>).
+                            Harga awal, rating, ulasan, dan jumlah unit terpesan dimulai dari <strong>0</strong> dan otomatis tersimpan di database setiap ada transaksi atau penilaian pengunjung.
                         </p>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2.5">
-                        <button type="button" id="toggle-price-editor-btn" onclick="guardActionThen('admin', () => document.getElementById('price-editor-panel').classList.toggle('hidden'))" class="px-4 py-2.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-300 text-forest font-heading font-bold text-xs transition-colors">
-                            Atur Harga Produk (Admin)
+                        <button type="button" id="toggle-price-editor-btn" class="px-4 py-2.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-300 text-forest font-heading font-bold text-xs transition-colors">
+                            Atur Harga Produk (DB)
                         </button>
                         <button type="button" onclick="openTrackOrderModal()" class="px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs transition-colors">
                             Lacak Status Pesanan
@@ -607,12 +599,9 @@
                     </div>
                 </div>
 
-                <!-- Admin Price Configurator (Protected for z.akmal.firdausi@gmail.com) -->
+                <!-- Collapsible Admin Price Configurator (Persisted to Database) -->
                 <div id="price-editor-panel" class="hidden mb-8 bg-cream rounded-2xl p-6 border border-amberBrand/40">
-                    <div class="flex items-center justify-between gap-2 mb-1">
-                        <h4 class="font-heading font-bold text-sm text-forest">Pengaturan Harga Katalog (Khusus Admin Terverifikasi)</h4>
-                        <span class="px-2.5 py-0.5 rounded-full bg-amberBrand text-white text-[10px] font-bold">Admin: z.akmal.firdausi@gmail.com</span>
-                    </div>
+                    <h4 class="font-heading font-bold text-sm text-forest mb-1">Pengaturan Harga Katalog (Tersimpan Permanen di Database)</h4>
                     <p class="text-xs text-slate-500 mb-4">Masukkan harga satuan dalam Rupiah (default 0 untuk skema penawaran/negosiasi B2B).</p>
                     <form id="price-update-form" class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
                         <div>
@@ -635,6 +624,7 @@
 
                 <!-- 3 Product Cards -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Varian 1: Kemasan Karung 5-10 Kg -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-gradient-to-br from-forest to-emeraldBrand p-6 text-white">
@@ -666,12 +656,13 @@
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="guardActionThen('order', () => openOrderCheckoutModal('pack'))" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                            <button type="button" onclick="openOrderCheckoutModal('pack')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
                                 Pesan Varian Ini
                             </button>
                         </div>
                     </div>
 
+                    <!-- Varian 2: Curah / Bulk Tonase -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-gradient-to-br from-biochar-dark to-biochar p-6 text-white">
@@ -703,12 +694,13 @@
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="guardActionThen('order', () => openOrderCheckoutModal('bulk'))" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                            <button type="button" onclick="openOrderCheckoutModal('bulk')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
                                 Pesan Curah / Kontrak
                             </button>
                         </div>
                     </div>
 
+                    <!-- Varian 3: Layanan Uji Coba & Pendampingan Teknis -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-gradient-to-br from-emeraldBrand to-forest-light p-6 text-white">
@@ -740,7 +732,7 @@
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="guardActionThen('order', () => openOrderCheckoutModal('service'))" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                            <button type="button" onclick="openOrderCheckoutModal('service')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
                                 Pesan Uji Coba Teknis
                             </button>
                         </div>
@@ -748,13 +740,13 @@
                 </div>
             </div>
 
-            <!-- ==================== RATING & ULASAN PENGUNJUNG ==================== -->
+            <!-- ==================== RATING & ULASAN PENGUNJUNG (MULAI DARI 0 & TERSIMPAN DI DB) ==================== -->
             <div id="ulasan-produk" class="bg-cream rounded-3xl p-6 sm:p-10 border border-slate-200">
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-200/80">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-amberBrand">Penilaian Pengunjung & Pembeli</span>
                         <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Rating & Ulasan Produk KLETONX</h3>
-                        <p class="text-sm text-slate-600 mt-1">Skor awal dimulai dari <strong>0.0 (0 Ulasan)</strong>. Setiap ulasan tersimpan otomatis di database dan memperbarui rating secara <em>real-time</em>.</p>
+                        <p class="text-sm text-slate-600 mt-1">Skor awal dimulai dari <strong>0.0 (0 Ulasan)</strong>. Setiap ulasan pengunjung tersimpan otomatis di database dan memperbarui rating secara <em>real-time</em>.</p>
                     </div>
 
                     <div class="flex items-center gap-4 bg-white px-5 py-4 rounded-2xl border border-slate-200/80">
@@ -770,6 +762,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+                    <!-- Dynamic Reviews Container -->
                     <div class="lg:col-span-7 space-y-4" id="reviews-list">
                         <div id="empty-reviews-placeholder" class="bg-white rounded-2xl p-8 border border-dashed border-slate-300 text-center">
                             <div class="font-heading font-bold text-base text-forest mb-1">Belum Ada Ulasan (0)</div>
@@ -779,6 +772,7 @@
                         </div>
                     </div>
 
+                    <!-- Visitor Rating & Review Submission Form -->
                     <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
                         <h4 class="font-heading font-bold text-lg text-forest mb-1">Tulis Rating & Ulasan Anda</h4>
                         <p class="text-xs text-slate-500 mb-4">Ulasan Anda akan tersimpan permanen di database produk KLETONX.</p>
@@ -838,6 +832,7 @@
                 </p>
             </div>
 
+            <!-- Kebaruan & Bukti Empiris -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
                 <div class="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-sm">
                     <span class="px-3 py-1 rounded-full bg-emeraldBrand-soft text-forest text-xs font-bold">Bukti Biochar pada AD POME</span>
@@ -856,6 +851,7 @@
                 </div>
             </div>
 
+            <!-- 4 Tahapan Fabrikasi Utama -->
             <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90">
                 <h3 class="font-heading font-extrabold text-2xl text-forest mb-6">Tahapan Fabrikasi Terintegrasi KLETON-X</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -958,7 +954,7 @@
         </div>
     </section>
 
-    <!-- ==================== 6. CARA PENGGUNAAN (ADMIN PROTECTED EDITING) ==================== -->
+    <!-- ==================== 6. CARA PENGGUNAAN (EDITABLE & PERSISTED TO CLOUD DB) ==================== -->
     <section id="cara-penggunaan" class="py-20 bg-cream border-b border-slate-200/80">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -966,18 +962,19 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">04 • Panduan Operasional (Tersinkronisasi Database)</span>
                     <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Cara Penggunaan Briket KLETONX</h2>
                     <p class="text-sm text-slate-600 mt-2">
-                        Mengikuti panduan pada kemasan lampiran; perubahan panduan dikhususkan untuk Admin terverifikasi (<code class="text-xs bg-white px-1.5 py-0.5 rounded">z.akmal.firdausi@gmail.com</code>).
+                        Mengikuti panduan pada kemasan lampiran dan dapat diubah sewaktu-waktu lalu disimpan langsung ke database.
                     </p>
                 </div>
 
                 <div class="flex items-center gap-2.5">
                     <button type="button" id="toggle-edit-usage-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                        <span>Ubah Penjelasan (Admin)</span>
+                        <span>Ubah Penjelasan Cara Penggunaan</span>
                     </button>
                 </div>
             </div>
 
+            <!-- Display Mode: Usage Steps -->
             <div id="usage-display-container" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="usage-steps-grid"></div>
 
@@ -990,10 +987,11 @@
                 </div>
             </div>
 
+            <!-- Inline Editor Panel -->
             <div id="usage-editor-container" class="hidden bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand shadow-lg mt-6">
                 <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
                     <div>
-                        <span class="text-xs font-bold uppercase text-amberBrand">Mode Edit Panduan Penggunaan (Admin)</span>
+                        <span class="text-xs font-bold uppercase text-amberBrand">Mode Edit Panduan Penggunaan</span>
                         <h3 class="font-heading font-extrabold text-lg text-forest">Perbarui Langkah & Penjelasan Cara Penggunaan</h3>
                     </div>
                     <button type="button" id="reset-usage-default-btn" class="text-xs font-semibold text-slate-500 hover:text-red-600 underline">
@@ -1022,17 +1020,18 @@
         </div>
     </section>
 
-    <!-- ==================== 7. PORTAL KOLABORASI TERPISAH (WAJIB LOGIN GOOGLE) ==================== -->
+    <!-- ==================== 7. PORTAL KOLABORASI TERPISAH (PENYUPLAI, BADAN RISET, PEMBELI) ==================== -->
     <section id="kolaborasi" class="py-20 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">05 • Platform Connect & Kolaborasi KLETONX</span>
                 <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Akses Kemitraan Terpisah: Penyuplai, Badan Riset & Pembeli</h2>
                 <p class="text-slate-600 mt-4 leading-relaxed">
-                    Pengiriman formulir kolaborasi memerlukan <strong>Login Akun Google</strong> dan otomatis mencatat identitas akun Google Anda beserta data mitra ke database cloud KLETONX.
+                    Seluruh pendaftaran mitra dari ketiga jalur akses di bawah ini langsung tercatat permanen di database cloud KLETONX.
                 </p>
             </div>
 
+            <!-- 3 Separated Access Tabs -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10" role="tablist">
                 <button type="button" data-collab-tab="penyuplai" class="collab-tab-btn active text-left p-5 rounded-2xl border-2 border-emeraldBrand-leaf bg-emeraldBrand-soft/40 shadow-sm transition-all">
                     <div class="flex items-center justify-between mb-2">
@@ -1085,7 +1084,7 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-emeraldBrand-leaf">Form Pendaftaran Penyuplai (Login Google)</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emeraldBrand-leaf">Form Pendaftaran Penyuplai (Tersimpan ke DB)</span>
                                 <h4 class="font-heading font-extrabold text-xl text-forest">Daftar Sebagai Pemasok Bahan Baku</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Penyuplai Bahan Baku')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
@@ -1154,7 +1153,7 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-amberBrand">Form Kolaborasi Badan Riset (Login Google)</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-amberBrand">Form Kolaborasi Badan Riset (Tersimpan ke DB)</span>
                                 <h4 class="font-heading font-extrabold text-xl text-forest">Registrasi Laboratorium & Institusi Riset</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Badan Riset & Perguruan Tinggi')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
@@ -1227,7 +1226,7 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-forest">Form Pembeli & Kemitraan Mill (Login Google)</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-forest">Form Pembeli & Kemitraan Mill (Tersimpan ke DB)</span>
                                 <h4 class="font-heading font-extrabold text-xl text-forest">Registrasi Kemitraan Jangka Panjang Mill</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Pembeli & Mitra Industri')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
@@ -1304,20 +1303,20 @@
         </div>
     </section>
 
-    <!-- ==================== 8. FULL-STACK DATABASE & ADMIN VERIFICATION DASHBOARD ==================== -->
+    <!-- ==================== 8. FULL-STACK DATABASE & ADMIN CRM DASHBOARD ==================== -->
     <section id="database-crm" class="py-20 bg-cream">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-10">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">06 • Back-End Database & Admin Verification</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">06 • Back-End Database & Admin CRM</span>
                     <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Rekap Data Pemesanan Pelanggan & Mitra Terdaftar</h2>
                     <p class="text-sm text-slate-600 mt-2">
-                        Akses penuh manajemen status pesanan, penghapusan data, serta export CSV diverifikasi otomatis melalui akun Google Admin: <strong class="text-forest">z.akmal.firdausi@gmail.com</strong>.
+                        Seluruh transaksi pemesanan dan registrasi kolaborasi tersimpan di cloud database secara <em>real-time</em>. Tim dapat memperbarui status pesanan maupun mengekspor data ke file CSV/Excel.
                     </p>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2.5">
-                    <button type="button" onclick="guardActionThen('order', () => openOrderCheckoutModal('pack'))" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs shadow">
+                    <button type="button" onclick="openOrderCheckoutModal('pack')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs shadow">
                         <span>+ Tambah Pesanan</span>
                     </button>
                     <button type="button" id="export-orders-csv-btn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
@@ -1326,24 +1325,6 @@
                     </button>
                     <button type="button" id="export-partners-csv-btn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-forest font-heading font-bold text-xs">
                         <span>Export Mitra (CSV)</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Admin Verification Gate Banner -->
-            <div id="admin-gate-banner" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand/50 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5">
-                <div class="space-y-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberBrand-soft text-amberBrand text-xs font-bold">
-                        <span>Verifikasi Admin Akun Google</span>
-                    </div>
-                    <h3 class="font-heading font-extrabold text-xl text-forest" id="admin-gate-title">Verifikasi Admin Diperlukan untuk Mengubah Status & Menghapus Data</h3>
-                    <p class="text-xs sm:text-sm text-slate-600" id="admin-gate-desc">
-                        Login dengan akun Google Admin resmi (<strong>z.akmal.firdausi@gmail.com</strong>) untuk mengubah status pesanan, menghapus entri database, atau mengatur harga & panduan penggunaan.
-                    </p>
-                </div>
-                <div class="flex flex-wrap items-center gap-2.5 flex-shrink-0">
-                    <button type="button" id="admin-gate-action-btn" onclick="openGoogleAuthModal('admin')" class="px-5 py-3 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow">
-                        Verifikasi Akun Admin Google
                     </button>
                 </div>
             </div>
@@ -1387,6 +1368,7 @@
                         </button>
                     </div>
 
+                    <!-- Search & Filter Controls -->
                     <div id="orders-filter-controls" class="flex flex-wrap items-center gap-2">
                         <input type="text" id="crm-search-input" placeholder="Cari ID, nama pemesan, instansi..." class="rounded-xl bg-white/10 border border-white/20 text-white placeholder-emerald-200/70 px-3.5 py-2 text-xs focus:outline-none focus:bg-white focus:text-slate-800">
                         <select id="crm-status-filter" class="rounded-xl bg-white/10 border border-white/20 text-white px-3 py-2 text-xs focus:outline-none focus:bg-white focus:text-slate-800">
@@ -1406,18 +1388,18 @@
                         <thead>
                             <tr class="bg-cream border-b border-slate-200 text-forest font-heading">
                                 <th class="py-3.5 px-5">ID Pesanan & Tanggal</th>
-                                <th class="py-3.5 px-5">Pemesan & Akun Google</th>
+                                <th class="py-3.5 px-5">Pemesan & Instansi</th>
                                 <th class="py-3.5 px-5">Kontak & Alamat</th>
                                 <th class="py-3.5 px-5">Varian & Jumlah</th>
                                 <th class="py-3.5 px-5">Subtotal</th>
                                 <th class="py-3.5 px-5">Status Pesanan</th>
-                                <th class="py-3.5 px-5 text-right">Aksi Admin</th>
+                                <th class="py-3.5 px-5 text-right">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="orders-table-body" class="divide-y divide-slate-100 text-slate-700">
                             <tr>
                                 <td colspan="7" class="py-10 px-6 text-center text-slate-500">
-                                    Belum ada data pemesanan masuk di database. Klik <strong>"Pesan Produk KLETONX"</strong> (login Google) untuk membuat pesanan pertama.
+                                    Belum ada data pemesanan masuk di database. Klik <strong>"Pesan Sekarang"</strong> untuk membuat pesanan pertama.
                                 </td>
                             </tr>
                         </tbody>
@@ -1431,10 +1413,10 @@
                             <tr class="bg-cream border-b border-slate-200 text-forest font-heading">
                                 <th class="py-3.5 px-5">ID Mitra & Tanggal</th>
                                 <th class="py-3.5 px-5">Jalur Kemitraan</th>
-                                <th class="py-3.5 px-5">Nama Instansi & Akun Google</th>
+                                <th class="py-3.5 px-5">Nama Instansi / Peternak / PT</th>
                                 <th class="py-3.5 px-5">Fokus / Kapasitas</th>
                                 <th class="py-3.5 px-5">Kontak</th>
-                                <th class="py-3.5 px-5 text-right">Aksi Admin</th>
+                                <th class="py-3.5 px-5 text-right">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="partners-table-body" class="divide-y divide-slate-100 text-slate-700">
@@ -1472,7 +1454,7 @@
                         <li><a href="#manfaat" class="hover:text-amber-400 transition-colors">03. Manfaat</a></li>
                         <li><a href="#cara-penggunaan" class="hover:text-amber-400 transition-colors">04. Cara Penggunaan</a></li>
                         <li><a href="#kolaborasi" class="hover:text-amber-400 transition-colors">05. Kolaborasi</a></li>
-                        <li><a href="#database-crm" class="hover:text-amber-400 transition-colors">06. Admin & Database</a></li>
+                        <li><a href="#database-crm" class="hover:text-amber-400 transition-colors">06. Database Pesanan</a></li>
                     </ul>
                 </div>
 
@@ -1486,85 +1468,10 @@
 
             <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/60">
                 <p>&copy; 2026 KLETONX (KELTON-X) • SRE Universitas Airlangga.</p>
-                <p>Google OAuth / Firebase Auth + Admin Verification (<code class="text-emerald-100">z.akmal.firdausi@gmail.com</code>)</p>
+                <p>Full-Stack Cloud Database • Real-Time Order & CRM System</p>
             </div>
         </div>
     </footer>
-
-    <!-- ==================== MODAL 0: LOGIN AKUN GOOGLE & VERIFIKASI ADMIN ==================== -->
-    <div id="google-auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
-            <button type="button" onclick="closeGoogleAuthModal()" aria-label="Tutup" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-
-            <div class="flex items-center gap-2.5 mb-3">
-                <svg class="w-6 h-6" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.54-1.14 2.85-2.4 3.72v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.72z"/>
-                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
-                    <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
-                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
-                </svg>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-forest">KLETONX Google Identity</span>
-            </div>
-
-            <h3 class="font-heading font-extrabold text-xl text-forest mb-1">Login Akun Google</h3>
-            <p id="google-auth-context-note" class="text-xs text-slate-600 mb-4">
-                Masuk menggunakan akun Google untuk melakukan pemesanan produk, pendaftaran kolaborasi, atau verifikasi Admin (<strong>z.akmal.firdausi@gmail.com</strong>).
-            </p>
-
-            <!-- Active Session Card (if logged in) -->
-            <div id="google-active-session-box" class="hidden mb-5 p-4 rounded-2xl bg-emeraldBrand-soft/60 border border-emeraldBrand/40 space-y-2">
-                <div class="flex items-center justify-between gap-2">
-                    <div>
-                        <div class="text-xs font-extrabold text-forest" id="session-user-name">-</div>
-                        <div class="text-xs text-slate-700 font-mono" id="session-user-email">-</div>
-                    </div>
-                    <span id="session-role-badge" class="px-2.5 py-1 rounded-lg bg-forest text-white text-[10px] font-extrabold uppercase">USER</span>
-                </div>
-                <button type="button" onclick="signOutGoogleAccount()" class="w-full py-2 rounded-xl bg-white hover:bg-red-50 border border-red-200 text-red-600 font-heading font-bold text-xs transition-colors">
-                    Keluar / Ganti Akun Google
-                </button>
-            </div>
-
-            <!-- Primary Google Popup Sign-In Button (Firebase Auth GoogleProvider) -->
-            <button type="button" id="google-popup-signin-btn" onclick="triggerFirebaseGooglePopup()" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2.5 transition-all mb-4">
-                <svg class="w-4 h-4 bg-white rounded-full p-0.5" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.54-1.14 2.85-2.4 3.72v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.72z"/>
-                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
-                    <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
-                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
-                </svg>
-                <span>Lanjutkan dengan Akun Google (Popup)</span>
-            </button>
-
-            <!-- Google Account Input / Quick Switcher (Works in sandboxed/preview & production environments) -->
-            <div class="pt-4 border-t border-slate-200">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Masuk / Verifikasi Email Akun Google</div>
-                <form id="google-email-login-form" class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Email Akun Google *</label>
-                        <input type="email" id="google-login-email" required placeholder="contoh: z.akmal.firdausi@gmail.com" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-sm focus:border-forest focus:bg-white focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama Tampilan Akun Google (Opsional)</label>
-                        <input type="text" id="google-login-name" placeholder="Nama lengkap pengguna" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-sm focus:border-forest focus:bg-white focus:outline-none">
-                    </div>
-                    <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs sm:text-sm shadow transition-colors">
-                        Masuk & Verifikasi Akun Google
-                    </button>
-                </form>
-
-                <!-- Quick Admin Verification Helper -->
-                <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-[11px] text-slate-500">
-                    <span>Email Admin: <strong class="text-forest">z.akmal.firdausi@gmail.com</strong></span>
-                    <button type="button" onclick="quickFillAdminGoogle()" class="font-bold text-amberBrand hover:underline">
-                        Isi Admin
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- ==================== MODAL 1: CHECKOUT PEMESANAN PRODUK (FULL-STACK DATABASE) ==================== -->
     <div id="order-checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
@@ -1575,9 +1482,9 @@
 
             <span class="inline-block px-3 py-1 rounded-full bg-amberBrand-soft text-amberBrand text-xs font-bold mb-2">Formulir Pemesanan Resmi KLETONX</span>
             <h3 class="font-heading font-extrabold text-2xl text-forest mb-1">Buat Pesanan Produk</h3>
-            <p class="text-xs text-slate-500 mb-4">Terhubung dengan akun Google: <strong id="checkout-google-account-label" class="text-forest">-</strong></p>
+            <p class="text-xs text-slate-500 mb-5">Data pemesanan Anda akan tersimpan permanen ke database cloud dan mendapatkan Nomor ID Pelacakan otomatis.</p>
 
-            <!-- Order Receipt Screen -->
+            <!-- Order Receipt Screen (Shown after successful save) -->
             <div id="order-receipt-box" class="hidden space-y-4">
                 <div class="bg-emeraldBrand-soft/70 border border-emeraldBrand/40 rounded-2xl p-5 text-forest space-y-2">
                     <div class="text-xs font-bold uppercase tracking-wider text-emeraldBrand">Pesanan Berhasil Disimpan ke Database!</div>
@@ -1625,7 +1532,7 @@
                         <input type="text" id="checkout-phone" required placeholder="0812xxxxxxxx" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Email Pemesan *</label>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Email *</label>
                         <input type="email" id="checkout-email" required placeholder="nama@perusahaan.com" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                     </div>
                 </div>
@@ -1686,22 +1593,16 @@
     <!-- Toast Banner -->
     <div id="toast-banner" class="fixed bottom-5 right-5 z-50 hidden bg-forest text-white px-5 py-3.5 rounded-2xl shadow-xl border border-emerald-500/40 text-xs sm:text-sm font-semibold"></div>
 
-    <!-- ==================== FULL-STACK BACK-END, GOOGLE AUTH & FIREBASE FIRESTORE MODULE ==================== -->
+    <!-- ==================== FULL-STACK BACK-END & FIREBASE FIRESTORE MODULE ==================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import {
-            getAuth, signInAnonymously, signInWithCustomToken,
-            GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
-        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import {
             getFirestore, doc, setDoc, addDoc, updateDoc, deleteDoc,
             onSnapshot, collection
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        const ADMIN_EMAIL = 'z.akmal.firdausi@gmail.com';
-        const GOOGLE_SESSION_KEY = 'kletonx_google_session_v1';
-        const FALLBACK_STORAGE_KEY = 'kletonx_fullstack_db_v1';
-
+        // Global UI Toast Helper
         window.showToast = function(msg) {
             const toast = document.getElementById('toast-banner');
             toast.textContent = msg;
@@ -1709,6 +1610,7 @@
             setTimeout(() => toast.classList.add('hidden'), 3600);
         };
 
+        // Product Variant Metadata
         const VARIANT_LABELS = {
             pack: 'Kemasan Karung Woven PP 5–10 kg',
             bulk: 'Curah / Bulk Tonase (Kontrak Mill)',
@@ -1738,6 +1640,7 @@
             updatedAt: 'Default Lampiran'
         };
 
+        // In-Memory State Mirroring Firestore Real-Time Collections
         const appState = {
             prices: { pack: 0, bulk: 0, service: 0 },
             orders: [],
@@ -1746,252 +1649,8 @@
             usage: JSON.parse(JSON.stringify(DEFAULT_USAGE)),
             useCloud: false,
             db: null,
-            auth: null,
             appId: typeof __app_id !== 'undefined' ? __app_id : 'kletonx-default-app',
-            fbUser: null,
-            googleAccount: null, // { email, name, isAdmin, signedInAt }
-            pendingAction: null // { type: 'order'|'collab'|'admin', fn: Function }
-        };
-
-        function isGoogleLoggedIn() {
-            return Boolean(appState.googleAccount && appState.googleAccount.email);
-        }
-
-        function isVerifiedAdmin() {
-            return Boolean(
-                appState.googleAccount &&
-                appState.googleAccount.email &&
-                appState.googleAccount.email.trim().toLowerCase() === ADMIN_EMAIL
-            );
-        }
-
-        function persistGoogleSession(accountObj) {
-            appState.googleAccount = accountObj;
-            try {
-                if (accountObj) {
-                    localStorage.setItem(GOOGLE_SESSION_KEY, JSON.stringify(accountObj));
-                } else {
-                    localStorage.removeItem(GOOGLE_SESSION_KEY);
-                }
-            } catch (e) {}
-            renderAuthUI();
-            renderAll();
-        }
-
-        function loadGoogleSession() {
-            try {
-                const raw = localStorage.getItem(GOOGLE_SESSION_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (parsed && parsed.email) {
-                        parsed.isAdmin = parsed.email.trim().toLowerCase() === ADMIN_EMAIL;
-                        appState.googleAccount = parsed;
-                    }
-                }
-            } catch (e) {}
-        }
-
-        function renderAuthUI() {
-            const labelEl = document.getElementById('header-google-label');
-            const adminPillEl = document.getElementById('header-admin-pill');
-            const drawerEmailEl = document.getElementById('drawer-google-email');
-            const drawerRoleEl = document.getElementById('drawer-google-role');
-            const checkoutAccLabel = document.getElementById('checkout-google-account-label');
-            const checkoutEmailInput = document.getElementById('checkout-email');
-            const checkoutNameInput = document.getElementById('checkout-buyer-name');
-
-            const sessionBox = document.getElementById('google-active-session-box');
-            const sessionNameEl = document.getElementById('session-user-name');
-            const sessionEmailEl = document.getElementById('session-user-email');
-            const sessionRoleEl = document.getElementById('session-role-badge');
-
-            const adminTitleEl = document.getElementById('admin-gate-title');
-            const adminDescEl = document.getElementById('admin-gate-desc');
-            const adminActionBtn = document.getElementById('admin-gate-action-btn');
-            const adminBanner = document.getElementById('admin-gate-banner');
-
-            if (isGoogleLoggedIn()) {
-                const acc = appState.googleAccount;
-                const admin = isVerifiedAdmin();
-
-                labelEl.textContent = acc.email;
-                adminPillEl.classList.toggle('hidden', !admin);
-
-                drawerEmailEl.textContent = acc.email;
-                drawerRoleEl.textContent = admin
-                    ? 'Terverifikasi sebagai ADMIN KLETONX'
-                    : 'Akun Google Terhubung (Pengguna/Mitra)';
-
-                if (checkoutAccLabel) checkoutAccLabel.textContent = `${acc.email}${admin ? ' (Admin)' : ''}`;
-                if (checkoutEmailInput && !checkoutEmailInput.value) checkoutEmailInput.value = acc.email;
-                if (checkoutNameInput && !checkoutNameInput.value && acc.name) checkoutNameInput.value = acc.name;
-
-                sessionBox.classList.remove('hidden');
-                sessionNameEl.textContent = acc.name || 'Pengguna Google';
-                sessionEmailEl.textContent = acc.email;
-                sessionRoleEl.textContent = admin ? 'ADMIN VERIFIED' : 'GOOGLE USER';
-                sessionRoleEl.className = admin
-                    ? 'px-2.5 py-1 rounded-lg bg-amberBrand text-white text-[10px] font-extrabold uppercase'
-                    : 'px-2.5 py-1 rounded-lg bg-forest text-white text-[10px] font-extrabold uppercase';
-
-                if (admin) {
-                    adminBanner.className = 'bg-emeraldBrand-soft/50 rounded-3xl p-6 sm:p-8 border-2 border-emeraldBrand shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5';
-                    adminTitleEl.textContent = `Akses Admin Terverifikasi (${acc.email})`;
-                    adminDescEl.innerHTML = 'Anda masuk sebagai Admin resmi KLETONX. Anda dapat mengubah status pesanan, menghapus data, mengatur harga katalog, dan mengubah panduan penggunaan.';
-                    adminActionBtn.textContent = 'Kelola Akun Google';
-                    adminActionBtn.className = 'px-5 py-3 rounded-xl bg-emeraldBrand hover:bg-forest text-white font-heading font-bold text-xs sm:text-sm shadow';
-                } else {
-                    adminBanner.className = 'bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand/50 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5';
-                    adminTitleEl.textContent = `Login sebagai ${acc.email} (Bukan Admin)`;
-                    adminDescEl.innerHTML = `Akses Admin khusus akun Google <strong>${ADMIN_EMAIL}</strong>. Anda tetap dapat melihat rekap data, membuat pesanan, atau mendaftar kolaborasi.`;
-                    adminActionBtn.textContent = 'Verifikasi Akun Admin';
-                    adminActionBtn.className = 'px-5 py-3 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs sm:text-sm shadow';
-                }
-            } else {
-                labelEl.textContent = 'Login Google';
-                adminPillEl.classList.add('hidden');
-                drawerEmailEl.textContent = 'Belum login akun Google';
-                drawerRoleEl.textContent = 'Login wajib sebelum pemesanan & kolaborasi';
-                if (checkoutAccLabel) checkoutAccLabel.textContent = 'Belum login';
-
-                sessionBox.classList.add('hidden');
-
-                adminBanner.className = 'bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand/50 shadow-sm mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5';
-                adminTitleEl.textContent = 'Verifikasi Admin Diperlukan untuk Mengubah Status & Menghapus Data';
-                adminDescEl.innerHTML = `Login dengan akun Google Admin resmi (<strong>${ADMIN_EMAIL}</strong>) untuk mengubah status pesanan, menghapus entri database, atau mengatur harga & panduan penggunaan.`;
-                adminActionBtn.textContent = 'Verifikasi Akun Admin Google';
-                adminActionBtn.className = 'px-5 py-3 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow';
-            }
-        }
-
-        // Guard mechanism before Order, Collaboration, or Admin actions
-        window.guardActionThen = function(mode, actionFn) {
-            if (mode === 'admin') {
-                if (isVerifiedAdmin()) {
-                    actionFn();
-                    return;
-                }
-                appState.pendingAction = { mode: 'admin', fn: actionFn };
-                openGoogleAuthModal('admin');
-                return;
-            }
-
-            // mode === 'order' or 'collab' requires Google login first
-            if (isGoogleLoggedIn()) {
-                actionFn();
-                return;
-            }
-            appState.pendingAction = { mode, fn: actionFn };
-            openGoogleAuthModal(mode);
-        };
-
-        // Google Auth Modal Controls
-        const googleAuthModal = document.getElementById('google-auth-modal');
-        window.openGoogleAuthModal = function(mode) {
-            const noteEl = document.getElementById('google-auth-context-note');
-            if (mode === 'order') {
-                noteEl.innerHTML = 'Silakan <strong>Login Akun Google</strong> terlebih dahulu sebelum melanjutkan formulir <strong>Pemesanan Produk KLETONX</strong>.';
-            } else if (mode === 'collab') {
-                noteEl.innerHTML = 'Silakan <strong>Login Akun Google</strong> terlebih dahulu sebelum mengirim formulir <strong>Kolaborasi KLETONX</strong>.';
-            } else if (mode === 'admin') {
-                noteEl.innerHTML = `Fitur ini khusus <strong>Admin</strong>. Silakan masuk dengan akun Google <strong>${ADMIN_EMAIL}</strong> untuk verifikasi admin.`;
-            } else {
-                noteEl.innerHTML = `Masuk menggunakan akun Google untuk pemesanan, kolaborasi, atau verifikasi Admin (<strong>${ADMIN_EMAIL}</strong>).`;
-            }
-
-            if (appState.googleAccount?.email) {
-                document.getElementById('google-login-email').value = appState.googleAccount.email;
-                document.getElementById('google-login-name').value = appState.googleAccount.name || '';
-            }
-            googleAuthModal.classList.remove('hidden');
-            googleAuthModal.classList.add('flex');
-        };
-
-        window.closeGoogleAuthModal = function() {
-            googleAuthModal.classList.add('hidden');
-            googleAuthModal.classList.remove('flex');
-            appState.pendingAction = null;
-        };
-
-        googleAuthModal.addEventListener('click', (e) => {
-            if (e.target === googleAuthModal) window.closeGoogleAuthModal();
-        });
-
-        window.quickFillAdminGoogle = function() {
-            document.getElementById('google-login-email').value = ADMIN_EMAIL;
-            document.getElementById('google-login-name').value = 'Zaki Akmal Firdausi (Admin)';
-        };
-
-        function completeGoogleSignIn(email, displayName) {
-            const cleanEmail = (email || '').trim().toLowerCase();
-            if (!cleanEmail) return;
-            const adminFlag = cleanEmail === ADMIN_EMAIL;
-            const inferredName = (displayName || '').trim() || (adminFlag ? 'Zaki Akmal Firdausi (Admin)' : cleanEmail.split('@')[0]);
-
-            persistGoogleSession({
-                email: cleanEmail,
-                name: inferredName,
-                isAdmin: adminFlag,
-                signedInAt: new Date().toISOString()
-            });
-
-            const pending = appState.pendingAction;
-            window.closeGoogleAuthModal();
-
-            if (adminFlag) {
-                window.showToast(`Verifikasi Admin berhasil untuk ${cleanEmail}!`);
-            } else {
-                window.showToast(`Berhasil login akun Google: ${cleanEmail}`);
-            }
-
-            if (pending && typeof pending.fn === 'function') {
-                if (pending.mode === 'admin' && !adminFlag) {
-                    window.showToast(`Akun ${cleanEmail} bukan Admin (${ADMIN_EMAIL}). Akses Admin ditolak.`);
-                    return;
-                }
-                setTimeout(() => pending.fn(), 120);
-            }
-        }
-
-        // Firebase Google Popup Auth (with graceful fallback to email verification form if popup is blocked/sandboxed)
-        window.triggerFirebaseGooglePopup = async function() {
-            try {
-                if (!appState.auth) {
-                    throw new Error('Firebase Auth belum terinisialisasi, silakan masukkan email Google di bawah.');
-                }
-                const provider = new GoogleAuthProvider();
-                provider.setCustomParameters({ prompt: 'select_account' });
-                const result = await signInWithPopup(appState.auth, provider);
-                const user = result.user;
-                if (user && user.email) {
-                    completeGoogleSignIn(user.email, user.displayName);
-                } else {
-                    throw new Error('Email tidak ditemukan dari popup Google.');
-                }
-            } catch (err) {
-                console.warn('Google Popup note:', err.message);
-                document.getElementById('google-login-email').focus();
-                window.showToast('Gunakan form input Email Akun Google di bawah untuk masuk / verifikasi Admin.');
-            }
-        };
-
-        document.getElementById('google-email-login-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('google-login-email').value.trim();
-            const name = document.getElementById('google-login-name').value.trim();
-            completeGoogleSignIn(email, name);
-        });
-
-        window.signOutGoogleAccount = async function() {
-            try {
-                if (appState.auth && appState.auth.currentUser && !appState.auth.currentUser.isAnonymous) {
-                    await signOut(appState.auth);
-                }
-            } catch (e) {}
-            document.getElementById('price-editor-panel').classList.add('hidden');
-            document.getElementById('usage-editor-container').classList.add('hidden');
-            persistGoogleSession(null);
-            window.showToast('Anda telah keluar dari sesi akun Google.');
+            user: null
         };
 
         function formatRupiah(num) {
@@ -2008,6 +1667,7 @@
 
         // ==================== RENDERING ALL UI SECTIONS FROM STATE ====================
         function renderAll() {
+            // 1. Update Prices & Ordered Units per Variant
             ['pack', 'bulk', 'service'].forEach(key => {
                 const price = appState.prices[key] || 0;
                 document.getElementById(`display-price-${key}`).textContent = formatRupiah(price);
@@ -2026,6 +1686,7 @@
                 document.getElementById(`card-revcount-${key}`).textContent = revCount;
             });
 
+            // 2. Overall Rating, Reviews, Orders & Partners Counters
             const totalReviews = appState.reviews.length;
             const avgRating = totalReviews > 0
                 ? (appState.reviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0) / totalReviews).toFixed(1)
@@ -2056,10 +1717,17 @@
             document.getElementById('tab-count-orders').textContent = totalOrders;
             document.getElementById('tab-count-partners').textContent = totalPartners;
 
+            // 3. Render Reviews List
             renderReviewsList();
+
+            // 4. Render Usage Guide
             renderUsageGuide();
+
+            // 5. Render CRM Orders & Partners Tables
             renderOrdersTable();
             renderPartnersTable();
+
+            // 6. Update Checkout Modal Subtotal if open
             updateCheckoutSubtotal();
         }
 
@@ -2118,7 +1786,6 @@
             const tbody = document.getElementById('orders-table-body');
             const searchQuery = (document.getElementById('crm-search-input').value || '').toLowerCase().trim();
             const statusFilter = document.getElementById('crm-status-filter').value;
-            const adminAuthorized = isVerifiedAdmin();
 
             let filtered = [...appState.orders].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
@@ -2131,8 +1798,7 @@
                     (o.buyerName || '').toLowerCase().includes(searchQuery) ||
                     (o.company || '').toLowerCase().includes(searchQuery) ||
                     (o.phone || '').toLowerCase().includes(searchQuery) ||
-                    (o.email || '').toLowerCase().includes(searchQuery) ||
-                    (o.googleEmail || '').toLowerCase().includes(searchQuery)
+                    (o.email || '').toLowerCase().includes(searchQuery)
                 );
             }
 
@@ -2168,7 +1834,6 @@
                     <td class="py-3.5 px-5 align-top">
                         <div class="font-bold text-slate-800">${escapeHtml(order.buyerName)}</div>
                         <div class="text-slate-500">${escapeHtml(order.company)}</div>
-                        ${order.googleEmail ? `<div class="text-[10px] font-semibold text-emeraldBrand mt-0.5">Google: ${escapeHtml(order.googleEmail)}</div>` : ''}
                     </td>
                     <td class="py-3.5 px-5 align-top max-w-xs">
                         <div class="font-semibold text-forest">${escapeHtml(order.phone)}</div>
@@ -2184,22 +1849,18 @@
                         ${formatRupiah(order.subtotal)}
                     </td>
                     <td class="py-3.5 px-5 align-top">
-                        ${adminAuthorized
-                            ? `<select onchange="handleUpdateOrderStatus('${order.id}', this.value)" class="rounded-lg border px-2.5 py-1.5 text-[11px] font-bold focus:outline-none ${badgeClass}">
-                                <option value="Menunggu Konfirmasi" ${order.status === 'Menunggu Konfirmasi' ? 'selected' : ''}>Menunggu Konfirmasi</option>
-                                <option value="Diproses" ${order.status === 'Diproses' ? 'selected' : ''}>Diproses</option>
-                                <option value="Dikirim" ${order.status === 'Dikirim' ? 'selected' : ''}>Dikirim</option>
-                                <option value="Selesai" ${order.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
-                                <option value="Dibatalkan" ${order.status === 'Dibatalkan' ? 'selected' : ''}>Dibatalkan</option>
-                               </select>`
-                            : `<span class="inline-block rounded-lg border px-2.5 py-1 text-[11px] font-bold ${badgeClass}">${escapeHtml(order.status)}</span>`
-                        }
+                        <select onchange="handleUpdateOrderStatus('${order.id}', this.value)" class="rounded-lg border px-2.5 py-1.5 text-[11px] font-bold focus:outline-none ${badgeClass}">
+                            <option value="Menunggu Konfirmasi" ${order.status === 'Menunggu Konfirmasi' ? 'selected' : ''}>Menunggu Konfirmasi</option>
+                            <option value="Diproses" ${order.status === 'Diproses' ? 'selected' : ''}>Diproses</option>
+                            <option value="Dikirim" ${order.status === 'Dikirim' ? 'selected' : ''}>Dikirim</option>
+                            <option value="Selesai" ${order.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                            <option value="Dibatalkan" ${order.status === 'Dibatalkan' ? 'selected' : ''}>Dibatalkan</option>
+                        </select>
                     </td>
                     <td class="py-3.5 px-5 align-top text-right">
-                        ${adminAuthorized
-                            ? `<button type="button" onclick="handleDeleteOrder('${order.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">Hapus</button>`
-                            : `<button type="button" onclick="guardActionThen('admin', () => {})" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-amberBrand-soft text-slate-600 font-semibold text-[11px] transition-colors">Verifikasi Admin</button>`
-                        }
+                        <button type="button" onclick="handleDeleteOrder('${order.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">
+                            Hapus
+                        </button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -2208,7 +1869,6 @@
 
         function renderPartnersTable() {
             const tbody = document.getElementById('partners-table-body');
-            const adminAuthorized = isVerifiedAdmin();
             const sorted = [...appState.collaborations].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
             if (sorted.length === 0) {
@@ -2235,8 +1895,7 @@
                         <span class="px-2.5 py-1 rounded-full bg-emeraldBrand-soft text-forest font-bold text-[11px]">${escapeHtml(item.role)}</span>
                     </td>
                     <td class="py-3.5 px-5 align-top font-bold text-slate-800">
-                        <div>${escapeHtml(item.orgName)}</div>
-                        ${item.googleEmail ? `<div class="text-[10px] font-semibold text-emeraldBrand mt-0.5">Google: ${escapeHtml(item.googleEmail)}</div>` : ''}
+                        ${escapeHtml(item.orgName)}
                     </td>
                     <td class="py-3.5 px-5 align-top">
                         <div class="font-semibold text-slate-700">${escapeHtml(item.detailType)}</div>
@@ -2247,10 +1906,9 @@
                         ${escapeHtml(item.contact)}
                     </td>
                     <td class="py-3.5 px-5 align-top text-right">
-                        ${adminAuthorized
-                            ? `<button type="button" onclick="handleDeletePartner('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">Hapus</button>`
-                            : `<button type="button" onclick="guardActionThen('admin', () => {})" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-amberBrand-soft text-slate-600 font-semibold text-[11px] transition-colors">Verifikasi Admin</button>`
-                        }
+                        <button type="button" onclick="handleDeletePartner('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">
+                            Hapus
+                        </button>
                     </td>
                 `;
                 tbody.appendChild(tr);
@@ -2259,9 +1917,6 @@
 
         // ==================== CLOUD FIRESTORE INITIALIZATION & REAL-TIME LISTENERS ====================
         async function initDatabase() {
-            loadGoogleSession();
-            renderAuthUI();
-
             const statusBadge = document.getElementById('db-status-badge');
             try {
                 if (typeof __firebase_config === 'undefined' || !__firebase_config) {
@@ -2272,20 +1927,6 @@
                 const app = initializeApp(firebaseConfig);
                 const auth = getAuth(app);
                 const db = getFirestore(app);
-                appState.auth = auth;
-
-                onAuthStateChanged(auth, (fbUser) => {
-                    appState.fbUser = fbUser;
-                    if (fbUser && fbUser.email && !fbUser.isAnonymous) {
-                        const cleanEmail = fbUser.email.trim().toLowerCase();
-                        persistGoogleSession({
-                            email: cleanEmail,
-                            name: fbUser.displayName || cleanEmail.split('@')[0],
-                            isAdmin: cleanEmail === ADMIN_EMAIL,
-                            signedInAt: new Date().toISOString()
-                        });
-                    }
-                });
 
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     await signInWithCustomToken(auth, __initial_auth_token);
@@ -2299,13 +1940,15 @@
 
                 appState.useCloud = true;
                 appState.db = db;
-                appState.fbUser = auth.currentUser;
+                appState.user = auth.currentUser;
 
                 statusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emeraldBrand-leaf"></span><span>Cloud DB Aktif</span>`;
 
                 const appId = appState.appId;
 
-                onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'pricing'), (snap) => {
+                // Listener 1: Settings -> Pricing
+                const pricingDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'pricing');
+                onSnapshot(pricingDocRef, (snap) => {
                     if (snap.exists()) {
                         const data = snap.data();
                         appState.prices = {
@@ -2317,9 +1960,11 @@
                         appState.prices = { pack: 0, bulk: 0, service: 0 };
                     }
                     renderAll();
-                });
+                }, (err) => console.error('Pricing snapshot error:', err));
 
-                onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'usageGuide'), (snap) => {
+                // Listener 2: Settings -> Usage Guide
+                const usageDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'usageGuide');
+                onSnapshot(usageDocRef, (snap) => {
                     if (snap.exists()) {
                         const data = snap.data();
                         appState.usage = {
@@ -2329,22 +1974,28 @@
                         };
                     }
                     renderAll();
-                });
+                }, (err) => console.error('Usage snapshot error:', err));
 
-                onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'orders'), (snapshot) => {
+                // Listener 3: Orders Collection
+                const ordersColRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                onSnapshot(ordersColRef, (snapshot) => {
                     appState.orders = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                     renderAll();
-                });
+                }, (err) => console.error('Orders snapshot error:', err));
 
-                onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'reviews'), (snapshot) => {
+                // Listener 4: Reviews Collection
+                const reviewsColRef = collection(db, 'artifacts', appId, 'public', 'data', 'reviews');
+                onSnapshot(reviewsColRef, (snapshot) => {
                     appState.reviews = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                     renderAll();
-                });
+                }, (err) => console.error('Reviews snapshot error:', err));
 
-                onSnapshot(collection(db, 'artifacts', appId, 'public', 'data', 'collaborations'), (snapshot) => {
+                // Listener 5: Collaborations Collection
+                const collabColRef = collection(db, 'artifacts', appId, 'public', 'data', 'collaborations');
+                onSnapshot(collabColRef, (snapshot) => {
                     appState.collaborations = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
                     renderAll();
-                });
+                }, (err) => console.error('Collaborations snapshot error:', err));
 
             } catch (error) {
                 console.warn('Using browser persistent fallback store:', error.message);
@@ -2355,6 +2006,8 @@
             }
         }
 
+        // Fallback Persistence (Only if Firebase environment variables are absent)
+        const FALLBACK_STORAGE_KEY = 'kletonx_fullstack_db_v1';
         function loadFallbackState() {
             try {
                 const raw = localStorage.getItem(FALLBACK_STORAGE_KEY);
@@ -2381,15 +2034,11 @@
             } catch (e) {}
         }
 
-        // ==================== DATABASE CRUD OPERATIONS (WITH AUTH & ADMIN GUARDS) ====================
+        // ==================== DATABASE CRUD OPERATIONS ====================
         async function savePricingToDb(newPrices) {
-            if (!isVerifiedAdmin()) {
-                window.showToast(`Akses ditolak. Hanya Admin (${ADMIN_EMAIL}) yang dapat mengubah harga.`);
-                return;
-            }
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const ref = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'settings', 'pricing');
-                await setDoc(ref, { ...newPrices, updatedBy: appState.googleAccount.email });
+                await setDoc(ref, newPrices);
             } else {
                 appState.prices = newPrices;
                 saveFallbackState();
@@ -2398,13 +2047,9 @@
         }
 
         async function saveUsageToDb(newUsage) {
-            if (!isVerifiedAdmin()) {
-                window.showToast(`Akses ditolak. Hanya Admin (${ADMIN_EMAIL}) yang dapat mengubah panduan penggunaan.`);
-                return;
-            }
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const ref = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'settings', 'usageGuide');
-                await setDoc(ref, { ...newUsage, updatedBy: appState.googleAccount.email });
+                await setDoc(ref, newUsage);
             } else {
                 appState.usage = newUsage;
                 saveFallbackState();
@@ -2413,32 +2058,18 @@
         }
 
         async function createOrderInDb(orderPayload) {
-            if (!isGoogleLoggedIn()) {
-                window.guardActionThen('order', () => {});
-                return false;
-            }
-            const enriched = {
-                ...orderPayload,
-                googleEmail: appState.googleAccount.email,
-                googleName: appState.googleAccount.name || ''
-            };
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders');
-                await addDoc(colRef, enriched);
+                await addDoc(colRef, orderPayload);
             } else {
-                appState.orders.push({ id: 'ord_' + Date.now(), ...enriched });
+                appState.orders.push({ id: 'ord_' + Date.now(), ...orderPayload });
                 saveFallbackState();
                 renderAll();
             }
-            return true;
         }
 
         window.handleUpdateOrderStatus = async function(docId, newStatus) {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders', docId);
                 await updateDoc(docRef, { status: newStatus });
             } else {
@@ -2451,11 +2082,7 @@
         };
 
         window.handleDeleteOrder = async function(docId) {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders', docId);
                 await deleteDoc(docRef);
             } else {
@@ -2463,11 +2090,11 @@
                 saveFallbackState();
                 renderAll();
             }
-            window.showToast('Data pesanan dihapus oleh Admin.');
+            window.showToast('Data pesanan dihapus dari database.');
         };
 
         async function createReviewInDb(reviewPayload) {
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'reviews');
                 await addDoc(colRef, reviewPayload);
             } else {
@@ -2478,32 +2105,18 @@
         }
 
         async function createPartnerInDb(partnerPayload) {
-            if (!isGoogleLoggedIn()) {
-                window.guardActionThen('collab', () => {});
-                return false;
-            }
-            const enriched = {
-                ...partnerPayload,
-                googleEmail: appState.googleAccount.email,
-                googleName: appState.googleAccount.name || ''
-            };
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'collaborations');
-                await addDoc(colRef, enriched);
+                await addDoc(colRef, partnerPayload);
             } else {
-                appState.collaborations.push({ id: 'prt_' + Date.now(), ...enriched });
+                appState.collaborations.push({ id: 'prt_' + Date.now(), ...partnerPayload });
                 saveFallbackState();
                 renderAll();
             }
-            return true;
         }
 
         window.handleDeletePartner = async function(docId) {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
-            if (appState.useCloud && appState.fbUser) {
+            if (appState.useCloud && appState.user) {
                 const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'collaborations', docId);
                 await deleteDoc(docRef);
             } else {
@@ -2511,10 +2124,11 @@
                 saveFallbackState();
                 renderAll();
             }
-            window.showToast('Data mitra dihapus oleh Admin.');
+            window.showToast('Data mitra dihapus dari database.');
         };
 
         // ==================== UI EVENT HANDLERS ====================
+        // 1. Hamburger Drawer
         const drawerOpenBtn = document.getElementById('drawer-open-btn');
         const drawerCloseBtn = document.getElementById('drawer-close-btn');
         const drawerBackdrop = document.getElementById('nav-drawer-backdrop');
@@ -2536,12 +2150,13 @@
         });
         document.querySelectorAll('.drawer-link').forEach(link => link.addEventListener('click', window.closeNavDrawer));
 
+        // 2. Price Editor Form
+        document.getElementById('toggle-price-editor-btn').addEventListener('click', () => {
+            document.getElementById('price-editor-panel').classList.toggle('hidden');
+        });
+
         document.getElementById('price-update-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
             const newPrices = {
                 pack: Math.max(0, parseInt(document.getElementById('input-price-pack').value, 10) || 0),
                 bulk: Math.max(0, parseInt(document.getElementById('input-price-bulk').value, 10) || 0),
@@ -2549,9 +2164,10 @@
             };
             await savePricingToDb(newPrices);
             document.getElementById('price-editor-panel').classList.add('hidden');
-            window.showToast('Harga katalog berhasil disimpan ke database oleh Admin!');
+            window.showToast('Harga katalog berhasil disimpan ke database!');
         });
 
+        // 3. Order Checkout Modal & Subtotal Calculation
         const checkoutModal = document.getElementById('order-checkout-modal');
         const checkoutVariantSelect = document.getElementById('checkout-variant');
         const checkoutQtyInput = document.getElementById('checkout-qty');
@@ -2570,14 +2186,9 @@
         checkoutQtyInput.addEventListener('input', updateCheckoutSubtotal);
 
         window.openOrderCheckoutModal = function(variantKey) {
-            if (!isGoogleLoggedIn()) {
-                window.guardActionThen('order', () => window.openOrderCheckoutModal(variantKey));
-                return;
-            }
             if (variantKey && VARIANT_LABELS[variantKey]) {
                 checkoutVariantSelect.value = variantKey;
             }
-            renderAuthUI();
             window.resetCheckoutForm();
             updateCheckoutSubtotal();
             checkoutModal.classList.remove('hidden');
@@ -2593,12 +2204,6 @@
             document.getElementById('order-receipt-box').classList.add('hidden');
             document.getElementById('order-checkout-form').classList.remove('hidden');
             document.getElementById('order-checkout-form').reset();
-            if (appState.googleAccount?.email) {
-                document.getElementById('checkout-email').value = appState.googleAccount.email;
-                if (appState.googleAccount.name) {
-                    document.getElementById('checkout-buyer-name').value = appState.googleAccount.name;
-                }
-            }
             updateCheckoutSubtotal();
         };
 
@@ -2620,10 +2225,6 @@
 
         document.getElementById('order-checkout-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (!isGoogleLoggedIn()) {
-                window.guardActionThen('order', () => {});
-                return;
-            }
             const submitBtn = document.getElementById('checkout-submit-btn');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Menyimpan ke Database...';
@@ -2647,7 +2248,7 @@
                     day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
                 });
 
-                const saved = await createOrderInDb({
+                const orderRecord = {
                     orderCode,
                     variant,
                     buyerName,
@@ -2662,14 +2263,13 @@
                     status: 'Menunggu Konfirmasi',
                     dateLabel,
                     createdAt: Date.now()
-                });
+                };
 
-                if (!saved) return;
+                await createOrderInDb(orderRecord);
 
                 lastGeneratedOrderCode = orderCode;
                 document.getElementById('receipt-order-id').textContent = orderCode;
                 document.getElementById('receipt-summary-details').innerHTML = `
-                    <div><strong>Akun Google:</strong> ${escapeHtml(appState.googleAccount.email)}</div>
                     <div><strong>Pemesan:</strong> ${escapeHtml(buyerName)} (${escapeHtml(company)})</div>
                     <div><strong>Produk:</strong> ${escapeHtml(VARIANT_LABELS[variant])} × ${qty} unit</div>
                     <div><strong>Subtotal:</strong> ${formatRupiah(subtotal)} • <strong>Status:</strong> Menunggu Konfirmasi</div>
@@ -2684,6 +2284,7 @@
             }
         });
 
+        // 4. Track Order Modal (Customer Lookup)
         const trackOrderModal = document.getElementById('track-order-modal');
         window.openTrackOrderModal = function() {
             trackOrderModal.classList.remove('hidden');
@@ -2706,8 +2307,7 @@
                 (o.orderCode || '').toLowerCase() === q ||
                 (o.orderCode || '').toLowerCase().includes(q) ||
                 (o.phone || '').toLowerCase().includes(q) ||
-                (o.email || '').toLowerCase() === q ||
-                (o.googleEmail || '').toLowerCase() === q
+                (o.email || '').toLowerCase() === q
             );
 
             if (matches.length === 0) {
@@ -2736,6 +2336,7 @@
             });
         });
 
+        // 5. Reviews Submission
         document.getElementById('review-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('rev-submit-btn');
@@ -2766,9 +2367,9 @@
             }
         });
 
-        // Editable Usage Guide (Protected for Admin)
+        // 6. Editable Usage Guide
         const usageEditorContainer = document.getElementById('usage-editor-container');
-        function openUsageEditor() {
+        document.getElementById('toggle-edit-usage-btn').addEventListener('click', () => {
             const fieldsContainer = document.getElementById('usage-edit-fields');
             fieldsContainer.innerHTML = '';
             appState.usage.steps.forEach((step, idx) => {
@@ -2785,10 +2386,6 @@
             document.getElementById('edit-usage-storage').value = appState.usage.storage;
             usageEditorContainer.classList.remove('hidden');
             usageEditorContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        document.getElementById('toggle-edit-usage-btn').addEventListener('click', () => {
-            window.guardActionThen('admin', openUsageEditor);
         });
 
         document.getElementById('cancel-edit-usage-btn').addEventListener('click', () => {
@@ -2797,10 +2394,6 @@
 
         document.getElementById('usage-edit-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
             const updatedSteps = appState.usage.steps.map((step, idx) => ({
                 title: document.querySelector(`[data-step-title="${idx}"]`).value.trim(),
                 desc: document.querySelector(`[data-step-desc="${idx}"]`).value.trim()
@@ -2808,7 +2401,7 @@
             const newUsage = {
                 steps: updatedSteps,
                 storage: document.getElementById('edit-usage-storage').value.trim(),
-                updatedAt: 'Diperbarui Admin ' + new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+                updatedAt: 'Diperbarui ' + new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
             };
             await saveUsageToDb(newUsage);
             usageEditorContainer.classList.add('hidden');
@@ -2816,16 +2409,12 @@
         });
 
         document.getElementById('reset-usage-default-btn').addEventListener('click', async () => {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => {});
-                return;
-            }
             await saveUsageToDb(JSON.parse(JSON.stringify(DEFAULT_USAGE)));
             usageEditorContainer.classList.add('hidden');
             window.showToast('Cara penggunaan dikembalikan ke default lampiran.');
         });
 
-        // Separated Collaboration Portals (Requires Google Login before submitting)
+        // 7. Separated Collaboration Portals
         const collabTabBtns = document.querySelectorAll('.collab-tab-btn');
         const collabPanels = document.querySelectorAll('.collab-panel');
 
@@ -2849,50 +2438,38 @@
             });
         });
 
-        async function submitCollaborationForm(form) {
-            const role = form.getAttribute('data-role');
-            const orgName = form.querySelector('[name="orgName"]').value.trim();
-            const detailType = form.querySelector('[name="detailType"]').value;
-            const capacity = form.querySelector('[name="capacity"]').value.trim();
-            const contact = form.querySelector('[name="contact"]').value.trim();
-            const notes = form.querySelector('[name="notes"]').value.trim();
-            const resultBox = form.querySelector('.form-result');
-
-            if (!orgName || !capacity || !contact) return;
-
-            const ticketId = 'MITRA-' + Math.floor(1000 + Math.random() * 9000);
-            const saved = await createPartnerInDb({
-                ticketId,
-                role,
-                orgName,
-                detailType,
-                capacity,
-                contact,
-                notes,
-                dateLabel: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }),
-                createdAt: Date.now()
-            });
-
-            if (!saved) return;
-
-            resultBox.className = 'form-result rounded-2xl p-4 text-xs sm:text-sm bg-emeraldBrand-soft/80 border border-emeraldBrand/40 text-forest block';
-            resultBox.innerHTML = `
-                <strong>Pendaftaran Jalur ${escapeHtml(role)} Tersimpan ke Database!</strong><br>
-                Akun Google: <strong>${escapeHtml(appState.googleAccount.email)}</strong> • ID Registrasi: <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emeraldBrand/30">${ticketId}</span><br>
-                Instansi: <strong>${escapeHtml(orgName)}</strong> (${escapeHtml(detailType)}). Tim KLETON-X akan menghubungi <strong>${escapeHtml(contact)}</strong>.
-            `;
-            form.reset();
-            window.showToast(`Registrasi mitra ${orgName} berhasil tersimpan!`);
-        }
-
         document.querySelectorAll('.startup-connect-form').forEach(form => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                if (!isGoogleLoggedIn()) {
-                    window.guardActionThen('collab', () => submitCollaborationForm(form));
-                    return;
-                }
-                await submitCollaborationForm(form);
+                const role = form.getAttribute('data-role');
+                const orgName = form.querySelector('[name="orgName"]').value.trim();
+                const detailType = form.querySelector('[name="detailType"]').value;
+                const capacity = form.querySelector('[name="capacity"]').value.trim();
+                const contact = form.querySelector('[name="contact"]').value.trim();
+                const notes = form.querySelector('[name="notes"]').value.trim();
+                const resultBox = form.querySelector('.form-result');
+
+                const ticketId = 'MITRA-' + Math.floor(1000 + Math.random() * 9000);
+                await createPartnerInDb({
+                    ticketId,
+                    role,
+                    orgName,
+                    detailType,
+                    capacity,
+                    contact,
+                    notes,
+                    dateLabel: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }),
+                    createdAt: Date.now()
+                });
+
+                resultBox.className = 'form-result rounded-2xl p-4 text-xs sm:text-sm bg-emeraldBrand-soft/80 border border-emeraldBrand/40 text-forest block';
+                resultBox.innerHTML = `
+                    <strong>Pendaftaran Jalur ${escapeHtml(role)} Tersimpan ke Database!</strong><br>
+                    ID Registrasi: <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emeraldBrand/30">${ticketId}</span><br>
+                    Instansi: <strong>${escapeHtml(orgName)}</strong> (${escapeHtml(detailType)}). Tim KLETON-X akan menghubungi <strong>${escapeHtml(contact)}</strong>.
+                `;
+                form.reset();
+                window.showToast(`Registrasi mitra ${orgName} berhasil tersimpan!`);
             });
         });
 
@@ -2907,7 +2484,7 @@
             window.showToast(`Tautan formulir ${portalName} berhasil disalin!`);
         };
 
-        // Admin CRM Dashboard Tabs, Filter & CSV Export
+        // 8. Admin CRM Dashboard Tabs, Filter & CSV Export
         const crmTabOrders = document.getElementById('crm-tab-orders');
         const crmTabPartners = document.getElementById('crm-tab-partners');
         const crmOrdersView = document.getElementById('crm-orders-view');
@@ -2949,17 +2526,13 @@
         }
 
         document.getElementById('export-orders-csv-btn').addEventListener('click', () => {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => document.getElementById('export-orders-csv-btn').click());
-                return;
-            }
             if (appState.orders.length === 0) {
                 window.showToast('Belum ada data pemesanan untuk diekspor.');
                 return;
             }
-            const headers = ['ID Pesanan', 'Tanggal', 'Akun Google', 'Nama Pemesan', 'Perusahaan/Instansi', 'WhatsApp', 'Email', 'Varian Produk', 'Jumlah Unit', 'Harga Satuan (Rp)', 'Subtotal (Rp)', 'Alamat Pengiriman', 'Catatan', 'Status'];
+            const headers = ['ID Pesanan', 'Tanggal', 'Nama Pemesan', 'Perusahaan/Instansi', 'WhatsApp', 'Email', 'Varian Produk', 'Jumlah Unit', 'Harga Satuan (Rp)', 'Subtotal (Rp)', 'Alamat Pengiriman', 'Catatan', 'Status'];
             const rows = appState.orders.map(o => [
-                o.orderCode, o.dateLabel, o.googleEmail || '', o.buyerName, o.company, o.phone, o.email,
+                o.orderCode, o.dateLabel, o.buyerName, o.company, o.phone, o.email,
                 VARIANT_LABELS[o.variant] || o.variant, o.qty, o.unitPrice, o.subtotal,
                 o.address, o.notes, o.status
             ]);
@@ -2968,23 +2541,19 @@
         });
 
         document.getElementById('export-partners-csv-btn').addEventListener('click', () => {
-            if (!isVerifiedAdmin()) {
-                window.guardActionThen('admin', () => document.getElementById('export-partners-csv-btn').click());
-                return;
-            }
             if (appState.collaborations.length === 0) {
                 window.showToast('Belum ada data mitra kolaborasi untuk diekspor.');
                 return;
             }
-            const headers = ['ID Registrasi', 'Tanggal', 'Akun Google', 'Jalur Kemitraan', 'Nama Instansi/PT/Peternak', 'Fokus/Komoditas', 'Kapasitas/PIC', 'Kontak', 'Catatan'];
+            const headers = ['ID Registrasi', 'Tanggal', 'Jalur Kemitraan', 'Nama Instansi/PT/Peternak', 'Fokus/Komoditas', 'Kapasitas/PIC', 'Kontak', 'Catatan'];
             const rows = appState.collaborations.map(p => [
-                p.ticketId, p.dateLabel, p.googleEmail || '', p.role, p.orgName, p.detailType, p.capacity, p.contact, p.notes
+                p.ticketId, p.dateLabel, p.role, p.orgName, p.detailType, p.capacity, p.contact, p.notes
             ]);
             downloadCsvFile(`KLETONX_Data_Mitra_${new Date().toISOString().slice(0, 10)}.csv`, [headers, ...rows]);
             window.showToast('File CSV Data Mitra Kolaborasi berhasil diunduh!');
         });
 
-        // Start Full-Stack Database & Auth Connection
+        // Start Full-Stack Database Connection
         initDatabase();
     </script>
 </body>
