@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KLETONX | Inovasi Briket Terdensifikasi Biochar PKS–Kotoran Sapi untuk Biometana POME</title>
+    <title>KLETONX | Full-Stack Portal Produk, Pemesanan & Kolaborasi Biometana POME</title>
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
                             light: '#855836'
                         },
                         cream: {
-                            DEFAULT: '#F9FAF7',
+                            DEFAULT: '#F8F9F5',
                             dark: '#EEF1E8'
                         },
                         amberBrand: {
@@ -52,7 +52,7 @@
     </script>
     <style>
         body {
-            background-color: #F9FAF7;
+            background-color: #F8F9F5;
             color: #1E293B;
         }
         .hero-pattern {
@@ -63,17 +63,17 @@
             background-position: 0 0, 20px 20px;
         }
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -5px rgba(27, 67, 50, 0.1), 0 8px 10px -6px rgba(27, 67, 50, 0.05);
         }
         .drawer-backdrop {
-            transition: opacity 0.3s ease;
+            transition: opacity 0.25s ease;
         }
         .drawer-panel {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
@@ -124,102 +124,129 @@
                         </svg>
                     </div>
                     <div>
-                        <span class="font-heading font-extrabold text-2xl tracking-tight text-forest block leading-none">KLETON<span class="text-amberBrand">X</span></span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-heading font-extrabold text-2xl tracking-tight text-forest leading-none">KLETON<span class="text-amberBrand">X</span></span>
+                            <span id="db-status-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emeraldBrand-soft text-forest text-[10px] font-bold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emeraldBrand-leaf animate-pulse"></span>
+                                <span>DB Sync</span>
+                            </span>
+                        </div>
                         <span class="text-[11px] font-semibold tracking-wider uppercase text-emeraldBrand">Biochar PKS • Kotoran Sapi</span>
                     </div>
                 </a>
 
-                <!-- Desktop Quick Navigation (5 Pilar Utama) -->
-                <nav class="hidden lg:flex items-center space-x-6">
-                    <a href="#penjelasan-produk" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Penjelasan Produk</a>
-                    <a href="#inovasi" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Inovasi</a>
-                    <a href="#manfaat" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Manfaat</a>
-                    <a href="#cara-penggunaan" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Cara Penggunaan</a>
-                    <a href="#kolaborasi" class="text-sm font-semibold text-slate-700 hover:text-forest transition-colors">Kolaborasi</a>
+                <!-- Desktop Quick Navigation -->
+                <nav class="hidden xl:flex items-center space-x-5">
+                    <a href="#penjelasan-produk" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Produk & Katalog</a>
+                    <a href="#inovasi" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Inovasi</a>
+                    <a href="#manfaat" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Manfaat</a>
+                    <a href="#cara-penggunaan" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Cara Penggunaan</a>
+                    <a href="#kolaborasi" class="text-xs font-bold text-slate-700 hover:text-forest transition-colors">Kolaborasi</a>
+                    <a href="#database-crm" class="text-xs font-bold text-amberBrand hover:text-amber-700 transition-colors flex items-center gap-1">
+                        <span>Database Pesanan</span>
+                        <span id="nav-order-badge" class="px-1.5 py-0.5 rounded-full bg-forest text-white text-[10px]">0</span>
+                    </a>
                 </nav>
 
-                <!-- Right Controls: Connect CTA + Tombol Garis Tiga -->
-                <div class="flex items-center gap-3">
-                    <a href="#kolaborasi" class="hidden sm:inline-flex items-center gap-2 bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all">
-                        <span>Portal Kolaborasi</span>
-                    </a>
+                <!-- Right Controls: Cek Pesanan + Tombol Garis Tiga -->
+                <div class="flex items-center gap-2.5">
+                    <button type="button" onclick="openTrackOrderModal()" class="hidden sm:inline-flex items-center gap-1.5 bg-cream hover:bg-emeraldBrand-soft/60 border border-slate-200 text-forest font-heading font-bold text-xs px-3.5 py-2.5 rounded-xl transition-all">
+                        <svg class="w-4 h-4 text-emeraldBrand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <span>Cek Pesanan</span>
+                    </button>
+
+                    <button type="button" onclick="openOrderCheckoutModal('pack')" class="hidden md:inline-flex items-center gap-1.5 bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all">
+                        <span>Pesan Sekarang</span>
+                    </button>
 
                     <!-- Menu Garis Tiga (Hamburger Drawer Trigger) -->
-                    <button id="drawer-open-btn" type="button" aria-label="Buka Menu Garis Tiga" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-cream hover:bg-emeraldBrand-soft/60 border border-slate-200 text-forest font-heading font-bold text-xs sm:text-sm transition-all shadow-sm">
-                        <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="drawer-open-btn" type="button" aria-label="Buka Menu Garis Tiga" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm transition-all shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
-                        <span class="hidden md:inline">Menu</span>
+                        <span>Menu</span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ==================== SLIDE-OVER MENU GARIS TIGA (5 PILAR) ==================== -->
+    <!-- ==================== SLIDE-OVER MENU GARIS TIGA (6 PILAR FULL-STACK) ==================== -->
     <div id="nav-drawer-backdrop" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm drawer-backdrop">
         <div id="nav-drawer-panel" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl border-l border-slate-200 flex flex-col justify-between translate-x-full drawer-panel">
             <div class="p-6 overflow-y-auto">
-                <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100">
                     <div class="flex items-center gap-2.5">
                         <span class="w-3 h-3 rounded-full bg-emeraldBrand-leaf"></span>
-                        <span class="font-heading font-extrabold text-lg text-forest">Menu Utama KLETONX</span>
+                        <span class="font-heading font-extrabold text-lg text-forest">Navigasi KLETONX</span>
                     </div>
                     <button id="drawer-close-btn" type="button" aria-label="Tutup Menu" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                     </button>
                 </div>
 
-                <!-- 5 Pilar Utama -->
-                <nav class="mt-6 space-y-2.5">
-                    <a href="#penjelasan-produk" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">01</div>
+                <!-- 6 Pilar Navigasi -->
+                <nav class="mt-5 space-y-2">
+                    <a href="#penjelasan-produk" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-forest text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs group-hover:bg-amberBrand transition-colors">01</div>
                         <div>
-                            <div class="font-heading font-bold text-base text-forest">Penjelasan Produk</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Definisi, spesifikasi mutu standar, fungsi tiap bahan (70:25:5), katalog harga & rating</div>
+                            <div class="font-heading font-bold text-sm text-forest">Penjelasan Produk & Katalog</div>
+                            <div class="text-[11px] text-slate-500">Spesifikasi mutu, fungsi 3 bahan (70:25:5), harga, pemesanan & rating</div>
                         </div>
                     </a>
 
-                    <a href="#inovasi" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-emeraldBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">02</div>
+                    <a href="#inovasi" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-emeraldBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs group-hover:bg-amberBrand transition-colors">02</div>
                         <div>
-                            <div class="font-heading font-bold text-base text-forest">Inovasi</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Latar belakang POME & residu, kebaruan riset (Yan et al., Darwin et al.) & tahapan fabrikasi</div>
+                            <div class="font-heading font-bold text-sm text-forest">Inovasi & Data Riset</div>
+                            <div class="text-[11px] text-slate-500">Latar belakang POME, bukti Yan et al. & Darwin et al., alur fabrikasi</div>
                         </div>
                     </a>
 
-                    <a href="#manfaat" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-emeraldBrand-leaf text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">03</div>
+                    <a href="#manfaat" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-emeraldBrand-leaf text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs group-hover:bg-amberBrand transition-colors">03</div>
                         <div>
-                            <div class="font-heading font-bold text-base text-forest">Manfaat</div>
-                            <div class="text-xs text-slate-500 mt-0.5">5 manfaat utama peningkatan yield biometana, rantai pasok & kontrak mill</div>
+                            <div class="font-heading font-bold text-sm text-forest">Manfaat</div>
+                            <div class="text-[11px] text-slate-500">Optimalisasi yield biometana, efisiensi rantai pasok & kontrak mill</div>
                         </div>
                     </a>
 
-                    <a href="#cara-penggunaan" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-biochar text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm group-hover:bg-amberBrand transition-colors">04</div>
+                    <a href="#cara-penggunaan" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-biochar text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs group-hover:bg-amberBrand transition-colors">04</div>
                         <div>
-                            <div class="font-heading font-bold text-base text-forest">Cara Penggunaan</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Prosedur aplikasi digester POME (dapat diedit & diperbarui sewaktu-waktu)</div>
+                            <div class="font-heading font-bold text-sm text-forest">Cara Penggunaan</div>
+                            <div class="text-[11px] text-slate-500">Prosedur digester POME (dapat diedit & disimpan ke database)</div>
                         </div>
                     </a>
 
-                    <a href="#kolaborasi" class="drawer-link group flex items-start gap-3.5 p-3.5 rounded-2xl bg-amberBrand-soft/50 hover:bg-amberBrand-soft border border-amberBrand/30 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-amberBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-sm">05</div>
+                    <a href="#kolaborasi" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl hover:bg-cream border border-transparent hover:border-slate-200 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-amberBrand text-white flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs">05</div>
                         <div>
-                            <div class="font-heading font-bold text-base text-forest">Kolaborasi</div>
-                            <div class="text-xs text-slate-600 mt-0.5">Akses terpisah: Penyuplai Bahan Baku, Badan Riset & Pembeli Industri + Tim Pendiri</div>
+                            <div class="font-heading font-bold text-sm text-forest">Kolaborasi</div>
+                            <div class="text-[11px] text-slate-500">Akses terpisah: Penyuplai, Badan Riset & Pembeli Industri</div>
+                        </div>
+                    </a>
+
+                    <a href="#database-crm" class="drawer-link group flex items-start gap-3 p-3 rounded-2xl bg-amberBrand-soft/60 hover:bg-amberBrand-soft border border-amberBrand/40 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-forest text-amber-400 flex items-center justify-center flex-shrink-0 font-heading font-bold text-xs">06</div>
+                        <div>
+                            <div class="font-heading font-bold text-sm text-forest flex items-center gap-2">
+                                <span>Database & Admin CRM</span>
+                                <span id="drawer-order-count" class="px-1.5 py-0.5 rounded bg-forest text-white text-[10px]">0</span>
+                            </div>
+                            <div class="text-[11px] text-slate-600">Rekap data pemesan, status pesanan, mitra terdaftar & export CSV</div>
                         </div>
                     </a>
                 </nav>
             </div>
 
-            <div class="p-6 bg-cream border-t border-slate-200/80">
-                <div class="text-xs font-bold text-forest mb-1">Dari Limbah, Jadi Solusi Energi</div>
-                <p class="text-[11px] text-slate-500 mb-3">Data bersumber resmi dari proposal KELTON-X (SRE Universitas Airlangga).</p>
-                <a href="#kolaborasi" class="drawer-link block w-full text-center py-3 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
-                    Hubungkan Kemitraan Sekarang
-                </a>
+            <div class="p-5 bg-cream border-t border-slate-200/80 space-y-2">
+                <button type="button" onclick="closeNavDrawer(); openTrackOrderModal();" class="w-full py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-forest font-heading font-bold text-xs">
+                    Lacak Status Pesanan (ID / WhatsApp)
+                </button>
+                <button type="button" onclick="closeNavDrawer(); openOrderCheckoutModal('pack');" class="w-full py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
+                    Buat Pesanan Baru
+                </button>
             </div>
         </div>
     </div>
@@ -241,7 +268,7 @@
                         </div>
 
                         <!-- Official KLETONX Emblem -->
-                        <div class="mx-auto w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center my-1">
+                        <div class="mx-auto w-44 h-44 sm:w-48 sm:h-48 flex items-center justify-center my-1">
                             <svg class="w-full h-full drop-shadow-md" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <linearGradient id="heroLeafGrad" x1="35" y1="50" x2="105" y2="160" gradientUnits="userSpaceOnUse">
@@ -294,15 +321,20 @@
                             Biochar PKS • Kotoran Sapi • CMC-TKKS
                         </p>
 
-                        <!-- Live Rating Summary (Default 0.0 / 0 Ulasan) -->
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-center gap-4 text-xs text-slate-600">
-                            <div class="flex items-center gap-1 font-bold text-forest">
-                                <span class="text-amber-500 text-base">★</span>
-                                <span id="hero-rating-val">0.0</span>
-                                <span class="text-slate-400 font-normal">/ 5.0</span>
+                        <!-- Live Database Counter Summary -->
+                        <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-xs">
+                            <div>
+                                <div class="font-heading font-extrabold text-forest text-base" id="hero-rating-val">0.0</div>
+                                <div class="text-[10px] text-slate-500">Rating (★)</div>
                             </div>
-                            <span class="text-slate-300">|</span>
-                            <span class="font-semibold text-emeraldBrand"><span id="hero-review-count">0</span> Ulasan Pengunjung</span>
+                            <div class="border-x border-slate-100">
+                                <div class="font-heading font-extrabold text-emeraldBrand text-base" id="hero-review-count">0</div>
+                                <div class="text-[10px] text-slate-500">Ulasan</div>
+                            </div>
+                            <div>
+                                <div class="font-heading font-extrabold text-amberBrand text-base" id="hero-order-count">0</div>
+                                <div class="text-[10px] text-slate-500">Pesanan</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -322,19 +354,22 @@
                         Mengintegrasikan komposit <strong>70% Biochar Palm Kernel Shell (PKS)</strong>, <strong>25% kotoran sapi praolah</strong>, dan <strong>5% pengikat CMC-TKKS</strong> ke dalam format briket silindris fungsional (Ø 30 mm × 50 mm) untuk mendukung kestabilan <em>anaerobic co-digestion</em> Palm Oil Mill Effluent (POME).
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="#penjelasan-produk" class="inline-flex justify-center items-center gap-2 bg-amberBrand hover:bg-amber-600 text-white font-heading font-bold px-7 py-4 rounded-xl shadow-lg transition-all text-center">
-                            <span>Jelajahi Spesifikasi & Katalog</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <div class="flex flex-wrap gap-3.5 pt-2">
+                        <button type="button" onclick="openOrderCheckoutModal('pack')" class="inline-flex justify-center items-center gap-2 bg-amberBrand hover:bg-amber-600 text-white font-heading font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all">
+                            <span>Pesan Produk KLETONX</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                        <a href="#database-crm" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-heading font-semibold px-6 py-3.5 rounded-xl transition-all">
+                            <span>Lihat Rekap Database Pesanan</span>
                         </a>
-                        <a href="#kolaborasi" class="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-heading font-semibold px-7 py-4 rounded-xl transition-all text-center">
-                            <span>Akses Portal Kemitraan</span>
+                        <a href="#kolaborasi" class="inline-flex justify-center items-center gap-2 bg-emeraldBrand/50 hover:bg-emeraldBrand/70 border border-emerald-400/30 text-white font-heading font-semibold px-5 py-3.5 rounded-xl transition-all">
+                            <span>Portal Kemitraan</span>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Data Riset Utama dari Proposal (Strict Source) -->
+            <!-- Data Riset Utama dari Proposal -->
             <div class="mt-14 pt-10 border-t border-white/15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
                     <span class="text-xs font-semibold uppercase tracking-wider text-emerald-200">Uji AD POME + Biochar</span>
@@ -363,12 +398,12 @@
         </div>
     </section>
 
-    <!-- ==================== 3. PENJELASAN PRODUK (100% DATA DOKUMEN + HARGA/RATING/ULASAN DEFAULT 0) ==================== -->
+    <!-- ==================== 3. PENJELASAN PRODUK, SPESIFIKASI & KATALOG PEMESANAN ==================== -->
     <section id="penjelasan-produk" class="py-20 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mb-12">
-                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">01 • Penjelasan Produk (Data Proposal & Spesifikasi Resmi)</span>
-                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Definisi, Spesifikasi Mutu & Fungsi Tiap Bahan KLETONX</h2>
+                <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">01 • Penjelasan Produk & Katalog Pemesanan</span>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Definisi, Fungsi Tiap Bahan & Pemesanan KLETONX</h2>
                 <p class="text-slate-600 mt-3 leading-relaxed">
                     <strong>KLETONX (KELTON-X)</strong> adalah briket fungsional terdensifikasi berbasis komposit <em>biochar Palm Kernel Shell</em> (PKS), kotoran sapi yang dipraolah, dan pengikat <em>Carboxymethyl Cellulose</em> berbasis selulosa Tandan Kosong Kelapa Sawit (CMC-TKKS) sebagai material pendukung proses <em>Anaerobic Co-Digestion</em> POME.
                 </p>
@@ -459,7 +494,7 @@
                 </div>
             </div>
 
-            <!-- Tabel Parameter Standar Spesifikasi Produk KLETON-X (Persis Proposal & Kemasan) -->
+            <!-- Tabel Parameter Standar Spesifikasi Produk KLETON-X -->
             <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm mb-16">
                 <div class="bg-forest text-white p-6 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
@@ -543,52 +578,51 @@
                 </div>
             </div>
 
-            <!-- ==================== KATALOG PRODUK (HARGA, RATING, ULASAN DEFAULT 0 & DINAMIS) ==================== -->
+            <!-- ==================== KATALOG PRODUK & FORMULIR PEMESANAN TERINTEGRASI ==================== -->
             <div class="mb-14">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">Katalog Komersial & Penawaran</span>
-                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Varian Produk KLETONX (Harga, Rating & Transaksi Pengunjung)</h3>
+                        <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">Katalog Komersial & Pemesanan</span>
+                        <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Pilih Varian Produk & Buat Pesanan</h3>
                         <p class="text-xs sm:text-sm text-slate-600 mt-1">
-                            Nilai awal harga, rating, dan jumlah ulasan disetel ke <strong>0</strong> dan akan diperbarui otomatis sesuai interaksi pembelian maupun penilaian pengunjung.
+                            Harga awal, rating, ulasan, dan jumlah unit terpesan dimulai dari <strong>0</strong> dan otomatis tersimpan di database setiap ada transaksi atau penilaian pengunjung.
                         </p>
                     </div>
 
-                    <!-- Admin Controls to Update Prices or Reset Data -->
                     <div class="flex flex-wrap items-center gap-2.5">
                         <button type="button" id="toggle-price-editor-btn" class="px-4 py-2.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-300 text-forest font-heading font-bold text-xs transition-colors">
-                            Atur Harga Produk
+                            Atur Harga Produk (DB)
                         </button>
-                        <button type="button" id="reset-market-data-btn" class="px-3.5 py-2.5 rounded-xl bg-white hover:bg-red-50 border border-slate-200 text-slate-500 hover:text-red-600 font-semibold text-xs transition-colors">
-                            Reset ke 0
+                        <button type="button" onclick="openTrackOrderModal()" class="px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs transition-colors">
+                            Lacak Status Pesanan
                         </button>
                     </div>
                 </div>
 
-                <!-- Collapsible Admin Price Configurator -->
+                <!-- Collapsible Admin Price Configurator (Persisted to Database) -->
                 <div id="price-editor-panel" class="hidden mb-8 bg-cream rounded-2xl p-6 border border-amberBrand/40">
-                    <h4 class="font-heading font-bold text-sm text-forest mb-1">Pengaturan Harga Katalog (Dapat Diubah Sewaktu-Waktu)</h4>
-                    <p class="text-xs text-slate-500 mb-4">Masukkan harga satuan dalam Rupiah (isi 0 apabila menggunakan skema negosiasi kontrak B2B).</p>
+                    <h4 class="font-heading font-bold text-sm text-forest mb-1">Pengaturan Harga Katalog (Tersimpan Permanen di Database)</h4>
+                    <p class="text-xs text-slate-500 mb-4">Masukkan harga satuan dalam Rupiah (default 0 untuk skema penawaran/negosiasi B2B).</p>
                     <form id="price-update-form" class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Kemasan 5–10 Kg (Rp)</label>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Kemasan 5–10 Kg (Rp)</label>
                             <input type="number" min="0" id="input-price-pack" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Curah / Tonase (Rp)</label>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Curah / Bulk Tonase (Rp)</label>
                             <input type="number" min="0" id="input-price-bulk" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Harga Layanan Optimasi AD (Rp)</label>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Layanan Uji Coba AD (Rp)</label>
                             <input type="number" min="0" id="input-price-service" value="0" class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm focus:border-forest focus:outline-none">
                         </div>
                         <button type="submit" class="py-2.5 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow">
-                            Simpan Harga
+                            Simpan Harga ke Database
                         </button>
                     </form>
                 </div>
 
-                <!-- 3 Product Cards (Default Rp 0, Rating 0.0, 0 Ulasan, 0 Terjual) -->
+                <!-- 3 Product Cards -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Varian 1: Kemasan Karung 5-10 Kg -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
@@ -600,7 +634,7 @@
                                         ★ <span id="card-rating-pack">0.0</span> (<span id="card-revcount-pack">0</span>)
                                     </span>
                                 </div>
-                                <h4 class="font-heading font-bold text-xl mt-4">KLETONX Kemasan 5–10 Kg</h4>
+                                <h4 class="font-heading font-bold text-xl mt-4">Kemasan Karung Woven PP 5–10 kg</h4>
                                 <p class="text-xs text-emerald-100 mt-1">Briket Silindris Ø 30 mm × 50 mm • Heat Sealed</p>
                             </div>
 
@@ -612,7 +646,7 @@
                                     </div>
                                     <div class="text-right text-xs text-slate-500">
                                         <span class="block font-bold text-forest"><span id="display-sold-pack">0</span> unit</span>
-                                        <span>terpesan</span>
+                                        <span>dipesan</span>
                                     </div>
                                 </div>
                                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -622,13 +656,13 @@
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="openQuickOrderModal('pack', 'KLETONX Kemasan 5–10 Kg')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
-                                Beli / Ajukan Penawaran
+                            <button type="button" onclick="openOrderCheckoutModal('pack')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Pesan Varian Ini
                             </button>
                         </div>
                     </div>
 
-                    <!-- Varian 2: Kontrak Pasokan Bulk / Tonase Mill -->
+                    <!-- Varian 2: Curah / Bulk Tonase -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-gradient-to-br from-biochar-dark to-biochar p-6 text-white">
@@ -638,7 +672,7 @@
                                         ★ <span id="card-rating-bulk">0.0</span> (<span id="card-revcount-bulk">0</span>)
                                     </span>
                                 </div>
-                                <h4 class="font-heading font-bold text-xl mt-4">KLETONX Kontrak Pasokan B2B</h4>
+                                <h4 class="font-heading font-bold text-xl mt-4">Curah / Bulk Tonase (Kontrak Mill)</h4>
                                 <p class="text-xs text-amber-100/90 mt-1">Pasokan Rutin Pabrik Kelapa Sawit (On-Site / Tonase)</p>
                             </div>
 
@@ -649,24 +683,24 @@
                                         <span class="font-heading font-extrabold text-2xl text-forest" id="display-price-bulk">Rp 0</span>
                                     </div>
                                     <div class="text-right text-xs text-slate-500">
-                                        <span class="block font-bold text-forest"><span id="display-sold-bulk">0</span> kontrak</span>
-                                        <span>tercatat</span>
+                                        <span class="block font-bold text-forest"><span id="display-sold-bulk">0</span> unit</span>
+                                        <span>dipesan</span>
                                     </div>
                                 </div>
                                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                    Skema kontrak pasokan briket berkala untuk instalasi <em>anaerobic digestion</em> POME di pabrik kelapa sawit, termasuk integrasi pemanfaatan PKS surplus dan kotoran sapi lokal.
+                                    Skema kontrak pasokan briket skala tonase untuk instalasi <em>anaerobic digestion</em> POME di pabrik kelapa sawit, mengintegrasikan PKS surplus dan kotoran sapi lokal.
                                 </p>
                             </div>
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="openQuickOrderModal('bulk', 'KLETONX Kontrak Pasokan B2B')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
-                                Beli / Ajukan Kontrak
+                            <button type="button" onclick="openOrderCheckoutModal('bulk')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Pesan Curah / Kontrak
                             </button>
                         </div>
                     </div>
 
-                    <!-- Varian 3: Layanan Uji Coba & Optimasi Proses AD -->
+                    <!-- Varian 3: Layanan Uji Coba & Pendampingan Teknis -->
                     <div class="card-hover bg-cream rounded-3xl border border-slate-200/90 overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="bg-gradient-to-br from-emeraldBrand to-forest-light p-6 text-white">
@@ -676,8 +710,8 @@
                                         ★ <span id="card-rating-service">0.0</span> (<span id="card-revcount-service">0</span>)
                                     </span>
                                 </div>
-                                <h4 class="font-heading font-bold text-xl mt-4">Paket Uji Coba & Optimasi Proses</h4>
-                                <p class="text-xs text-emerald-100 mt-1">Uji Skala Kecil Dosis Terukur & Pendampingan</p>
+                                <h4 class="font-heading font-bold text-xl mt-4">Layanan Uji Coba & Pendampingan Teknis</h4>
+                                <p class="text-xs text-emerald-100 mt-1">Uji Skala Kecil Dosis Terukur & Evaluasi Performa</p>
                             </div>
 
                             <div class="p-6 space-y-4">
@@ -687,32 +721,32 @@
                                         <span class="font-heading font-extrabold text-2xl text-forest" id="display-price-service">Rp 0</span>
                                     </div>
                                     <div class="text-right text-xs text-slate-500">
-                                        <span class="block font-bold text-forest"><span id="display-sold-service">0</span> uji coba</span>
-                                        <span>tercatat</span>
+                                        <span class="block font-bold text-forest"><span id="display-sold-service">0</span> paket</span>
+                                        <span>dipesan</span>
                                     </div>
                                 </div>
                                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                    Layanan uji coba skala kecil dengan dosis terukur sehingga pabrik tidak perlu mengubah infrastruktur digester secara besar-besaran sebelum implementasi penuh.
+                                    Paket uji coba skala kecil dengan dosis terukur dan pendampingan teknis sehingga pabrik tidak perlu mengubah infrastruktur digester secara besar-besaran.
                                 </p>
                             </div>
                         </div>
 
                         <div class="p-6 pt-0">
-                            <button type="button" onclick="openQuickOrderModal('service', 'Paket Uji Coba & Optimasi Proses')" class="w-full py-3 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
-                                Pesan Uji Coba
+                            <button type="button" onclick="openOrderCheckoutModal('service')" class="w-full py-3.5 px-4 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow transition-colors">
+                                Pesan Uji Coba Teknis
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== RATING & ULASAN PENGUNJUNG (MULAI DARI 0) ==================== -->
+            <!-- ==================== RATING & ULASAN PENGUNJUNG (MULAI DARI 0 & TERSIMPAN DI DB) ==================== -->
             <div id="ulasan-produk" class="bg-cream rounded-3xl p-6 sm:p-10 border border-slate-200">
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-200/80">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-amberBrand">Penilaian Pengunjung & Pembeli</span>
                         <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-forest mt-1">Rating & Ulasan Produk KLETONX</h3>
-                        <p class="text-sm text-slate-600 mt-1">Belum ada ulasan awal (0). Rating dan ulasan akan otomatis terhitung dari penilaian pengunjung yang mencoba atau membeli produk.</p>
+                        <p class="text-sm text-slate-600 mt-1">Skor awal dimulai dari <strong>0.0 (0 Ulasan)</strong>. Setiap ulasan pengunjung tersimpan otomatis di database dan memperbarui rating secara <em>real-time</em>.</p>
                     </div>
 
                     <div class="flex items-center gap-4 bg-white px-5 py-4 rounded-2xl border border-slate-200/80">
@@ -721,41 +755,41 @@
                             <div class="text-amber-500 text-sm tracking-tight" id="avg-rating-stars">☆☆☆☆☆</div>
                         </div>
                         <div class="border-l border-slate-200 pl-4 text-xs text-slate-600">
-                            <div class="font-bold text-forest text-sm"><span id="total-reviews-count">0</span> Ulasan Pengunjung</div>
-                            <div>Diperbarui otomatis saat pengunjung menilai</div>
+                            <div class="font-bold text-forest text-sm"><span id="total-reviews-count">0</span> Ulasan Tersimpan</div>
+                            <div>Tersinkronisasi otomatis dengan database</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
-                    <!-- Dynamic Reviews Container (Starts Empty / 0) -->
+                    <!-- Dynamic Reviews Container -->
                     <div class="lg:col-span-7 space-y-4" id="reviews-list">
                         <div id="empty-reviews-placeholder" class="bg-white rounded-2xl p-8 border border-dashed border-slate-300 text-center">
                             <div class="font-heading font-bold text-base text-forest mb-1">Belum Ada Ulasan (0)</div>
                             <p class="text-xs sm:text-sm text-slate-500">
-                                Jadilah pengunjung atau mitra pertama yang memberikan penilaian dan ulasan untuk briket KLETONX melalui formulir di samping.
+                                Belum ada penilaian yang tercatat di database. Silakan kirim ulasan Anda melalui formulir di samping.
                             </p>
                         </div>
                     </div>
 
                     <!-- Visitor Rating & Review Submission Form -->
                     <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                        <h4 class="font-heading font-bold text-lg text-forest mb-1">Beri Rating & Ulasan Pengunjung</h4>
-                        <p class="text-xs text-slate-500 mb-4">Penilaian Anda akan langsung memperbarui skor rating rata-rata produk.</p>
+                        <h4 class="font-heading font-bold text-lg text-forest mb-1">Tulis Rating & Ulasan Anda</h4>
+                        <p class="text-xs text-slate-500 mb-4">Ulasan Anda akan tersimpan permanen di database produk KLETONX.</p>
 
                         <form id="review-form" class="space-y-3.5">
                             <div>
                                 <label for="rev-name" class="block text-xs font-bold text-slate-700 mb-1">Nama Pengunjung / Instansi *</label>
-                                <input type="text" id="rev-name" required placeholder="Masukkan nama Anda atau nama instansi" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                <input type="text" id="rev-name" required placeholder="Nama Anda atau nama perusahaan" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none">
                             </div>
 
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
                                     <label for="rev-variant" class="block text-xs font-bold text-slate-700 mb-1">Varian Produk</label>
                                     <select id="rev-variant" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3 py-2.5 text-xs focus:border-forest focus:bg-white focus:outline-none">
-                                        <option value="pack">Kemasan 5–10 Kg</option>
-                                        <option value="bulk">Kontrak Pasokan B2B</option>
-                                        <option value="service">Paket Uji Coba & Optimasi</option>
+                                        <option value="pack">Kemasan 5–10 kg</option>
+                                        <option value="bulk">Curah / Bulk Tonase</option>
+                                        <option value="service">Layanan Uji Coba</option>
                                     </select>
                                 </div>
                                 <div>
@@ -772,13 +806,13 @@
 
                             <div>
                                 <label for="rev-comment" class="block text-xs font-bold text-slate-700 mb-1">Ulasan Anda *</label>
-                                <textarea id="rev-comment" rows="3" required placeholder="Tuliskan ulasan atau pengalaman Anda mengenai KLETONX..." class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none"></textarea>
+                                <textarea id="rev-comment" rows="3" required placeholder="Tuliskan masukan atau hasil uji coba briket KLETONX..." class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none"></textarea>
                             </div>
 
                             <div id="rev-feedback" class="hidden text-xs p-2.5 rounded-xl bg-emeraldBrand-soft text-forest font-semibold"></div>
 
-                            <button type="submit" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow transition-colors">
-                                Kirim Rating & Ulasan
+                            <button type="submit" id="rev-submit-btn" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm shadow transition-colors">
+                                Simpan Rating & Ulasan
                             </button>
                         </form>
                     </div>
@@ -787,7 +821,7 @@
         </div>
     </section>
 
-    <!-- ==================== 4. INOVASI & DATA RISET (100% BERSUMBER DARI PROPOSAL) ==================== -->
+    <!-- ==================== 4. INOVASI & DATA RISET ==================== -->
     <section id="inovasi" class="py-20 bg-cream border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14">
@@ -817,7 +851,7 @@
                 </div>
             </div>
 
-            <!-- 4 Tahapan Fabrikasi Utama (Sesuai Proposal Halaman 10-12) -->
+            <!-- 4 Tahapan Fabrikasi Utama -->
             <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90">
                 <h3 class="font-heading font-extrabold text-2xl text-forest mb-6">Tahapan Fabrikasi Terintegrasi KLETON-X</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -857,7 +891,7 @@
         </div>
     </section>
 
-    <!-- ==================== 5. MANFAAT (100% BERSUMBER DARI PROPOSAL) ==================== -->
+    <!-- ==================== 5. MANFAAT ==================== -->
     <section id="manfaat" class="py-20 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14">
@@ -869,7 +903,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Manfaat 1 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-forest text-amber-400 font-heading font-extrabold flex items-center justify-center mb-4">01</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Meningkatkan Produksi & Yield Biometana</h3>
@@ -878,7 +911,6 @@
                     </p>
                 </div>
 
-                <!-- Manfaat 2 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-emeraldBrand-leaf text-white font-heading font-extrabold flex items-center justify-center mb-4">02</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Memperluas Pemanfaatan Kotoran Sapi & Pasokan Lokal</h3>
@@ -887,7 +919,6 @@
                     </p>
                 </div>
 
-                <!-- Manfaat 3 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-emeraldBrand text-white font-heading font-extrabold flex items-center justify-center mb-4">03</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Mengurangi Beban Organik POME & Emisi Metana</h3>
@@ -896,7 +927,6 @@
                     </p>
                 </div>
 
-                <!-- Manfaat 4 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-amberBrand text-white font-heading font-extrabold flex items-center justify-center mb-4">04</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Efisiensi Distribusi, Penyimpanan & Penakaran</h3>
@@ -905,7 +935,6 @@
                     </p>
                 </div>
 
-                <!-- Manfaat 5 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-biochar text-white font-heading font-extrabold flex items-center justify-center mb-4">05</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Memperbesar Peluang Kontrak Jangka Panjang dengan Mill</h3>
@@ -914,7 +943,6 @@
                     </p>
                 </div>
 
-                <!-- Manfaat 6 -->
                 <div class="bg-cream rounded-3xl p-7 border border-slate-200/80">
                     <div class="w-10 h-10 rounded-xl bg-forest-light text-white font-heading font-extrabold flex items-center justify-center mb-4">06</div>
                     <h3 class="font-heading font-bold text-lg text-forest mb-2">Mendukung Energi Terbarukan Internal Pabrik</h3>
@@ -926,19 +954,18 @@
         </div>
     </section>
 
-    <!-- ==================== 6. CARA PENGGUNAAN (SESUAI LAMPIRAN & DAPAT DIUBAH SEWAKTU-WAKTU) ==================== -->
+    <!-- ==================== 6. CARA PENGGUNAAN (EDITABLE & PERSISTED TO CLOUD DB) ==================== -->
     <section id="cara-penggunaan" class="py-20 bg-cream border-b border-slate-200/80">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">04 • Panduan Operasional (Dapat Diubah Sewaktu-Waktu)</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">04 • Panduan Operasional (Tersinkronisasi Database)</span>
                     <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Cara Penggunaan Briket KLETONX</h2>
                     <p class="text-sm text-slate-600 mt-2">
-                        Mengikuti panduan pada kemasan lampiran dan dapat disesuaikan sewaktu-waktu sesuai SOP teknis digester mitra.
+                        Mengikuti panduan pada kemasan lampiran dan dapat diubah sewaktu-waktu lalu disimpan langsung ke database.
                     </p>
                 </div>
 
-                <!-- Toggle Edit Mode Button -->
                 <div class="flex items-center gap-2.5">
                     <button type="button" id="toggle-edit-usage-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -949,20 +976,18 @@
 
             <!-- Display Mode: Usage Steps -->
             <div id="usage-display-container" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="usage-steps-grid">
-                    <!-- Populated by JS from default attachment steps or localStorage -->
-                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="usage-steps-grid"></div>
 
                 <div class="bg-cream rounded-2xl p-4 border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
                     <div>
-                        <strong class="text-forest">Catatan Penyimpanan (Sesuai Kemasan & Proposal):</strong>
-                        <span id="usage-storage-note">Simpan di tempat kering (gudang beratap dengan kelembapan relatif ≤ 60%, di atas palet, dan tersegel rapat).</span>
+                        <strong class="text-forest">Catatan Penyimpanan:</strong>
+                        <span id="usage-storage-note">Simpan di Tempat Kering (gudang beratap dengan kelembapan relatif ≤ 60%, di atas palet, dan karung tersegel rapat).</span>
                     </div>
                     <span class="text-[11px] text-slate-400 whitespace-nowrap" id="usage-last-updated">Status: Default Lampiran</span>
                 </div>
             </div>
 
-            <!-- Inline Editor Panel (Hidden by default, opens anytime user clicks Edit) -->
+            <!-- Inline Editor Panel -->
             <div id="usage-editor-container" class="hidden bg-white rounded-3xl p-6 sm:p-8 border-2 border-amberBrand shadow-lg mt-6">
                 <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
                     <div>
@@ -987,7 +1012,7 @@
                             Batal
                         </button>
                         <button type="submit" class="px-6 py-2.5 rounded-xl bg-emeraldBrand hover:bg-forest text-white font-heading font-bold text-xs sm:text-sm shadow">
-                            Simpan Perubahan Panduan
+                            Simpan Perubahan ke Database
                         </button>
                     </div>
                 </form>
@@ -996,19 +1021,18 @@
     </section>
 
     <!-- ==================== 7. PORTAL KOLABORASI TERPISAH (PENYUPLAI, BADAN RISET, PEMBELI) ==================== -->
-    <section id="kolaborasi" class="py-20 bg-white">
+    <section id="kolaborasi" class="py-20 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">05 • Platform Connect & Kolaborasi KLETONX</span>
                 <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Akses Kemitraan Terpisah: Penyuplai, Badan Riset & Pembeli</h2>
                 <p class="text-slate-600 mt-4 leading-relaxed">
-                    Pilih jalur akses sesuai peran Anda untuk terhubung langsung dengan ekosistem startup KLETONX melalui formulir pendaftaran kemitraan maupun tautan Google Form terintegrasi.
+                    Seluruh pendaftaran mitra dari ketiga jalur akses di bawah ini langsung tercatat permanen di database cloud KLETONX.
                 </p>
             </div>
 
             <!-- 3 Separated Access Tabs -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10" role="tablist">
-                <!-- Jalur 1: Penyuplai -->
                 <button type="button" data-collab-tab="penyuplai" class="collab-tab-btn active text-left p-5 rounded-2xl border-2 border-emeraldBrand-leaf bg-emeraldBrand-soft/40 shadow-sm transition-all">
                     <div class="flex items-center justify-between mb-2">
                         <span class="px-2.5 py-0.5 rounded-full bg-emeraldBrand-leaf text-white text-[11px] font-bold uppercase">Akses 01 • Penyuplai</span>
@@ -1018,7 +1042,6 @@
                     <p class="text-xs text-slate-600 mt-1">Peternak Sapi Perah/Jagal Pemasok Kotoran Sapi & Pabrik Pemasok PKS Surplus / TKKS</p>
                 </button>
 
-                <!-- Jalur 2: Badan Riset -->
                 <button type="button" data-collab-tab="riset" class="collab-tab-btn text-left p-5 rounded-2xl border-2 border-slate-200 bg-cream hover:border-amberBrand/60 transition-all">
                     <div class="flex items-center justify-between mb-2">
                         <span class="px-2.5 py-0.5 rounded-full bg-amberBrand text-white text-[11px] font-bold uppercase">Akses 02 • Badan Riset</span>
@@ -1028,7 +1051,6 @@
                     <p class="text-xs text-slate-600 mt-1">Laboratorium Uji BET, Uji BMP Triplo & Kolaborasi Pilot Skala Kampus/Lembaga</p>
                 </button>
 
-                <!-- Jalur 3: Pembeli -->
                 <button type="button" data-collab-tab="pembeli" class="collab-tab-btn text-left p-5 rounded-2xl border-2 border-slate-200 bg-cream hover:border-forest/60 transition-all">
                     <div class="flex items-center justify-between mb-2">
                         <span class="px-2.5 py-0.5 rounded-full bg-forest text-white text-[11px] font-bold uppercase">Akses 03 • Pembeli</span>
@@ -1039,7 +1061,7 @@
                 </button>
             </div>
 
-            <!-- ==================== PANEL 1: PENYUPLAI BAHAN BAKU ==================== -->
+            <!-- PANEL 1: PENYUPLAI BAHAN BAKU -->
             <div id="panel-penyuplai" class="collab-panel grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-emeraldBrand-leaf/30 space-y-5">
                     <span class="inline-block px-3 py-1 rounded-lg bg-emeraldBrand-soft text-forest text-xs font-bold">Portal Khusus Penyuplai</span>
@@ -1062,7 +1084,7 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-emeraldBrand-leaf">Form Pendaftaran Penyuplai (G-Form Connect)</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emeraldBrand-leaf">Form Pendaftaran Penyuplai (Tersimpan ke DB)</span>
                                 <h4 class="font-heading font-extrabold text-xl text-forest">Daftar Sebagai Pemasok Bahan Baku</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Penyuplai Bahan Baku')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
@@ -1105,20 +1127,20 @@
                             <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
 
                             <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emeraldBrand-leaf hover:bg-forest text-white font-heading font-bold text-sm shadow-md transition-all">
-                                Kirim Pendaftaran Penyuplai
+                                Simpan & Kirim Pendaftaran Penyuplai
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== PANEL 2: BADAN RISET & PERGURUAN TINGGI ==================== -->
+            <!-- PANEL 2: BADAN RISET & PERGURUAN TINGGI -->
             <div id="panel-riset" class="collab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-amberBrand/30 space-y-5">
                     <span class="inline-block px-3 py-1 rounded-lg bg-amberBrand-soft text-biochar text-xs font-bold">Portal Khusus Badan Riset</span>
                     <h3 class="font-heading font-extrabold text-2xl text-forest">Kolaborasi Uji Pilot, Karakterisasi & Validasi BMP</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Sesuai strategi TOWS dan pengembangan produk KLETON-X, kami membuka kolaborasi bersama kampus, laboratorium terakreditasi, dan lembaga riset untuk pengujian standar mutu:
+                        Kami membuka kolaborasi bersama kampus, laboratorium terakreditasi, dan lembaga riset untuk pengujian standar mutu:
                     </p>
                     <ul class="space-y-3 text-xs text-slate-700 bg-white p-4 rounded-2xl border border-slate-200/80">
                         <li><strong class="text-forest">1. Karakterisasi Fisik & Material:</strong> Pengujian densitas (0,80–1,00 g/cm³), kuat tekan (≥1 MPa), <em>drop resistance</em> (≥95%), waktu disintegrasi (288 detik), dan luas permukaan BET (≥150 m²/g).</li>
@@ -1131,7 +1153,7 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-amberBrand">Form Kolaborasi Badan Riset (G-Form Connect)</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-amberBrand">Form Kolaborasi Badan Riset (Tersimpan ke DB)</span>
                                 <h4 class="font-heading font-extrabold text-xl text-forest">Registrasi Laboratorium & Institusi Riset</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Badan Riset & Perguruan Tinggi')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
@@ -1174,20 +1196,20 @@
                             <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
 
                             <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow-md transition-all">
-                                Ajukan Kolaborasi Riset
+                                Simpan & Ajukan Kolaborasi Riset
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== PANEL 3: PEMBELI & MITRA INDUSTRI ==================== -->
+            <!-- PANEL 3: PEMBELI & MITRA INDUSTRI -->
             <div id="panel-pembeli" class="collab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div class="lg:col-span-5 bg-cream rounded-3xl p-7 border border-forest/30 space-y-5">
                     <span class="inline-block px-3 py-1 rounded-lg bg-forest text-white text-xs font-bold">Portal Khusus Pembeli Industri</span>
                     <h3 class="font-heading font-extrabold text-2xl text-forest">Segmen Pelanggan Utama: Palm Oil Mill</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Berdasarkan analisis STP proposal KLETON-X, solusi kami ditujukan bagi:
+                        Berdasarkan analisis STP proposal KELTON-X, solusi kami ditujukan bagi:
                     </p>
                     <ul class="space-y-2.5 text-xs text-slate-700 bg-white p-4 rounded-2xl border border-slate-200/80">
                         <li>• Pabrik kelapa sawit (<em>Palm Oil Mill</em>) yang sudah memiliki atau sedang mengembangkan unit <em>Anaerobic Digestion</em> (AD) POME.</li>
@@ -1204,8 +1226,8 @@
                     <div class="p-7 sm:p-9">
                         <div class="flex flex-wrap items-center justify-between gap-2 pb-5 mb-6 border-b border-slate-100">
                             <div>
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-forest">Form Pembeli & Kemitraan Mill (G-Form Connect)</span>
-                                <h4 class="font-heading font-extrabold text-xl text-forest">Permintaan Uji Coba, Pembelian & Kontrak Pasokan</h4>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-forest">Form Pembeli & Kemitraan Mill (Tersimpan ke DB)</span>
+                                <h4 class="font-heading font-extrabold text-xl text-forest">Registrasi Kemitraan Jangka Panjang Mill</h4>
                             </div>
                             <button type="button" onclick="copyFormShareLink('Pembeli & Mitra Industri')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-slate-200/70 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors">
                                 Salin Link Form
@@ -1219,19 +1241,19 @@
                                     <input type="text" name="orgName" required placeholder="Nama PT / Pabrik Kelapa Sawit" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Jenis Kebutuhan *</label>
-                                    <select id="buyer-product-select" name="detailType" required class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
-                                        <option value="KLETONX Kemasan 5–10 Kg">KLETONX Kemasan 5–10 Kg</option>
-                                        <option value="KLETONX Kontrak Pasokan B2B">KLETONX Kontrak Pasokan B2B</option>
-                                        <option value="Paket Uji Coba & Optimasi Proses">Paket Uji Coba & Optimasi Proses</option>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Skema Kerja Sama *</label>
+                                    <select name="detailType" required class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                        <option value="Kontrak Pasokan Rutin Mill">Kontrak Pasokan Rutin Mill</option>
+                                        <option value="Implementasi On-Site di Kompleks Pabrik">Implementasi On-Site di Kompleks Pabrik</option>
+                                        <option value="Uji Coba Pilot Digester POME">Uji Coba Pilot Digester POME</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Kapasitas Digester / Volume Permintaan *</label>
-                                    <input type="text" name="capacity" required placeholder="Contoh: Kapasitas digester POME atau kebutuhan kg/ton" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Kapasitas Digester / Volume Kebutuhan *</label>
+                                    <input type="text" name="capacity" required placeholder="Contoh: Kapasitas digester POME atau kebutuhan ton/bulan" class="w-full rounded-xl border border-slate-300 bg-cream/50 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-slate-700 mb-1.5">Kontak PIC (WhatsApp / Email) *</label>
@@ -1247,14 +1269,14 @@
                             <div class="form-result hidden rounded-2xl p-4 text-xs sm:text-sm"></div>
 
                             <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-sm shadow-md transition-all">
-                                Kirim Permintaan Pembelian / Kolaborasi Mill
+                                Simpan & Kirim Kemitraan Mill
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Tim Pendiri KELTON-X (Dari Halaman 1 & 4 Proposal) -->
+            <!-- Tim Pendiri KELTON-X -->
             <div class="mt-16 pt-12 border-t border-slate-200/80">
                 <div class="text-center max-w-2xl mx-auto mb-8">
                     <span class="text-xs font-bold uppercase tracking-wider text-emeraldBrand">Struktur Organisasi Startup</span>
@@ -1281,7 +1303,136 @@
         </div>
     </section>
 
-    <!-- ==================== 8. FOOTER ==================== -->
+    <!-- ==================== 8. FULL-STACK DATABASE & ADMIN CRM DASHBOARD ==================== -->
+    <section id="database-crm" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amberBrand">06 • Back-End Database & Admin CRM</span>
+                    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-forest mt-2">Rekap Data Pemesanan Pelanggan & Mitra Terdaftar</h2>
+                    <p class="text-sm text-slate-600 mt-2">
+                        Seluruh transaksi pemesanan dan registrasi kolaborasi tersimpan di cloud database secara <em>real-time</em>. Tim dapat memperbarui status pesanan maupun mengekspor data ke file CSV/Excel.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <button type="button" onclick="openOrderCheckoutModal('pack')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-xs shadow">
+                        <span>+ Tambah Pesanan</span>
+                    </button>
+                    <button type="button" id="export-orders-csv-btn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs shadow">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>Export Pesanan (CSV)</span>
+                    </button>
+                    <button type="button" id="export-partners-csv-btn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-forest font-heading font-bold text-xs">
+                        <span>Export Mitra (CSV)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Live Database Metrics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm">
+                    <span class="text-xs font-bold uppercase text-slate-400">Total Pesanan Masuk</span>
+                    <div class="font-heading font-extrabold text-3xl text-forest mt-1" id="crm-total-orders">0</div>
+                    <p class="text-xs text-slate-500 mt-1">Tercatat di koleksi <code class="text-[11px] bg-slate-100 px-1 rounded">orders</code></p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm">
+                    <span class="text-xs font-bold uppercase text-slate-400">Total Unit Dipesan</span>
+                    <div class="font-heading font-extrabold text-3xl text-amberBrand mt-1" id="crm-total-units">0</div>
+                    <p class="text-xs text-slate-500 mt-1">Akumulasi seluruh varian produk</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm">
+                    <span class="text-xs font-bold uppercase text-slate-400">Total Mitra Kolaborasi</span>
+                    <div class="font-heading font-extrabold text-3xl text-emeraldBrand mt-1" id="crm-total-partners">0</div>
+                    <p class="text-xs text-slate-500 mt-1">Penyuplai, Badan Riset & Pembeli</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm">
+                    <span class="text-xs font-bold uppercase text-slate-400">Rating & Ulasan Produk</span>
+                    <div class="font-heading font-extrabold text-3xl text-forest mt-1"><span id="crm-avg-rating">0.0</span> <span class="text-base font-normal text-slate-400">(<span id="crm-total-reviews">0</span>)</span></div>
+                    <p class="text-xs text-slate-500 mt-1">Tercatat di koleksi <code class="text-[11px] bg-slate-100 px-1 rounded">reviews</code></p>
+                </div>
+            </div>
+
+            <!-- Sub-Tabs: Data Pemesanan vs Data Mitra Kolaborasi -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="bg-forest text-white p-5 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                        <button type="button" id="crm-tab-orders" class="px-4 py-2 rounded-xl bg-amberBrand text-white font-heading font-bold text-xs sm:text-sm transition-colors">
+                            Data Pemesanan (<span id="tab-count-orders">0</span>)
+                        </button>
+                        <button type="button" id="crm-tab-partners" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-emerald-100 font-heading font-bold text-xs sm:text-sm transition-colors">
+                            Data Mitra Kolaborasi (<span id="tab-count-partners">0</span>)
+                        </button>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div id="orders-filter-controls" class="flex flex-wrap items-center gap-2">
+                        <input type="text" id="crm-search-input" placeholder="Cari ID, nama pemesan, instansi..." class="rounded-xl bg-white/10 border border-white/20 text-white placeholder-emerald-200/70 px-3.5 py-2 text-xs focus:outline-none focus:bg-white focus:text-slate-800">
+                        <select id="crm-status-filter" class="rounded-xl bg-white/10 border border-white/20 text-white px-3 py-2 text-xs focus:outline-none focus:bg-white focus:text-slate-800">
+                            <option value="ALL" class="text-slate-800">Semua Status</option>
+                            <option value="Menunggu Konfirmasi" class="text-slate-800">Menunggu Konfirmasi</option>
+                            <option value="Diproses" class="text-slate-800">Diproses</option>
+                            <option value="Dikirim" class="text-slate-800">Dikirim</option>
+                            <option value="Selesai" class="text-slate-800">Selesai</option>
+                            <option value="Dibatalkan" class="text-slate-800">Dibatalkan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- TABLE 1: ORDERS DATABASE -->
+                <div id="crm-orders-view" class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-cream border-b border-slate-200 text-forest font-heading">
+                                <th class="py-3.5 px-5">ID Pesanan & Tanggal</th>
+                                <th class="py-3.5 px-5">Pemesan & Instansi</th>
+                                <th class="py-3.5 px-5">Kontak & Alamat</th>
+                                <th class="py-3.5 px-5">Varian & Jumlah</th>
+                                <th class="py-3.5 px-5">Subtotal</th>
+                                <th class="py-3.5 px-5">Status Pesanan</th>
+                                <th class="py-3.5 px-5 text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body" class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td colspan="7" class="py-10 px-6 text-center text-slate-500">
+                                    Belum ada data pemesanan masuk di database. Klik <strong>"Pesan Sekarang"</strong> untuk membuat pesanan pertama.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- TABLE 2: COLLABORATION PARTNERS DATABASE -->
+                <div id="crm-partners-view" class="hidden overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-cream border-b border-slate-200 text-forest font-heading">
+                                <th class="py-3.5 px-5">ID Mitra & Tanggal</th>
+                                <th class="py-3.5 px-5">Jalur Kemitraan</th>
+                                <th class="py-3.5 px-5">Nama Instansi / Peternak / PT</th>
+                                <th class="py-3.5 px-5">Fokus / Kapasitas</th>
+                                <th class="py-3.5 px-5">Kontak</th>
+                                <th class="py-3.5 px-5 text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="partners-table-body" class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td colspan="6" class="py-10 px-6 text-center text-slate-500">
+                                    Belum ada pendaftaran mitra kolaborasi tersimpan di database.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 9. FOOTER ==================== -->
     <footer class="bg-forest-dark text-emerald-100/80 pt-14 pb-10 border-t border-emerald-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
@@ -1296,13 +1447,14 @@
                 </div>
 
                 <div class="lg:col-span-3 space-y-2.5">
-                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider">5 Pilar Menu</h4>
+                    <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider">Navigasi Cepat</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#penjelasan-produk" class="hover:text-amber-400 transition-colors">01. Penjelasan Produk</a></li>
                         <li><a href="#inovasi" class="hover:text-amber-400 transition-colors">02. Inovasi</a></li>
                         <li><a href="#manfaat" class="hover:text-amber-400 transition-colors">03. Manfaat</a></li>
                         <li><a href="#cara-penggunaan" class="hover:text-amber-400 transition-colors">04. Cara Penggunaan</a></li>
                         <li><a href="#kolaborasi" class="hover:text-amber-400 transition-colors">05. Kolaborasi</a></li>
+                        <li><a href="#database-crm" class="hover:text-amber-400 transition-colors">06. Database Pesanan</a></li>
                     </ul>
                 </div>
 
@@ -1316,262 +1468,156 @@
 
             <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/60">
                 <p>&copy; 2026 KLETONX (KELTON-X) • SRE Universitas Airlangga.</p>
-                <p>Portal Terpisah: Penyuplai • Badan Riset • Pembeli Industri</p>
+                <p>Full-Stack Cloud Database • Real-Time Order & CRM System</p>
             </div>
         </div>
     </footer>
 
-    <!-- ==================== MODAL TRANSAKSI / PEMBELIAN PENGUNJUNG ==================== -->
-    <div id="quick-order-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
-            <button type="button" onclick="closeQuickOrderModal()" aria-label="Tutup" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+    <!-- ==================== MODAL 1: CHECKOUT PEMESANAN PRODUK (FULL-STACK DATABASE) ==================== -->
+    <div id="order-checkout-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
+            <button type="button" onclick="closeOrderCheckoutModal()" aria-label="Tutup" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
 
-            <span class="inline-block px-3 py-1 rounded-full bg-amberBrand-soft text-amberBrand text-xs font-bold mb-2">Transaksi & Penawaran Pengunjung</span>
-            <h3 id="order-modal-title" class="font-heading font-extrabold text-xl text-forest mb-1">Pesan Produk</h3>
-            <p class="text-xs text-slate-500 mb-4">Data pembelian pengunjung akan memperbarui jumlah pesanan dan harga transaksi pada katalog.</p>
+            <span class="inline-block px-3 py-1 rounded-full bg-amberBrand-soft text-amberBrand text-xs font-bold mb-2">Formulir Pemesanan Resmi KLETONX</span>
+            <h3 class="font-heading font-extrabold text-2xl text-forest mb-1">Buat Pesanan Produk</h3>
+            <p class="text-xs text-slate-500 mb-5">Data pemesanan Anda akan tersimpan permanen ke database cloud dan mendapatkan Nomor ID Pelacakan otomatis.</p>
 
-            <form id="quick-order-form" class="space-y-3.5">
-                <input type="hidden" id="order-variant-key">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pembeli / Perusahaan *</label>
-                    <input type="text" id="order-buyer-name" required placeholder="Nama pembeli atau pabrik sawit" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+            <!-- Order Receipt Screen (Shown after successful save) -->
+            <div id="order-receipt-box" class="hidden space-y-4">
+                <div class="bg-emeraldBrand-soft/70 border border-emeraldBrand/40 rounded-2xl p-5 text-forest space-y-2">
+                    <div class="text-xs font-bold uppercase tracking-wider text-emeraldBrand">Pesanan Berhasil Disimpan ke Database!</div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-slate-600">Kode / ID Pesanan Anda:</span>
+                        <span id="receipt-order-id" class="font-mono font-extrabold text-base bg-white px-3 py-1 rounded-lg border border-emeraldBrand/30 text-forest">KTX-2026-0000</span>
+                    </div>
+                    <div class="text-xs text-slate-700 pt-2 border-t border-emeraldBrand/20 space-y-1" id="receipt-summary-details"></div>
                 </div>
-                <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-wrap gap-3">
+                    <button type="button" onclick="copyReceiptOrderId()" class="flex-1 py-3 px-4 rounded-xl bg-cream hover:bg-slate-200 border border-slate-300 text-forest font-heading font-bold text-xs">
+                        Salin ID Pesanan
+                    </button>
+                    <button type="button" onclick="resetCheckoutForm()" class="flex-1 py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs">
+                        Buat Pesanan Lain
+                    </button>
+                </div>
+            </div>
+
+            <!-- Checkout Form -->
+            <form id="order-checkout-form" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Pilih Varian Produk *</label>
+                    <select id="checkout-variant" required class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm font-semibold text-forest focus:border-forest focus:bg-white focus:outline-none">
+                        <option value="pack">Kemasan Karung Woven PP 5–10 kg</option>
+                        <option value="bulk">Curah / Bulk Tonase (Kontrak Mill)</option>
+                        <option value="service">Layanan Uji Coba & Pendampingan Teknis</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Jumlah Unit *</label>
-                        <input type="number" id="order-qty" min="1" value="1" required class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Nama Lengkap Pemesan *</label>
+                        <input type="text" id="checkout-buyer-name" required placeholder="Nama lengkap PIC / pemesan" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Harga Satuan (Rp)</label>
-                        <input type="number" id="order-unit-price" min="0" value="0" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Perusahaan / Instansi *</label>
+                        <input type="text" id="checkout-company" required placeholder="Nama PT / PKS / Instansi" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
                     </div>
                 </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Kontak WhatsApp / Email *</label>
-                    <input type="text" id="order-contact" required placeholder="0812xxxx / email@domain.com" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp / Telepon *</label>
+                        <input type="text" id="checkout-phone" required placeholder="0812xxxxxxxx" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Email *</label>
+                        <input type="email" id="checkout-email" required placeholder="nama@perusahaan.com" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                    </div>
                 </div>
-                <button type="submit" class="w-full py-3 px-4 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-sm shadow mt-2">
-                    Konfirmasi Pesanan Pengunjung
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 items-center bg-cream p-3.5 rounded-2xl border border-slate-200/80">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Jumlah Unit / Paket *</label>
+                        <input type="number" id="checkout-qty" min="1" value="1" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-bold text-forest focus:border-forest focus:outline-none">
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[11px] font-bold uppercase text-slate-400 block">Estimasi Subtotal (Harga DB)</span>
+                        <span class="font-heading font-extrabold text-xl text-forest" id="checkout-subtotal-display">Rp 0</span>
+                        <span class="text-[10px] text-slate-500 block">Harga satuan: <span id="checkout-unit-price-display">Rp 0</span></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Pengiriman Lengkap *</label>
+                    <textarea id="checkout-address" rows="2" required placeholder="Alamat lengkap lokasi pabrik / gudang tujuan pengiriman..." class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Catatan Teknis / Kebutuhan Dosis Digester</label>
+                    <input type="text" id="checkout-notes" placeholder="Opsional: volume reaktor POME atau jadwal pengiriman yang diinginkan" class="w-full rounded-xl border border-slate-300 bg-cream/40 px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:bg-white focus:outline-none">
+                </div>
+
+                <button type="submit" id="checkout-submit-btn" class="w-full py-3.5 px-5 rounded-xl bg-amberBrand hover:bg-amber-700 text-white font-heading font-bold text-sm shadow-lg transition-colors">
+                    Konfirmasi & Simpan Pesanan ke Database
                 </button>
             </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: CEK STATUS PESANAN (CUSTOMER ORDER LOOKUP) ==================== -->
+    <div id="track-order-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+            <button type="button" onclick="closeTrackOrderModal()" aria-label="Tutup" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <span class="inline-block px-3 py-1 rounded-full bg-emeraldBrand-soft text-forest text-xs font-bold mb-2">Pelacakan Pesanan Real-Time</span>
+            <h3 class="font-heading font-extrabold text-xl text-forest mb-1">Cek Status Pesanan Anda</h3>
+            <p class="text-xs text-slate-500 mb-4">Masukkan <strong>ID Pesanan</strong> (contoh: <code class="bg-slate-100 px-1 rounded">KTX-2026-XXXX</code>), nomor WhatsApp, atau alamat email yang digunakan saat memesan.</p>
+
+            <form id="track-order-form" class="flex gap-2 mb-5">
+                <input type="text" id="track-query-input" required placeholder="ID Pesanan / No. WhatsApp / Email..." class="flex-1 rounded-xl border border-slate-300 bg-cream/40 px-4 py-2.5 text-sm focus:border-forest focus:bg-white focus:outline-none">
+                <button type="submit" class="px-5 py-2.5 rounded-xl bg-forest hover:bg-forest-dark text-white font-heading font-bold text-xs sm:text-sm">
+                    Cari
+                </button>
+            </form>
+
+            <div id="track-results-container" class="space-y-3 max-h-72 overflow-y-auto">
+                <div class="text-center text-xs text-slate-400 py-4">Masukkan kata kunci pencarian di atas untuk melihat status pesanan dari database.</div>
+            </div>
         </div>
     </div>
 
     <!-- Toast Banner -->
     <div id="toast-banner" class="fixed bottom-5 right-5 z-50 hidden bg-forest text-white px-5 py-3.5 rounded-2xl shadow-xl border border-emerald-500/40 text-xs sm:text-sm font-semibold"></div>
 
-    <!-- ==================== INTERACTIVE JAVASCRIPT ==================== -->
-    <script>
-        // Helper: Toast Notification
-        function showToast(msg) {
+    <!-- ==================== FULL-STACK BACK-END & FIREBASE FIRESTORE MODULE ==================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import {
+            getFirestore, doc, setDoc, addDoc, updateDoc, deleteDoc,
+            onSnapshot, collection
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global UI Toast Helper
+        window.showToast = function(msg) {
             const toast = document.getElementById('toast-banner');
             toast.textContent = msg;
             toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3400);
-        }
-
-        // 1. Menu Garis Tiga (Slide-Over Drawer)
-        const drawerOpenBtn = document.getElementById('drawer-open-btn');
-        const drawerCloseBtn = document.getElementById('drawer-close-btn');
-        const drawerBackdrop = document.getElementById('nav-drawer-backdrop');
-        const drawerPanel = document.getElementById('nav-drawer-panel');
-        const drawerLinks = document.querySelectorAll('.drawer-link');
-
-        function openNavDrawer() {
-            drawerBackdrop.classList.remove('hidden');
-            setTimeout(() => drawerPanel.classList.remove('translate-x-full'), 10);
-        }
-
-        function closeNavDrawer() {
-            drawerPanel.classList.add('translate-x-full');
-            setTimeout(() => drawerBackdrop.classList.add('hidden'), 280);
-        }
-
-        drawerOpenBtn.addEventListener('click', openNavDrawer);
-        drawerCloseBtn.addEventListener('click', closeNavDrawer);
-        drawerBackdrop.addEventListener('click', (e) => {
-            if (e.target === drawerBackdrop) closeNavDrawer();
-        });
-        drawerLinks.forEach(link => link.addEventListener('click', closeNavDrawer));
-
-        // 2. Dynamic Market State (Prices, Ratings, Reviews, Sold Units - ALL INITIALIZED TO 0)
-        const STORAGE_MARKET_KEY = 'kletonx_market_state_v1';
-        const defaultMarketState = {
-            prices: { pack: 0, bulk: 0, service: 0 },
-            sold: { pack: 0, bulk: 0, service: 0 },
-            reviews: [] // Starts at 0 reviews, 0.0 rating
+            setTimeout(() => toast.classList.add('hidden'), 3600);
         };
 
-        let marketState = JSON.parse(localStorage.getItem(STORAGE_MARKET_KEY)) || JSON.parse(JSON.stringify(defaultMarketState));
+        // Product Variant Metadata
+        const VARIANT_LABELS = {
+            pack: 'Kemasan Karung Woven PP 5–10 kg',
+            bulk: 'Curah / Bulk Tonase (Kontrak Mill)',
+            service: 'Layanan Uji Coba & Pendampingan Teknis'
+        };
 
-        function saveMarketState() {
-            localStorage.setItem(STORAGE_MARKET_KEY, JSON.stringify(marketState));
-        }
-
-        function formatRupiah(num) {
-            return 'Rp ' + (Number(num) || 0).toLocaleString('id-ID');
-        }
-
-        function renderMarketUI() {
-            // Update Prices & Sold Counts
-            ['pack', 'bulk', 'service'].forEach(key => {
-                document.getElementById(`display-price-${key}`).textContent = formatRupiah(marketState.prices[key]);
-                document.getElementById(`display-sold-${key}`).textContent = marketState.sold[key];
-                document.getElementById(`input-price-${key}`).value = marketState.prices[key];
-
-                // Per-variant ratings
-                const varReviews = marketState.reviews.filter(r => r.variant === key);
-                const varCount = varReviews.length;
-                const varAvg = varCount > 0
-                    ? (varReviews.reduce((acc, r) => acc + Number(r.rating), 0) / varCount).toFixed(1)
-                    : '0.0';
-                document.getElementById(`card-rating-${key}`).textContent = varAvg;
-                document.getElementById(`card-revcount-${key}`).textContent = varCount;
-            });
-
-            // Overall Rating & Reviews Count
-            const totalRev = marketState.reviews.length;
-            const overallAvg = totalRev > 0
-                ? (marketState.reviews.reduce((acc, r) => acc + Number(r.rating), 0) / totalRev).toFixed(1)
-                : '0.0';
-
-            document.getElementById('hero-rating-val').textContent = overallAvg;
-            document.getElementById('hero-review-count').textContent = totalRev;
-            document.getElementById('avg-rating-score').textContent = overallAvg;
-            document.getElementById('total-reviews-count').textContent = totalRev;
-
-            const filledStars = Math.round(Number(overallAvg));
-            document.getElementById('avg-rating-stars').textContent = '★'.repeat(filledStars) + '☆'.repeat(5 - filledStars);
-
-            // Render Reviews List
-            const reviewsList = document.getElementById('reviews-list');
-            const emptyPlaceholder = document.getElementById('empty-reviews-placeholder');
-
-            // Remove previously rendered dynamic cards
-            reviewsList.querySelectorAll('.dynamic-review-card').forEach(el => el.remove());
-
-            if (totalRev === 0) {
-                emptyPlaceholder.classList.remove('hidden');
-            } else {
-                emptyPlaceholder.classList.add('hidden');
-                const variantNames = {
-                    pack: 'Kemasan 5–10 Kg',
-                    bulk: 'Kontrak Pasokan B2B',
-                    service: 'Paket Uji Coba & Optimasi'
-                };
-                marketState.reviews.slice().reverse().forEach(rev => {
-                    const card = document.createElement('div');
-                    card.className = 'dynamic-review-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm';
-                    const stars = '★'.repeat(Number(rev.rating)) + '☆'.repeat(5 - Number(rev.rating));
-                    card.innerHTML = `
-                        <div class="flex items-center justify-between mb-2">
-                            <div>
-                                <span class="font-heading font-bold text-sm text-forest">${rev.name}</span>
-                                <span class="text-[11px] text-slate-400 block">${rev.date}</span>
-                            </div>
-                            <span class="px-2.5 py-1 rounded-lg bg-cream border border-slate-200 text-xs font-bold text-amber-500">${stars} (${Number(rev.rating).toFixed(1)})</span>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">"${rev.comment}"</p>
-                        <div class="mt-2 text-[11px] font-semibold text-emeraldBrand">Varian: ${variantNames[rev.variant] || rev.variant}</div>
-                    `;
-                    reviewsList.appendChild(card);
-                });
-            }
-        }
-
-        // Toggle Admin Price Configurator
-        const togglePriceEditorBtn = document.getElementById('toggle-price-editor-btn');
-        const priceEditorPanel = document.getElementById('price-editor-panel');
-        togglePriceEditorBtn.addEventListener('click', () => {
-            priceEditorPanel.classList.toggle('hidden');
-        });
-
-        document.getElementById('price-update-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            marketState.prices.pack = Math.max(0, parseInt(document.getElementById('input-price-pack').value, 10) || 0);
-            marketState.prices.bulk = Math.max(0, parseInt(document.getElementById('input-price-bulk').value, 10) || 0);
-            marketState.prices.service = Math.max(0, parseInt(document.getElementById('input-price-service').value, 10) || 0);
-            saveMarketState();
-            renderMarketUI();
-            priceEditorPanel.classList.add('hidden');
-            showToast('Harga katalog KLETONX berhasil diperbarui!');
-        });
-
-        document.getElementById('reset-market-data-btn').addEventListener('click', () => {
-            marketState = JSON.parse(JSON.stringify(defaultMarketState));
-            saveMarketState();
-            renderMarketUI();
-            showToast('Seluruh harga, rating, ulasan, dan pesanan dikembalikan ke 0.');
-        });
-
-        // Visitor Review Submission
-        document.getElementById('review-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('rev-name').value.trim();
-            const variant = document.getElementById('rev-variant').value;
-            const rating = parseInt(document.getElementById('rev-rating').value, 10);
-            const comment = document.getElementById('rev-comment').value.trim();
-            if (!name || !comment) return;
-
-            marketState.reviews.push({
-                name,
-                variant,
-                rating,
-                comment,
-                date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
-            });
-            saveMarketState();
-            renderMarketUI();
-            e.target.reset();
-
-            const revFeedback = document.getElementById('rev-feedback');
-            revFeedback.classList.remove('hidden');
-            revFeedback.textContent = 'Terima kasih! Penilaian dan ulasan Anda telah memperbarui skor produk.';
-            setTimeout(() => revFeedback.classList.add('hidden'), 4000);
-        });
-
-        // Visitor Quick Order Modal
-        const quickOrderModal = document.getElementById('quick-order-modal');
-        function openQuickOrderModal(variantKey, title) {
-            document.getElementById('order-variant-key').value = variantKey;
-            document.getElementById('order-modal-title').textContent = title;
-            document.getElementById('order-unit-price').value = marketState.prices[variantKey] || 0;
-            quickOrderModal.classList.remove('hidden');
-            quickOrderModal.classList.add('flex');
-        }
-
-        function closeQuickOrderModal() {
-            quickOrderModal.classList.add('hidden');
-            quickOrderModal.classList.remove('flex');
-        }
-
-        quickOrderModal.addEventListener('click', (e) => {
-            if (e.target === quickOrderModal) closeQuickOrderModal();
-        });
-
-        document.getElementById('quick-order-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const key = document.getElementById('order-variant-key').value;
-            const buyerName = document.getElementById('order-buyer-name').value.trim();
-            const qty = Math.max(1, parseInt(document.getElementById('order-qty').value, 10) || 1);
-            const unitPrice = Math.max(0, parseInt(document.getElementById('order-unit-price').value, 10) || 0);
-
-            marketState.sold[key] = (marketState.sold[key] || 0) + qty;
-            if (unitPrice > 0) {
-                marketState.prices[key] = unitPrice;
-            }
-            saveMarketState();
-            renderMarketUI();
-            closeQuickOrderModal();
-            e.target.reset();
-            showToast(`Pesanan dari ${buyerName} (${qty} unit) berhasil dicatat!`);
-        });
-
-        // 3. Editable Cara Penggunaan (Default from Attachment Kemasan & Proposal, Editable Anytime)
-        const STORAGE_USAGE_KEY = 'kletonx_usage_guide_v1';
-        const defaultUsageData = {
+        const DEFAULT_USAGE = {
             steps: [
                 {
                     title: 'Masukkan Briket KLETONX ke Dalam Digester',
@@ -1590,136 +1636,844 @@
                     desc: 'Monitor pH digester (target 6,9–7,1), volume biogas kumulatif, serta kadar metana (target 55,74–64,02%) secara rutin.'
                 }
             ],
-            storage: 'Simpan di tempat kering (gudang beratap dengan kelembapan relatif ≤ 60%, ditempatkan di atas palet, dan karung tersegel rapat).',
+            storage: 'Simpan di Tempat Kering (gudang beratap dengan kelembapan relatif ≤ 60%, ditempatkan di atas palet, dan karung tersegel rapat).',
             updatedAt: 'Default Lampiran'
         };
 
-        let usageData = JSON.parse(localStorage.getItem(STORAGE_USAGE_KEY)) || JSON.parse(JSON.stringify(defaultUsageData));
+        // In-Memory State Mirroring Firestore Real-Time Collections
+        const appState = {
+            prices: { pack: 0, bulk: 0, service: 0 },
+            orders: [],
+            reviews: [],
+            collaborations: [],
+            usage: JSON.parse(JSON.stringify(DEFAULT_USAGE)),
+            useCloud: false,
+            db: null,
+            appId: typeof __app_id !== 'undefined' ? __app_id : 'kletonx-default-app',
+            user: null
+        };
+
+        function formatRupiah(num) {
+            return 'Rp ' + (Number(num) || 0).toLocaleString('id-ID');
+        }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        // ==================== RENDERING ALL UI SECTIONS FROM STATE ====================
+        function renderAll() {
+            // 1. Update Prices & Ordered Units per Variant
+            ['pack', 'bulk', 'service'].forEach(key => {
+                const price = appState.prices[key] || 0;
+                document.getElementById(`display-price-${key}`).textContent = formatRupiah(price);
+                document.getElementById(`input-price-${key}`).value = price;
+
+                const variantOrders = appState.orders.filter(o => o.variant === key && o.status !== 'Dibatalkan');
+                const totalUnits = variantOrders.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
+                document.getElementById(`display-sold-${key}`).textContent = totalUnits;
+
+                const varReviews = appState.reviews.filter(r => r.variant === key);
+                const revCount = varReviews.length;
+                const revAvg = revCount > 0
+                    ? (varReviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0) / revCount).toFixed(1)
+                    : '0.0';
+                document.getElementById(`card-rating-${key}`).textContent = revAvg;
+                document.getElementById(`card-revcount-${key}`).textContent = revCount;
+            });
+
+            // 2. Overall Rating, Reviews, Orders & Partners Counters
+            const totalReviews = appState.reviews.length;
+            const avgRating = totalReviews > 0
+                ? (appState.reviews.reduce((sum, r) => sum + (Number(r.rating) || 0), 0) / totalReviews).toFixed(1)
+                : '0.0';
+
+            const totalOrders = appState.orders.length;
+            const totalUnitsAll = appState.orders
+                .filter(o => o.status !== 'Dibatalkan')
+                .reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
+            const totalPartners = appState.collaborations.length;
+
+            document.getElementById('hero-rating-val').textContent = avgRating;
+            document.getElementById('hero-review-count').textContent = totalReviews;
+            document.getElementById('hero-order-count').textContent = totalOrders;
+            document.getElementById('nav-order-badge').textContent = totalOrders;
+            document.getElementById('drawer-order-count').textContent = totalOrders;
+
+            document.getElementById('avg-rating-score').textContent = avgRating;
+            document.getElementById('total-reviews-count').textContent = totalReviews;
+            const starsInt = Math.round(Number(avgRating));
+            document.getElementById('avg-rating-stars').textContent = '★'.repeat(starsInt) + '☆'.repeat(5 - starsInt);
+
+            document.getElementById('crm-total-orders').textContent = totalOrders;
+            document.getElementById('crm-total-units').textContent = totalUnitsAll;
+            document.getElementById('crm-total-partners').textContent = totalPartners;
+            document.getElementById('crm-avg-rating').textContent = avgRating;
+            document.getElementById('crm-total-reviews').textContent = totalReviews;
+            document.getElementById('tab-count-orders').textContent = totalOrders;
+            document.getElementById('tab-count-partners').textContent = totalPartners;
+
+            // 3. Render Reviews List
+            renderReviewsList();
+
+            // 4. Render Usage Guide
+            renderUsageGuide();
+
+            // 5. Render CRM Orders & Partners Tables
+            renderOrdersTable();
+            renderPartnersTable();
+
+            // 6. Update Checkout Modal Subtotal if open
+            updateCheckoutSubtotal();
+        }
+
+        function renderReviewsList() {
+            const listEl = document.getElementById('reviews-list');
+            const emptyEl = document.getElementById('empty-reviews-placeholder');
+            listEl.querySelectorAll('.dynamic-review-card').forEach(el => el.remove());
+
+            if (appState.reviews.length === 0) {
+                emptyEl.classList.remove('hidden');
+                return;
+            }
+            emptyEl.classList.add('hidden');
+
+            const sorted = [...appState.reviews].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            sorted.forEach(rev => {
+                const rVal = Math.min(5, Math.max(1, Number(rev.rating) || 5));
+                const stars = '★'.repeat(rVal) + '☆'.repeat(5 - rVal);
+                const card = document.createElement('div');
+                card.className = 'dynamic-review-card bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <span class="font-heading font-bold text-sm text-forest">${escapeHtml(rev.name)}</span>
+                            <span class="text-[11px] text-slate-400 block">${escapeHtml(rev.dateLabel || '')}</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream border border-slate-200 text-xs font-bold text-amber-500">${stars} (${rVal.toFixed(1)})</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">"${escapeHtml(rev.comment)}"</p>
+                    <div class="mt-2 text-[11px] font-semibold text-emeraldBrand">Varian: ${escapeHtml(VARIANT_LABELS[rev.variant] || rev.variant)}</div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
 
         function renderUsageGuide() {
             const grid = document.getElementById('usage-steps-grid');
             grid.innerHTML = '';
-            usageData.steps.forEach((step, idx) => {
+            (appState.usage.steps || []).forEach((step, idx) => {
                 const card = document.createElement('div');
                 card.className = 'bg-cream/80 rounded-2xl p-5 border border-slate-200/80 flex items-start gap-4';
                 card.innerHTML = `
                     <span class="w-9 h-9 rounded-xl bg-forest text-white font-heading font-bold flex items-center justify-center flex-shrink-0 text-sm">${idx + 1}</span>
                     <div>
-                        <h3 class="font-heading font-bold text-base text-forest">${step.title}</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${step.desc}</p>
+                        <h3 class="font-heading font-bold text-base text-forest">${escapeHtml(step.title)}</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${escapeHtml(step.desc)}</p>
                     </div>
                 `;
                 grid.appendChild(card);
             });
-            document.getElementById('usage-storage-note').textContent = usageData.storage;
-            document.getElementById('usage-last-updated').textContent = `Status: ${usageData.updatedAt}`;
+            document.getElementById('usage-storage-note').textContent = appState.usage.storage || DEFAULT_USAGE.storage;
+            document.getElementById('usage-last-updated').textContent = `Status: ${appState.usage.updatedAt || 'Default Lampiran'}`;
         }
 
-        const usageDisplayContainer = document.getElementById('usage-display-container');
-        const usageEditorContainer = document.getElementById('usage-editor-container');
-        const toggleEditUsageBtn = document.getElementById('toggle-edit-usage-btn');
+        function renderOrdersTable() {
+            const tbody = document.getElementById('orders-table-body');
+            const searchQuery = (document.getElementById('crm-search-input').value || '').toLowerCase().trim();
+            const statusFilter = document.getElementById('crm-status-filter').value;
 
-        function openUsageEditor() {
+            let filtered = [...appState.orders].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+            if (statusFilter !== 'ALL') {
+                filtered = filtered.filter(o => o.status === statusFilter);
+            }
+            if (searchQuery) {
+                filtered = filtered.filter(o =>
+                    (o.orderCode || '').toLowerCase().includes(searchQuery) ||
+                    (o.buyerName || '').toLowerCase().includes(searchQuery) ||
+                    (o.company || '').toLowerCase().includes(searchQuery) ||
+                    (o.phone || '').toLowerCase().includes(searchQuery) ||
+                    (o.email || '').toLowerCase().includes(searchQuery)
+                );
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="py-10 px-6 text-center text-slate-500">
+                            Tidak ada data pemesanan yang sesuai. Klik <strong>"+ Tambah Pesanan"</strong> untuk mencatat pemesanan baru.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const statusBadgeStyles = {
+                'Menunggu Konfirmasi': 'bg-amber-100 text-amber-800 border-amber-300',
+                'Diproses': 'bg-blue-100 text-blue-800 border-blue-300',
+                'Dikirim': 'bg-purple-100 text-purple-800 border-purple-300',
+                'Selesai': 'bg-emerald-100 text-emerald-800 border-emerald-300',
+                'Dibatalkan': 'bg-red-100 text-red-800 border-red-300'
+            };
+
+            tbody.innerHTML = '';
+            filtered.forEach(order => {
+                const badgeClass = statusBadgeStyles[order.status] || 'bg-slate-100 text-slate-700 border-slate-300';
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-cream/60 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-3.5 px-5 align-top">
+                        <span class="font-mono font-bold text-forest bg-cream px-2 py-0.5 rounded border border-slate-200 block w-fit">${escapeHtml(order.orderCode)}</span>
+                        <span class="text-[11px] text-slate-400 mt-1 block">${escapeHtml(order.dateLabel || '')}</span>
+                    </td>
+                    <td class="py-3.5 px-5 align-top">
+                        <div class="font-bold text-slate-800">${escapeHtml(order.buyerName)}</div>
+                        <div class="text-slate-500">${escapeHtml(order.company)}</div>
+                    </td>
+                    <td class="py-3.5 px-5 align-top max-w-xs">
+                        <div class="font-semibold text-forest">${escapeHtml(order.phone)}</div>
+                        <div class="text-slate-500">${escapeHtml(order.email)}</div>
+                        <div class="text-[11px] text-slate-400 mt-0.5 line-clamp-2">${escapeHtml(order.address)}</div>
+                    </td>
+                    <td class="py-3.5 px-5 align-top">
+                        <div class="font-semibold text-slate-800">${escapeHtml(VARIANT_LABELS[order.variant] || order.variant)}</div>
+                        <div class="text-emeraldBrand font-bold">${Number(order.qty) || 1} unit</div>
+                        ${order.notes ? `<div class="text-[11px] text-slate-400 italic mt-0.5">Catatan: ${escapeHtml(order.notes)}</div>` : ''}
+                    </td>
+                    <td class="py-3.5 px-5 align-top font-heading font-bold text-forest">
+                        ${formatRupiah(order.subtotal)}
+                    </td>
+                    <td class="py-3.5 px-5 align-top">
+                        <select onchange="handleUpdateOrderStatus('${order.id}', this.value)" class="rounded-lg border px-2.5 py-1.5 text-[11px] font-bold focus:outline-none ${badgeClass}">
+                            <option value="Menunggu Konfirmasi" ${order.status === 'Menunggu Konfirmasi' ? 'selected' : ''}>Menunggu Konfirmasi</option>
+                            <option value="Diproses" ${order.status === 'Diproses' ? 'selected' : ''}>Diproses</option>
+                            <option value="Dikirim" ${order.status === 'Dikirim' ? 'selected' : ''}>Dikirim</option>
+                            <option value="Selesai" ${order.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                            <option value="Dibatalkan" ${order.status === 'Dibatalkan' ? 'selected' : ''}>Dibatalkan</option>
+                        </select>
+                    </td>
+                    <td class="py-3.5 px-5 align-top text-right">
+                        <button type="button" onclick="handleDeleteOrder('${order.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">
+                            Hapus
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderPartnersTable() {
+            const tbody = document.getElementById('partners-table-body');
+            const sorted = [...appState.collaborations].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+            if (sorted.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="py-10 px-6 text-center text-slate-500">
+                            Belum ada pendaftaran mitra kolaborasi tersimpan di database.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = '';
+            sorted.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-cream/60 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-3.5 px-5 align-top">
+                        <span class="font-mono font-bold text-forest bg-cream px-2 py-0.5 rounded border border-slate-200 block w-fit">${escapeHtml(item.ticketId)}</span>
+                        <span class="text-[11px] text-slate-400 mt-1 block">${escapeHtml(item.dateLabel || '')}</span>
+                    </td>
+                    <td class="py-3.5 px-5 align-top">
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldBrand-soft text-forest font-bold text-[11px]">${escapeHtml(item.role)}</span>
+                    </td>
+                    <td class="py-3.5 px-5 align-top font-bold text-slate-800">
+                        ${escapeHtml(item.orgName)}
+                    </td>
+                    <td class="py-3.5 px-5 align-top">
+                        <div class="font-semibold text-slate-700">${escapeHtml(item.detailType)}</div>
+                        <div class="text-slate-500">${escapeHtml(item.capacity)}</div>
+                        ${item.notes ? `<div class="text-[11px] text-slate-400 mt-0.5">${escapeHtml(item.notes)}</div>` : ''}
+                    </td>
+                    <td class="py-3.5 px-5 align-top font-semibold text-forest">
+                        ${escapeHtml(item.contact)}
+                    </td>
+                    <td class="py-3.5 px-5 align-top text-right">
+                        <button type="button" onclick="handleDeletePartner('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-[11px] transition-colors">
+                            Hapus
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // ==================== CLOUD FIRESTORE INITIALIZATION & REAL-TIME LISTENERS ====================
+        async function initDatabase() {
+            const statusBadge = document.getElementById('db-status-badge');
+            try {
+                if (typeof __firebase_config === 'undefined' || !__firebase_config) {
+                    throw new Error('Firebase config unavailable, switching to local fallback.');
+                }
+
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                if (!auth.currentUser) {
+                    throw new Error('Auth failed');
+                }
+
+                appState.useCloud = true;
+                appState.db = db;
+                appState.user = auth.currentUser;
+
+                statusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emeraldBrand-leaf"></span><span>Cloud DB Aktif</span>`;
+
+                const appId = appState.appId;
+
+                // Listener 1: Settings -> Pricing
+                const pricingDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'pricing');
+                onSnapshot(pricingDocRef, (snap) => {
+                    if (snap.exists()) {
+                        const data = snap.data();
+                        appState.prices = {
+                            pack: Number(data.pack) || 0,
+                            bulk: Number(data.bulk) || 0,
+                            service: Number(data.service) || 0
+                        };
+                    } else {
+                        appState.prices = { pack: 0, bulk: 0, service: 0 };
+                    }
+                    renderAll();
+                }, (err) => console.error('Pricing snapshot error:', err));
+
+                // Listener 2: Settings -> Usage Guide
+                const usageDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'usageGuide');
+                onSnapshot(usageDocRef, (snap) => {
+                    if (snap.exists()) {
+                        const data = snap.data();
+                        appState.usage = {
+                            steps: Array.isArray(data.steps) ? data.steps : DEFAULT_USAGE.steps,
+                            storage: data.storage || DEFAULT_USAGE.storage,
+                            updatedAt: data.updatedAt || 'Tersimpan di Cloud DB'
+                        };
+                    }
+                    renderAll();
+                }, (err) => console.error('Usage snapshot error:', err));
+
+                // Listener 3: Orders Collection
+                const ordersColRef = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+                onSnapshot(ordersColRef, (snapshot) => {
+                    appState.orders = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    renderAll();
+                }, (err) => console.error('Orders snapshot error:', err));
+
+                // Listener 4: Reviews Collection
+                const reviewsColRef = collection(db, 'artifacts', appId, 'public', 'data', 'reviews');
+                onSnapshot(reviewsColRef, (snapshot) => {
+                    appState.reviews = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    renderAll();
+                }, (err) => console.error('Reviews snapshot error:', err));
+
+                // Listener 5: Collaborations Collection
+                const collabColRef = collection(db, 'artifacts', appId, 'public', 'data', 'collaborations');
+                onSnapshot(collabColRef, (snapshot) => {
+                    appState.collaborations = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+                    renderAll();
+                }, (err) => console.error('Collaborations snapshot error:', err));
+
+            } catch (error) {
+                console.warn('Using browser persistent fallback store:', error.message);
+                appState.useCloud = false;
+                statusBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span><span>DB Lokal Aktif</span>`;
+                loadFallbackState();
+                renderAll();
+            }
+        }
+
+        // Fallback Persistence (Only if Firebase environment variables are absent)
+        const FALLBACK_STORAGE_KEY = 'kletonx_fullstack_db_v1';
+        function loadFallbackState() {
+            try {
+                const raw = localStorage.getItem(FALLBACK_STORAGE_KEY);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    appState.prices = parsed.prices || { pack: 0, bulk: 0, service: 0 };
+                    appState.orders = parsed.orders || [];
+                    appState.reviews = parsed.reviews || [];
+                    appState.collaborations = parsed.collaborations || [];
+                    appState.usage = parsed.usage || JSON.parse(JSON.stringify(DEFAULT_USAGE));
+                }
+            } catch (e) {}
+        }
+
+        function saveFallbackState() {
+            try {
+                localStorage.setItem(FALLBACK_STORAGE_KEY, JSON.stringify({
+                    prices: appState.prices,
+                    orders: appState.orders,
+                    reviews: appState.reviews,
+                    collaborations: appState.collaborations,
+                    usage: appState.usage
+                }));
+            } catch (e) {}
+        }
+
+        // ==================== DATABASE CRUD OPERATIONS ====================
+        async function savePricingToDb(newPrices) {
+            if (appState.useCloud && appState.user) {
+                const ref = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'settings', 'pricing');
+                await setDoc(ref, newPrices);
+            } else {
+                appState.prices = newPrices;
+                saveFallbackState();
+                renderAll();
+            }
+        }
+
+        async function saveUsageToDb(newUsage) {
+            if (appState.useCloud && appState.user) {
+                const ref = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'settings', 'usageGuide');
+                await setDoc(ref, newUsage);
+            } else {
+                appState.usage = newUsage;
+                saveFallbackState();
+                renderAll();
+            }
+        }
+
+        async function createOrderInDb(orderPayload) {
+            if (appState.useCloud && appState.user) {
+                const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders');
+                await addDoc(colRef, orderPayload);
+            } else {
+                appState.orders.push({ id: 'ord_' + Date.now(), ...orderPayload });
+                saveFallbackState();
+                renderAll();
+            }
+        }
+
+        window.handleUpdateOrderStatus = async function(docId, newStatus) {
+            if (appState.useCloud && appState.user) {
+                const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders', docId);
+                await updateDoc(docRef, { status: newStatus });
+            } else {
+                const target = appState.orders.find(o => o.id === docId);
+                if (target) target.status = newStatus;
+                saveFallbackState();
+                renderAll();
+            }
+            window.showToast(`Status pesanan diperbarui menjadi "${newStatus}".`);
+        };
+
+        window.handleDeleteOrder = async function(docId) {
+            if (appState.useCloud && appState.user) {
+                const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'orders', docId);
+                await deleteDoc(docRef);
+            } else {
+                appState.orders = appState.orders.filter(o => o.id !== docId);
+                saveFallbackState();
+                renderAll();
+            }
+            window.showToast('Data pesanan dihapus dari database.');
+        };
+
+        async function createReviewInDb(reviewPayload) {
+            if (appState.useCloud && appState.user) {
+                const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'reviews');
+                await addDoc(colRef, reviewPayload);
+            } else {
+                appState.reviews.push({ id: 'rev_' + Date.now(), ...reviewPayload });
+                saveFallbackState();
+                renderAll();
+            }
+        }
+
+        async function createPartnerInDb(partnerPayload) {
+            if (appState.useCloud && appState.user) {
+                const colRef = collection(appState.db, 'artifacts', appState.appId, 'public', 'data', 'collaborations');
+                await addDoc(colRef, partnerPayload);
+            } else {
+                appState.collaborations.push({ id: 'prt_' + Date.now(), ...partnerPayload });
+                saveFallbackState();
+                renderAll();
+            }
+        }
+
+        window.handleDeletePartner = async function(docId) {
+            if (appState.useCloud && appState.user) {
+                const docRef = doc(appState.db, 'artifacts', appState.appId, 'public', 'data', 'collaborations', docId);
+                await deleteDoc(docRef);
+            } else {
+                appState.collaborations = appState.collaborations.filter(p => p.id !== docId);
+                saveFallbackState();
+                renderAll();
+            }
+            window.showToast('Data mitra dihapus dari database.');
+        };
+
+        // ==================== UI EVENT HANDLERS ====================
+        // 1. Hamburger Drawer
+        const drawerOpenBtn = document.getElementById('drawer-open-btn');
+        const drawerCloseBtn = document.getElementById('drawer-close-btn');
+        const drawerBackdrop = document.getElementById('nav-drawer-backdrop');
+        const drawerPanel = document.getElementById('nav-drawer-panel');
+
+        window.openNavDrawer = function() {
+            drawerBackdrop.classList.remove('hidden');
+            setTimeout(() => drawerPanel.classList.remove('translate-x-full'), 10);
+        };
+        window.closeNavDrawer = function() {
+            drawerPanel.classList.add('translate-x-full');
+            setTimeout(() => drawerBackdrop.classList.add('hidden'), 260);
+        };
+
+        drawerOpenBtn.addEventListener('click', window.openNavDrawer);
+        drawerCloseBtn.addEventListener('click', window.closeNavDrawer);
+        drawerBackdrop.addEventListener('click', (e) => {
+            if (e.target === drawerBackdrop) window.closeNavDrawer();
+        });
+        document.querySelectorAll('.drawer-link').forEach(link => link.addEventListener('click', window.closeNavDrawer));
+
+        // 2. Price Editor Form
+        document.getElementById('toggle-price-editor-btn').addEventListener('click', () => {
+            document.getElementById('price-editor-panel').classList.toggle('hidden');
+        });
+
+        document.getElementById('price-update-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newPrices = {
+                pack: Math.max(0, parseInt(document.getElementById('input-price-pack').value, 10) || 0),
+                bulk: Math.max(0, parseInt(document.getElementById('input-price-bulk').value, 10) || 0),
+                service: Math.max(0, parseInt(document.getElementById('input-price-service').value, 10) || 0)
+            };
+            await savePricingToDb(newPrices);
+            document.getElementById('price-editor-panel').classList.add('hidden');
+            window.showToast('Harga katalog berhasil disimpan ke database!');
+        });
+
+        // 3. Order Checkout Modal & Subtotal Calculation
+        const checkoutModal = document.getElementById('order-checkout-modal');
+        const checkoutVariantSelect = document.getElementById('checkout-variant');
+        const checkoutQtyInput = document.getElementById('checkout-qty');
+
+        function updateCheckoutSubtotal() {
+            const vKey = checkoutVariantSelect.value;
+            const unitPrice = Number(appState.prices[vKey]) || 0;
+            const qty = Math.max(1, parseInt(checkoutQtyInput.value, 10) || 1);
+            const subtotal = unitPrice * qty;
+
+            document.getElementById('checkout-unit-price-display').textContent = formatRupiah(unitPrice);
+            document.getElementById('checkout-subtotal-display').textContent = formatRupiah(subtotal);
+        }
+
+        checkoutVariantSelect.addEventListener('change', updateCheckoutSubtotal);
+        checkoutQtyInput.addEventListener('input', updateCheckoutSubtotal);
+
+        window.openOrderCheckoutModal = function(variantKey) {
+            if (variantKey && VARIANT_LABELS[variantKey]) {
+                checkoutVariantSelect.value = variantKey;
+            }
+            window.resetCheckoutForm();
+            updateCheckoutSubtotal();
+            checkoutModal.classList.remove('hidden');
+            checkoutModal.classList.add('flex');
+        };
+
+        window.closeOrderCheckoutModal = function() {
+            checkoutModal.classList.add('hidden');
+            checkoutModal.classList.remove('flex');
+        };
+
+        window.resetCheckoutForm = function() {
+            document.getElementById('order-receipt-box').classList.add('hidden');
+            document.getElementById('order-checkout-form').classList.remove('hidden');
+            document.getElementById('order-checkout-form').reset();
+            updateCheckoutSubtotal();
+        };
+
+        checkoutModal.addEventListener('click', (e) => {
+            if (e.target === checkoutModal) window.closeOrderCheckoutModal();
+        });
+
+        let lastGeneratedOrderCode = '';
+        window.copyReceiptOrderId = function() {
+            if (!lastGeneratedOrderCode) return;
+            const temp = document.createElement('input');
+            temp.value = lastGeneratedOrderCode;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            window.showToast(`ID Pesanan ${lastGeneratedOrderCode} berhasil disalin!`);
+        };
+
+        document.getElementById('order-checkout-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('checkout-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Menyimpan ke Database...';
+
+            try {
+                const variant = checkoutVariantSelect.value;
+                const buyerName = document.getElementById('checkout-buyer-name').value.trim();
+                const company = document.getElementById('checkout-company').value.trim();
+                const phone = document.getElementById('checkout-phone').value.trim();
+                const email = document.getElementById('checkout-email').value.trim();
+                const qty = Math.max(1, parseInt(checkoutQtyInput.value, 10) || 1);
+                const address = document.getElementById('checkout-address').value.trim();
+                const notes = document.getElementById('checkout-notes').value.trim();
+
+                const unitPrice = Number(appState.prices[variant]) || 0;
+                const subtotal = unitPrice * qty;
+                const randomCode = Math.floor(1000 + Math.random() * 9000);
+                const orderCode = `KTX-2026-${randomCode}`;
+                const now = new Date();
+                const dateLabel = now.toLocaleDateString('id-ID', {
+                    day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+
+                const orderRecord = {
+                    orderCode,
+                    variant,
+                    buyerName,
+                    company,
+                    phone,
+                    email,
+                    qty,
+                    unitPrice,
+                    subtotal,
+                    address,
+                    notes,
+                    status: 'Menunggu Konfirmasi',
+                    dateLabel,
+                    createdAt: Date.now()
+                };
+
+                await createOrderInDb(orderRecord);
+
+                lastGeneratedOrderCode = orderCode;
+                document.getElementById('receipt-order-id').textContent = orderCode;
+                document.getElementById('receipt-summary-details').innerHTML = `
+                    <div><strong>Pemesan:</strong> ${escapeHtml(buyerName)} (${escapeHtml(company)})</div>
+                    <div><strong>Produk:</strong> ${escapeHtml(VARIANT_LABELS[variant])} × ${qty} unit</div>
+                    <div><strong>Subtotal:</strong> ${formatRupiah(subtotal)} • <strong>Status:</strong> Menunggu Konfirmasi</div>
+                `;
+
+                document.getElementById('order-checkout-form').classList.add('hidden');
+                document.getElementById('order-receipt-box').classList.remove('hidden');
+                window.showToast(`Pesanan ${orderCode} berhasil disimpan ke database!`);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Konfirmasi & Simpan Pesanan ke Database';
+            }
+        });
+
+        // 4. Track Order Modal (Customer Lookup)
+        const trackOrderModal = document.getElementById('track-order-modal');
+        window.openTrackOrderModal = function() {
+            trackOrderModal.classList.remove('hidden');
+            trackOrderModal.classList.add('flex');
+        };
+        window.closeTrackOrderModal = function() {
+            trackOrderModal.classList.add('hidden');
+            trackOrderModal.classList.remove('flex');
+        };
+        trackOrderModal.addEventListener('click', (e) => {
+            if (e.target === trackOrderModal) window.closeTrackOrderModal();
+        });
+
+        document.getElementById('track-order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const q = document.getElementById('track-query-input').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('track-results-container');
+
+            const matches = appState.orders.filter(o =>
+                (o.orderCode || '').toLowerCase() === q ||
+                (o.orderCode || '').toLowerCase().includes(q) ||
+                (o.phone || '').toLowerCase().includes(q) ||
+                (o.email || '').toLowerCase() === q
+            );
+
+            if (matches.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 rounded-2xl p-4 text-xs text-red-700 text-center">
+                        Pesanan dengan kata kunci <strong>"${escapeHtml(q)}"</strong> tidak ditemukan di database.
+                    </div>
+                `;
+                return;
+            }
+
+            resultsContainer.innerHTML = '';
+            matches.forEach(m => {
+                const card = document.createElement('div');
+                card.className = 'bg-cream rounded-2xl p-4 border border-slate-200 space-y-1.5 text-xs';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono font-extrabold text-forest">${escapeHtml(m.orderCode)}</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-forest text-amber-300 font-bold text-[11px]">${escapeHtml(m.status)}</span>
+                    </div>
+                    <div class="font-bold text-slate-800">${escapeHtml(m.buyerName)} — ${escapeHtml(m.company)}</div>
+                    <div class="text-slate-600">${escapeHtml(VARIANT_LABELS[m.variant] || m.variant)} (${m.qty} unit) • Subtotal: <strong>${formatRupiah(m.subtotal)}</strong></div>
+                    <div class="text-[11px] text-slate-400">Tanggal Pesan: ${escapeHtml(m.dateLabel || '')}</div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        });
+
+        // 5. Reviews Submission
+        document.getElementById('review-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('rev-submit-btn');
+            btn.disabled = true;
+            try {
+                const name = document.getElementById('rev-name').value.trim();
+                const variant = document.getElementById('rev-variant').value;
+                const rating = parseInt(document.getElementById('rev-rating').value, 10) || 5;
+                const comment = document.getElementById('rev-comment').value.trim();
+                if (!name || !comment) return;
+
+                await createReviewInDb({
+                    name,
+                    variant,
+                    rating,
+                    comment,
+                    dateLabel: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }),
+                    createdAt: Date.now()
+                });
+
+                e.target.reset();
+                const fb = document.getElementById('rev-feedback');
+                fb.textContent = 'Terima kasih! Penilaian Anda berhasil disimpan ke database.';
+                fb.classList.remove('hidden');
+                setTimeout(() => fb.classList.add('hidden'), 4000);
+            } finally {
+                btn.disabled = false;
+            }
+        });
+
+        // 6. Editable Usage Guide
+        const usageEditorContainer = document.getElementById('usage-editor-container');
+        document.getElementById('toggle-edit-usage-btn').addEventListener('click', () => {
             const fieldsContainer = document.getElementById('usage-edit-fields');
             fieldsContainer.innerHTML = '';
-            usageData.steps.forEach((step, idx) => {
+            appState.usage.steps.forEach((step, idx) => {
                 const row = document.createElement('div');
                 row.className = 'bg-cream/60 p-4 rounded-2xl border border-slate-200 space-y-2';
                 row.innerHTML = `
                     <label class="block text-xs font-bold text-forest">Langkah ${idx + 1} — Judul</label>
-                    <input type="text" data-step-title="${idx}" value="${step.title.replace(/"/g, '&quot;')}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-semibold focus:border-forest focus:outline-none">
+                    <input type="text" data-step-title="${idx}" value="${escapeHtml(step.title)}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-sm font-semibold focus:border-forest focus:outline-none">
                     <label class="block text-xs font-bold text-slate-600">Penjelasan Detail</label>
-                    <textarea rows="2" data-step-desc="${idx}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:outline-none">${step.desc}</textarea>
+                    <textarea rows="2" data-step-desc="${idx}" required class="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2 text-xs sm:text-sm focus:border-forest focus:outline-none">${escapeHtml(step.desc)}</textarea>
                 `;
                 fieldsContainer.appendChild(row);
             });
-            document.getElementById('edit-usage-storage').value = usageData.storage;
+            document.getElementById('edit-usage-storage').value = appState.usage.storage;
             usageEditorContainer.classList.remove('hidden');
             usageEditorContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
+        });
 
-        toggleEditUsageBtn.addEventListener('click', openUsageEditor);
         document.getElementById('cancel-edit-usage-btn').addEventListener('click', () => {
             usageEditorContainer.classList.add('hidden');
         });
 
-        document.getElementById('usage-edit-form').addEventListener('submit', (e) => {
+        document.getElementById('usage-edit-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            usageData.steps.forEach((step, idx) => {
-                step.title = document.querySelector(`[data-step-title="${idx}"]`).value.trim();
-                step.desc = document.querySelector(`[data-step-desc="${idx}"]`).value.trim();
-            });
-            usageData.storage = document.getElementById('edit-usage-storage').value.trim();
-            usageData.updatedAt = 'Diperbarui ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-
-            localStorage.setItem(STORAGE_USAGE_KEY, JSON.stringify(usageData));
-            renderUsageGuide();
+            const updatedSteps = appState.usage.steps.map((step, idx) => ({
+                title: document.querySelector(`[data-step-title="${idx}"]`).value.trim(),
+                desc: document.querySelector(`[data-step-desc="${idx}"]`).value.trim()
+            }));
+            const newUsage = {
+                steps: updatedSteps,
+                storage: document.getElementById('edit-usage-storage').value.trim(),
+                updatedAt: 'Diperbarui ' + new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })
+            };
+            await saveUsageToDb(newUsage);
             usageEditorContainer.classList.add('hidden');
-            showToast('Penjelasan Cara Penggunaan berhasil diperbarui!');
+            window.showToast('Cara penggunaan berhasil diperbarui dan disimpan ke database!');
         });
 
-        document.getElementById('reset-usage-default-btn').addEventListener('click', () => {
-            usageData = JSON.parse(JSON.stringify(defaultUsageData));
-            localStorage.setItem(STORAGE_USAGE_KEY, JSON.stringify(usageData));
-            renderUsageGuide();
+        document.getElementById('reset-usage-default-btn').addEventListener('click', async () => {
+            await saveUsageToDb(JSON.parse(JSON.stringify(DEFAULT_USAGE)));
             usageEditorContainer.classList.add('hidden');
-            showToast('Panduan dikembalikan ke teks default lampiran.');
+            window.showToast('Cara penggunaan dikembalikan ke default lampiran.');
         });
 
-        // 4. Separated Collaboration Portals (Penyuplai, Badan Riset, Pembeli)
+        // 7. Separated Collaboration Portals
         const collabTabBtns = document.querySelectorAll('.collab-tab-btn');
         const collabPanels = document.querySelectorAll('.collab-panel');
 
-        function switchCollabTab(targetTab) {
-            collabTabBtns.forEach(btn => {
-                const isTarget = btn.getAttribute('data-collab-tab') === targetTab;
-                btn.classList.remove('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40', 'border-amberBrand', 'bg-amberBrand-soft/40', 'border-forest', 'bg-emeraldBrand-soft/30', 'shadow-sm');
-                btn.classList.add('border-slate-200', 'bg-cream');
-
-                if (isTarget) {
-                    btn.classList.remove('border-slate-200', 'bg-cream');
-                    btn.classList.add('shadow-sm');
-                    if (targetTab === 'penyuplai') btn.classList.add('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40');
-                    if (targetTab === 'riset') btn.classList.add('border-amberBrand', 'bg-amberBrand-soft/40');
-                    if (targetTab === 'pembeli') btn.classList.add('border-forest', 'bg-emeraldBrand-soft/30');
-                }
-            });
-
-            collabPanels.forEach(panel => {
-                if (panel.id === `panel-${targetTab}`) {
-                    panel.classList.remove('hidden');
-                } else {
-                    panel.classList.add('hidden');
-                }
-            });
-        }
-
         collabTabBtns.forEach(btn => {
-            btn.addEventListener('click', () => switchCollabTab(btn.getAttribute('data-collab-tab')));
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-collab-tab');
+                collabTabBtns.forEach(b => {
+                    b.classList.remove('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40', 'border-amberBrand', 'bg-amberBrand-soft/40', 'border-forest', 'bg-emeraldBrand-soft/30', 'shadow-sm');
+                    b.classList.add('border-slate-200', 'bg-cream');
+                    if (b === btn) {
+                        b.classList.remove('border-slate-200', 'bg-cream');
+                        b.classList.add('shadow-sm');
+                        if (targetTab === 'penyuplai') b.classList.add('border-emeraldBrand-leaf', 'bg-emeraldBrand-soft/40');
+                        if (targetTab === 'riset') b.classList.add('border-amberBrand', 'bg-amberBrand-soft/40');
+                        if (targetTab === 'pembeli') b.classList.add('border-forest', 'bg-emeraldBrand-soft/30');
+                    }
+                });
+                collabPanels.forEach(panel => {
+                    panel.classList.toggle('hidden', panel.id !== `panel-${targetTab}`);
+                });
+            });
         });
 
         document.querySelectorAll('.startup-connect-form').forEach(form => {
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const role = form.getAttribute('data-role');
                 const orgName = form.querySelector('[name="orgName"]').value.trim();
                 const detailType = form.querySelector('[name="detailType"]').value;
                 const capacity = form.querySelector('[name="capacity"]').value.trim();
                 const contact = form.querySelector('[name="contact"]').value.trim();
+                const notes = form.querySelector('[name="notes"]').value.trim();
                 const resultBox = form.querySelector('.form-result');
 
-                const ticketId = 'KLX-' + Math.floor(1000 + Math.random() * 9000);
+                const ticketId = 'MITRA-' + Math.floor(1000 + Math.random() * 9000);
+                await createPartnerInDb({
+                    ticketId,
+                    role,
+                    orgName,
+                    detailType,
+                    capacity,
+                    contact,
+                    notes,
+                    dateLabel: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }),
+                    createdAt: Date.now()
+                });
+
                 resultBox.className = 'form-result rounded-2xl p-4 text-xs sm:text-sm bg-emeraldBrand-soft/80 border border-emeraldBrand/40 text-forest block';
                 resultBox.innerHTML = `
-                    <strong>Pendaftaran Jalur ${role} Berhasil!</strong><br>
-                    ID Kemitraan: <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emeraldBrand/30">${ticketId}</span><br>
-                    Instansi: <strong>${orgName}</strong> (${detailType} • ${capacity}). Tim KLETON-X akan menghubungi <strong>${contact}</strong>.
+                    <strong>Pendaftaran Jalur ${escapeHtml(role)} Tersimpan ke Database!</strong><br>
+                    ID Registrasi: <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emeraldBrand/30">${ticketId}</span><br>
+                    Instansi: <strong>${escapeHtml(orgName)}</strong> (${escapeHtml(detailType)}). Tim KLETON-X akan menghubungi <strong>${escapeHtml(contact)}</strong>.
                 `;
                 form.reset();
+                window.showToast(`Registrasi mitra ${orgName} berhasil tersimpan!`);
             });
         });
 
-        function copyFormShareLink(portalName) {
+        window.copyFormShareLink = function(portalName) {
             const shareText = `${window.location.origin}${window.location.pathname}#kolaborasi (${portalName})`;
             const tempInput = document.createElement('input');
             tempInput.value = shareText;
@@ -1727,12 +2481,80 @@
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
-            showToast(`Tautan formulir ${portalName} berhasil disalin!`);
+            window.showToast(`Tautan formulir ${portalName} berhasil disalin!`);
+        };
+
+        // 8. Admin CRM Dashboard Tabs, Filter & CSV Export
+        const crmTabOrders = document.getElementById('crm-tab-orders');
+        const crmTabPartners = document.getElementById('crm-tab-partners');
+        const crmOrdersView = document.getElementById('crm-orders-view');
+        const crmPartnersView = document.getElementById('crm-partners-view');
+        const ordersFilterControls = document.getElementById('orders-filter-controls');
+
+        crmTabOrders.addEventListener('click', () => {
+            crmTabOrders.className = 'px-4 py-2 rounded-xl bg-amberBrand text-white font-heading font-bold text-xs sm:text-sm transition-colors';
+            crmTabPartners.className = 'px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-emerald-100 font-heading font-bold text-xs sm:text-sm transition-colors';
+            crmOrdersView.classList.remove('hidden');
+            crmPartnersView.classList.add('hidden');
+            ordersFilterControls.classList.remove('hidden');
+        });
+
+        crmTabPartners.addEventListener('click', () => {
+            crmTabPartners.className = 'px-4 py-2 rounded-xl bg-amberBrand text-white font-heading font-bold text-xs sm:text-sm transition-colors';
+            crmTabOrders.className = 'px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-emerald-100 font-heading font-bold text-xs sm:text-sm transition-colors';
+            crmPartnersView.classList.remove('hidden');
+            crmOrdersView.classList.add('hidden');
+            ordersFilterControls.classList.add('hidden');
+        });
+
+        document.getElementById('crm-search-input').addEventListener('input', renderOrdersTable);
+        document.getElementById('crm-status-filter').addEventListener('change', renderOrdersTable);
+
+        function downloadCsvFile(filename, rows) {
+            const csvContent = rows.map(row =>
+                row.map(cell => `"${String(cell ?? '').replace(/"/g, '""')}"`).join(',')
+            ).join('\n');
+            const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
-        // Initial Render
-        renderMarketUI();
-        renderUsageGuide();
+        document.getElementById('export-orders-csv-btn').addEventListener('click', () => {
+            if (appState.orders.length === 0) {
+                window.showToast('Belum ada data pemesanan untuk diekspor.');
+                return;
+            }
+            const headers = ['ID Pesanan', 'Tanggal', 'Nama Pemesan', 'Perusahaan/Instansi', 'WhatsApp', 'Email', 'Varian Produk', 'Jumlah Unit', 'Harga Satuan (Rp)', 'Subtotal (Rp)', 'Alamat Pengiriman', 'Catatan', 'Status'];
+            const rows = appState.orders.map(o => [
+                o.orderCode, o.dateLabel, o.buyerName, o.company, o.phone, o.email,
+                VARIANT_LABELS[o.variant] || o.variant, o.qty, o.unitPrice, o.subtotal,
+                o.address, o.notes, o.status
+            ]);
+            downloadCsvFile(`KLETONX_Data_Pemesanan_${new Date().toISOString().slice(0, 10)}.csv`, [headers, ...rows]);
+            window.showToast('File CSV Data Pemesanan berhasil diunduh!');
+        });
+
+        document.getElementById('export-partners-csv-btn').addEventListener('click', () => {
+            if (appState.collaborations.length === 0) {
+                window.showToast('Belum ada data mitra kolaborasi untuk diekspor.');
+                return;
+            }
+            const headers = ['ID Registrasi', 'Tanggal', 'Jalur Kemitraan', 'Nama Instansi/PT/Peternak', 'Fokus/Komoditas', 'Kapasitas/PIC', 'Kontak', 'Catatan'];
+            const rows = appState.collaborations.map(p => [
+                p.ticketId, p.dateLabel, p.role, p.orgName, p.detailType, p.capacity, p.contact, p.notes
+            ]);
+            downloadCsvFile(`KLETONX_Data_Mitra_${new Date().toISOString().slice(0, 10)}.csv`, [headers, ...rows]);
+            window.showToast('File CSV Data Mitra Kolaborasi berhasil diunduh!');
+        });
+
+        // Start Full-Stack Database Connection
+        initDatabase();
     </script>
 </body>
 </html>
